@@ -1,0 +1,26 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/got-its-gateway-openapi-original.yml, openapi/got-its-openapi-original.yml
+summary:
+  types:
+  - apiKey
+  - oauth2
+  api_key_in:
+  - header
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: api_key
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  sources:
+  - openapi/got-its-gateway-openapi-original.yml
+- name: AuthEndpoint
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://auth.reelables.com/oauth2/token
+    scopes: 1
+  sources:
+  - openapi/got-its-openapi-original.yml
