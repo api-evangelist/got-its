@@ -1,0 +1,565 @@
+openapi: 3.0.1
+info:
+  title: Reelables Gateway Asset Facilities Assets API
+  description: RESTful API for partners to send data to the Reelables platform from Gateway devices
+  contact:
+    email: team@reelables.com
+  version: 1.1.1
+servers:
+- url: https://api.reelables.com/{basePath}
+  variables:
+    basePath:
+      default: gateway
+  description: The production URL for sending requests to the Reelables Gateway API.
+tags:
+- name: Assets
+paths:
+  /assets/{assetId}:
+    get:
+      tags:
+      - Assets
+      summary: Get an Asset
+      parameters:
+      - name: assetId
+        in: path
+        description: The identifier of the Asset
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: summaryLocations
+        in: query
+        description: 'Whether to return summary (merged) locations or raw locations. Default: false'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Asset'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Asset not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    put:
+      tags:
+      - Assets
+      summary: Update an Asset
+      parameters:
+      - name: assetId
+        in: path
+        description: The identifier of the Asset
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetInput'
+        required: true
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Asset'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Asset not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    delete:
+      tags:
+      - Assets
+      summary: Delete an Asset
+      parameters:
+      - name: assetId
+        in: path
+        description: The identifier of the Asset
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      responses:
+        '204':
+          description: 204 response
+          content: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Asset not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  /workspaces/{workspaceId}/assets:
+    get:
+      tags:
+      - Assets
+      summary: List Assets in a Workspace
+      parameters:
+      - name: workspaceId
+        in: path
+        description: The identifier of the Workspace
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      - name: inSpaceIds
+        in: query
+        description: 'Filter the Assets to those currently in a set of Spaces. Comma-separated list, for example: ''?inSpaceIds={spaceId1},{spaceId2},{spaceId3}'''
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: bleIds
+        in: query
+        description: 'Filter the Assets to those linked to a set of labels, identified by their BLE_ID. Comma-separated list, for example: ''?bleIds={bleId1},{bleId2},{bleId3}'''
+        schema:
+          type: string
+      - name: searchTerm
+        in: query
+        description: String to match name of Assets
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceAssets'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+components:
+  schemas:
+    Address:
+      type: object
+      properties:
+        country:
+          maxLength: 255
+          type: string
+          description: The country name. Example 'United Kingdom'
+        road:
+          maxLength: 255
+          type: string
+          description: The road name. Example 'Downing Street'
+        city:
+          maxLength: 255
+          type: string
+          description: The city name. Example 'London'
+        district:
+          maxLength: 255
+          type: string
+          description: The district name. Example 'Westminster'
+        postalCode:
+          maxLength: 10
+          type: string
+          description: The postal code. Example 'SW1A 2AA'
+        county:
+          maxLength: 255
+          type: string
+          description: The county name. Example 'Greater London'
+        state:
+          maxLength: 255
+          type: string
+          description: The state name. Example 'England'
+      additionalProperties: false
+    ErrorResponse:
+      required:
+      - errors
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+                type: string
+                description: An application-specific error code, expressed as a string value
+              id:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+                type: string
+                description: A unique identifier for this particular occurrence of the problem
+              detail:
+                maxLength: 500
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+                type: string
+                description: A human-readable explanation specific to this occurrence of the problem
+              title:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+                type: string
+                description: A short, human-readable summary of the problem
+              status:
+                maxLength: 3
+                pattern: ^[0-9]*$
+                type: string
+                description: The HTTP status code applicable to this problem, expressed as a string value
+            additionalProperties: false
+      additionalProperties: false
+      description: This is an error
+    WorkspaceAssets:
+      required:
+      - items
+      type: object
+      properties:
+        total:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The total number of items in all pages of results
+          format: int32
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Asset'
+      additionalProperties: false
+      description: Assets in the Workspace
+    Location:
+      required:
+      - coordinate
+      - timestamp
+      type: object
+      properties:
+        lastSeenTimestamp:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Timestamp last seen at the location. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        coordinate:
+          $ref: '#/components/schemas/Coordinate'
+        address:
+          $ref: '#/components/schemas/Address'
+        error:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The horrizontal error in metres [Deprecated - use coordinate.accuracy instead]
+          format: int32
+        timestamp:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Timestamp of the location. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+      additionalProperties: false
+    AssetLocations:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+      additionalProperties: false
+    Coordinate:
+      required:
+      - latitude
+      - longitude
+      type: object
+      properties:
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: 'Latitude value of the coordinate. Example: 51.123'
+          format: float
+        accuracy:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The horrizontal accuracy in metres
+          format: int32
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: 'Longitude value of the coordinate. Example: -0.123'
+          format: float
+      additionalProperties: false
+    LabelConfig:
+      type: object
+      properties:
+        reportingInterval:
+          type: string
+          description: Interval at which the label reports locations. Example values include 'default (every 20 minutes), 'hourly', 'daily', 'twoDays'
+      additionalProperties: false
+    AssetInput:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Asset
+      additionalProperties: false
+    Temperature:
+      required:
+      - degreesCelsius
+      - timestamp
+      type: object
+      properties:
+        timestamp:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Timestamp of the temperature. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        degreesCelsius:
+          maximum: 500
+          minimum: -100
+          type: number
+          description: 'Temperature value rounded to 1 decimal place, for each minute of the hour. Example: -2.1'
+          format: float
+      additionalProperties: false
+    Asset:
+      required:
+      - id
+      - name
+      - workspaceId
+      type: object
+      properties:
+        inSpaces:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssetInSpace'
+        temperatures:
+          $ref: '#/components/schemas/AssetTemperatures'
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Asset
+        locations:
+          $ref: '#/components/schemas/AssetLocations'
+        id:
+          maxLength: 20
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Unique identifier of the Asset. Example: ''00Es43YBJfNRXNSvLmni'''
+        label:
+          $ref: '#/components/schemas/AssetLabel'
+        createdOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the Asset was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        workspaceId:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+      additionalProperties: false
+    AssetTemperatures:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Temperature'
+      additionalProperties: false
+    AssetLabel:
+      required:
+      - addedOn
+      - bleId
+      - nfcId
+      type: object
+      properties:
+        bleId:
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          description: 'Label BLE identifier. Example: 123'
+          format: int32
+        nfcId:
+          maxLength: 20
+          pattern: ^[a-zA-Z0-9]*$
+          type: string
+          description: 'Label NFC identifier, used when creating an Asset and linking a Label at the same time. Example: ''0000007B'''
+        config:
+          $ref: '#/components/schemas/LabelConfig'
+        addedOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the Label was linked to the Asset, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+      additionalProperties: false
+    AssetInSpace:
+      required:
+      - enteredOn
+      - spaceId
+      - spaceName
+      type: object
+      properties:
+        spaceName:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Space
+        spaceId:
+          maxLength: 20
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Unique identifier of the Space. Example: ''00Es43YBJfNRXNSvLmni'''
+        hasExited:
+          type: boolean
+          description: Indicate whether the Asset has exited the Space
+        enteredOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the Asset entered the Space. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        exitedOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the Asset exited the Space. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+      additionalProperties: false
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header

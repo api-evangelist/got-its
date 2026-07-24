@@ -1,0 +1,400 @@
+openapi: 3.0.1
+info:
+  title: Reelables Gateway Asset Facilities Print Jobs API
+  description: RESTful API for partners to send data to the Reelables platform from Gateway devices
+  contact:
+    email: team@reelables.com
+  version: 1.1.1
+servers:
+- url: https://api.reelables.com/{basePath}
+  variables:
+    basePath:
+      default: gateway
+  description: The production URL for sending requests to the Reelables Gateway API.
+tags:
+- name: Print Jobs
+paths:
+  /print-jobs/{printJobId}:
+    get:
+      tags:
+      - Print Jobs
+      summary: Get a Print Job
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: printJobId
+        in: path
+        description: The identifier of the Print Job
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrintJob'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Printer or Print Job not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    delete:
+      tags:
+      - Print Jobs
+      summary: Cancel a Print Job
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: printJobId
+        in: path
+        description: The identifier of the Print Job
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: 204 response
+          content: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Printer or Print Job not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  /printers/{printerId}/print-jobs:
+    get:
+      tags:
+      - Print Jobs
+      summary: Get Print Jobs for a Printer
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: printerId
+        in: path
+        description: The identifier of the Printer
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrintJobs'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Printer not found in workspace
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    post:
+      tags:
+      - Print Jobs
+      summary: Send Print Jobs to a Printer
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: printerId
+        in: path
+        description: The identifier of the Printer
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrintJobsInput'
+        required: true
+      responses:
+        '201':
+          description: 201 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrintJobs'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Printer not found in workspace
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+components:
+  schemas:
+    PrintJob:
+      required:
+      - assetId
+      - createdAt
+      - id
+      - origin
+      - printerId
+      - status
+      - workspaceId
+      type: object
+      properties:
+        origin:
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The origin of the Print Job (e.g. Remote or Local Barcode)
+        replaceExistingLabel:
+          type: boolean
+          description: Indicate whether to replace the existing Label, in the case where the Asset is already linked to a Label
+        includeCutLine:
+          type: boolean
+          description: Indicates whether the Print Job has a cut line (where to cut a label to de-activate) included
+        templateId:
+          maxLength: 36
+          type: string
+          description: The indentifier of the Print Template
+        createdAt:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the item was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        isSuccessful:
+          type: boolean
+          description: Indicates whether the Print Job was successful
+        assetId:
+          maxLength: 20
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Unique identifier of the Asset. Example: ''00Es43YBJfNRXNSvLmni'''
+        failureReason:
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: Describes the failure if the Print Job was unsuccessful
+        printerId:
+          maxLength: 50
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Printer identifier - the serial number of the Printer. Example: ''abcdefgh123456789'''
+        id:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the Print Job. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        workspaceId:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        updatedAt:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the item was last updated, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        status:
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The status of the Print Job
+        isComplete:
+          type: boolean
+          description: Indicates whether the Print Job is complete
+      additionalProperties: false
+    PrintJobs:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrintJob'
+      additionalProperties: false
+    PrintJobsInput:
+      required:
+      - printJobs
+      type: object
+      properties:
+        printJobs:
+          type: array
+          items:
+            maxItems: 1000
+            required:
+            - assetId
+            type: object
+            properties:
+              assetId:
+                maxLength: 20
+                pattern: ^[-_A-Za-z0-9]*$
+                type: string
+                description: 'Unique identifier of the Asset. Example: ''00Es43YBJfNRXNSvLmni'''
+              replaceExistingLabel:
+                type: boolean
+                description: Indicate whether to replace the existing Label, in the case where the Asset is already linked to a Label
+              templateParams:
+                type: object
+                additionalProperties: true
+                description: Dynamic object that is used to pass any params for the Print Template
+              templateId:
+                maxLength: 36
+                type: string
+                description: The indentifier of the Print Template
+            additionalProperties: false
+      additionalProperties: false
+      description: Print Jobs to send to Printer
+    ErrorResponse:
+      required:
+      - errors
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+                type: string
+                description: An application-specific error code, expressed as a string value
+              id:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+                type: string
+                description: A unique identifier for this particular occurrence of the problem
+              detail:
+                maxLength: 500
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+                type: string
+                description: A human-readable explanation specific to this occurrence of the problem
+              title:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+                type: string
+                description: A short, human-readable summary of the problem
+              status:
+                maxLength: 3
+                pattern: ^[0-9]*$
+                type: string
+                description: The HTTP status code applicable to this problem, expressed as a string value
+            additionalProperties: false
+      additionalProperties: false
+      description: This is an error
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header

@@ -1,0 +1,167 @@
+openapi: 3.0.1
+info:
+  title: Reelables Gateway Asset Facilities Workspace Facilities API
+  description: RESTful API for partners to send data to the Reelables platform from Gateway devices
+  contact:
+    email: team@reelables.com
+  version: 1.1.1
+servers:
+- url: https://api.reelables.com/{basePath}
+  variables:
+    basePath:
+      default: gateway
+  description: The production URL for sending requests to the Reelables Gateway API.
+tags:
+- name: Workspace Facilities
+paths:
+  /workspaces/{workspaceId}/facilities:
+    get:
+      tags:
+      - Workspace Facilities
+      summary: List Facilities in a Workspace
+      parameters:
+      - name: workspaceId
+        in: path
+        description: The identifier of the Workspace
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceFacilities'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+components:
+  schemas:
+    WorkspaceFacilities:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Facility'
+      additionalProperties: false
+      description: Facilities in the Workspace
+    Facility:
+      required:
+      - id
+      - name
+      - workspaceId
+      type: object
+      properties:
+        createdAt:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the item was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Facility
+        id:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the Facility. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        workspaceId:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        userFacilityId:
+          maxLength: 500
+          type: string
+          description: A facility identifier relevant to the user
+      additionalProperties: false
+    ErrorResponse:
+      required:
+      - errors
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+                type: string
+                description: An application-specific error code, expressed as a string value
+              id:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+                type: string
+                description: A unique identifier for this particular occurrence of the problem
+              detail:
+                maxLength: 500
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+                type: string
+                description: A human-readable explanation specific to this occurrence of the problem
+              title:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+                type: string
+                description: A short, human-readable summary of the problem
+              status:
+                maxLength: 3
+                pattern: ^[0-9]*$
+                type: string
+                description: The HTTP status code applicable to this problem, expressed as a string value
+            additionalProperties: false
+      additionalProperties: false
+      description: This is an error
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header

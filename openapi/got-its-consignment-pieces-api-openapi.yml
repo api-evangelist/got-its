@@ -1,0 +1,394 @@
+openapi: 3.0.1
+info:
+  title: Reelables Gateway Asset Facilities Consignment Pieces API
+  description: RESTful API for partners to send data to the Reelables platform from Gateway devices
+  contact:
+    email: team@reelables.com
+  version: 1.1.1
+servers:
+- url: https://api.reelables.com/{basePath}
+  variables:
+    basePath:
+      default: gateway
+  description: The production URL for sending requests to the Reelables Gateway API.
+tags:
+- name: Consignment Pieces
+paths:
+  /consignments/{consignmentId}/pieces:
+    get:
+      tags:
+      - Consignment Pieces
+      summary: List Pieces in a Consignment
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: consignmentId
+        in: path
+        description: The identifier of the Consignment
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsignmentPieces'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Consignment not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    post:
+      tags:
+      - Consignment Pieces
+      summary: Add Pieces to a Consignment
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: consignmentId
+        in: path
+        description: The identifier of the Consignment
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsignmentPiecesInput'
+        required: true
+      responses:
+        '201':
+          description: 201 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsignmentPieces'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Consignment not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  /consignments/{consignmentId}/pieces/{pieceId}:
+    delete:
+      tags:
+      - Consignment Pieces
+      summary: Remove a Piece from a Consignment
+      parameters:
+      - name: pieceId
+        in: path
+        description: The identifier of the Piece
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: consignmentId
+        in: path
+        description: The identifier of the Consignment
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: 204 response
+          content: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Piece not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+components:
+  schemas:
+    InFacility:
+      required:
+      - enteredOn
+      - facilityId
+      - facilityName
+      type: object
+      properties:
+        hasExited:
+          type: boolean
+          description: Indicate whether the item has exited the Facility
+        facilityId:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the Facility. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        enteredOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the item entered the Facility. Example: ''2023-07-21T17:32:28Z'''
+          format: date-time
+        facilityName:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Facility
+        exitedOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the item exited the Facility. Example: ''2023-07-21T17:32:28Z'''
+          format: date-time
+        userFacilityId:
+          maxLength: 500
+          type: string
+          description: A facility identifier relevant to the user
+      additionalProperties: false
+    ConsignmentPiecesInput:
+      maxItems: 100
+      type: array
+      description: Pieces to add to a Consignment
+      items:
+        required:
+        - label
+        type: object
+        properties:
+          trackingRef:
+            maxLength: 500
+            type: string
+            description: The tracking reference that identifies the Piece in the user system
+          label:
+            required:
+            - nfcId
+            type: object
+            properties:
+              nfcId:
+                maxLength: 20
+                pattern: ^[a-zA-Z0-9]*$
+                type: string
+                description: 'Label NFC identifier, used when creating an Asset and linking a Label at the same time. Example: ''0000007B'''
+            additionalProperties: false
+        additionalProperties: false
+    ConsignmentPieces:
+      required:
+      - items
+      type: object
+      properties:
+        total:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The total number of items in all pages of results
+          format: int32
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Piece'
+      additionalProperties: false
+      description: Pieces in the Consignment
+    LabelConfig:
+      type: object
+      properties:
+        reportingInterval:
+          type: string
+          description: Interval at which the label reports locations. Example values include 'default (every 20 minutes), 'hourly', 'daily', 'twoDays'
+      additionalProperties: false
+    ErrorResponse:
+      required:
+      - errors
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+                type: string
+                description: An application-specific error code, expressed as a string value
+              id:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+                type: string
+                description: A unique identifier for this particular occurrence of the problem
+              detail:
+                maxLength: 500
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+                type: string
+                description: A human-readable explanation specific to this occurrence of the problem
+              title:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+                type: string
+                description: A short, human-readable summary of the problem
+              status:
+                maxLength: 3
+                pattern: ^[0-9]*$
+                type: string
+                description: The HTTP status code applicable to this problem, expressed as a string value
+            additionalProperties: false
+      additionalProperties: false
+      description: This is an error
+    Piece:
+      required:
+      - consignmentId
+      - id
+      - trackingRef
+      - workspaceId
+      type: object
+      properties:
+        trackingRef:
+          maxLength: 500
+          type: string
+          description: The tracking reference that identifies the Piece in the user system
+        inFacilities:
+          maxItems: 10000
+          type: array
+          items:
+            $ref: '#/components/schemas/InFacility'
+        consignmentId:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the Consignment. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        id:
+          maxLength: 20
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Unique identifier of the Piece. Example: ''00Es43YBJfNRXNSvLmni'''
+        label:
+          $ref: '#/components/schemas/AssetLabel'
+        createdOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the item was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        workspaceId:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+      additionalProperties: false
+    AssetLabel:
+      required:
+      - addedOn
+      - bleId
+      - nfcId
+      type: object
+      properties:
+        bleId:
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          description: 'Label BLE identifier. Example: 123'
+          format: int32
+        nfcId:
+          maxLength: 20
+          pattern: ^[a-zA-Z0-9]*$
+          type: string
+          description: 'Label NFC identifier, used when creating an Asset and linking a Label at the same time. Example: ''0000007B'''
+        config:
+          $ref: '#/components/schemas/LabelConfig'
+        addedOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the Label was linked to the Asset, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+      additionalProperties: false
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
