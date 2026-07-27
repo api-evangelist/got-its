@@ -1,0 +1,138 @@
+# Reelables API
+
+OpenAPI file: https://docs.reelables.com/source.json
+
+## Description
+
+This is version `1.3.11` of this API documentation. Last update on Jun 25, 2026.
+RESTful API for communicating with the Reelables Platform.
+
+## Servers
+
+- The production URL for sending requests to the Reelables API.: https://api.reelables.com/v1 (The production URL for sending requests to the Reelables API.)
+
+
+## Topics
+
+- [Getting started](https://docs.reelables.com/topic/topic-getting-started.md)
+
+- [Authentication](https://docs.reelables.com/authentication.md)
+
+- [Errors](https://docs.reelables.com/topic/topic-errors.md)
+
+- [Versioning and backwards compatibility](https://docs.reelables.com/topic/topic-versioning-and-backwards-compatibility.md)
+
+- [Rate limiting](https://docs.reelables.com/topic/topic-rate-limiting.md)
+
+- [Data Entities](https://docs.reelables.com/topic/topic-data-entities.md)
+
+
+## Groups and operations
+
+### [Assets](https://docs.reelables.com/group/endpoint-assets.md)
+
+- [Get an Asset](https://docs.reelables.com/operation/operation-get-assets-parameter.md)
+
+- [Update an Asset](https://docs.reelables.com/operation/operation-put-assets-parameter.md)
+
+- [Delete an Asset](https://docs.reelables.com/operation/operation-delete-assets-parameter.md)
+
+- [Get Facility history for an Asset](https://docs.reelables.com/operation/operation-get-assets-parameter-facilities.md)
+
+- [Link a Label to an Asset](https://docs.reelables.com/operation/operation-post-assets-parameter-labels.md)
+
+- [Unlink a Label from an Asset](https://docs.reelables.com/operation/operation-delete-assets-parameter-labels-parameter.md)
+
+- [Get location history for an Asset](https://docs.reelables.com/operation/operation-get-assets-parameter-locations.md)
+
+- [Get Space history for an Asset](https://docs.reelables.com/operation/operation-get-assets-parameter-spaces.md)
+
+- [Get temperature history for an Asset](https://docs.reelables.com/operation/operation-get-assets-parameter-temperatures.md)
+
+### [Consignments](https://docs.reelables.com/group/endpoint-consignments.md)
+
+- [Get Consignment](https://docs.reelables.com/operation/operation-get-consignments-parameter.md)
+
+- [List Gateways in a Consignment](https://docs.reelables.com/operation/operation-get-consignments-parameter-gateways.md)
+
+- [Add Gateways to a Consignment](https://docs.reelables.com/operation/operation-post-consignments-parameter-gateways.md)
+
+- [Remove a Gateway from a Consignment](https://docs.reelables.com/operation/operation-delete-consignments-parameter-gateways-parameter.md)
+
+- [List Pieces in a Consignment](https://docs.reelables.com/operation/operation-get-consignments-parameter-pieces.md)
+
+- [Add Pieces to a Consignment](https://docs.reelables.com/operation/operation-post-consignments-parameter-pieces.md)
+
+- [Remove a Piece from a Consignment](https://docs.reelables.com/operation/operation-delete-consignments-parameter-pieces-parameter.md)
+
+### [Facilities](https://docs.reelables.com/group/endpoint-facilities.md)
+
+- [Get a Facility](https://docs.reelables.com/operation/operation-get-facilities-parameter.md)
+
+- [Get Asset Groups in a Facility](https://docs.reelables.com/operation/operation-get-facilities-parameter-asset-groups.md)
+
+### [Print jobs](https://docs.reelables.com/group/endpoint-print-jobs.md)
+
+- [Get a Print Job](https://docs.reelables.com/operation/operation-get-print-jobs-parameter.md)
+
+- [Cancel a Print Job](https://docs.reelables.com/operation/operation-delete-print-jobs-parameter.md)
+
+- [Get statuses for a Print Job](https://docs.reelables.com/operation/operation-get-print-jobs-parameter-statuses.md)
+
+### [Printers](https://docs.reelables.com/group/endpoint-printers.md)
+
+- [Get Print Jobs for a Printer](https://docs.reelables.com/operation/operation-get-printers-parameter-print-jobs.md)
+
+- [Send Print Jobs to a Printer](https://docs.reelables.com/operation/operation-post-printers-parameter-print-jobs.md)
+
+### [Spaces](https://docs.reelables.com/group/endpoint-spaces.md)
+
+- [Get a Space](https://docs.reelables.com/operation/operation-get-spaces-parameter.md)
+
+- [Update a Space](https://docs.reelables.com/operation/operation-put-spaces-parameter.md)
+
+- [Delete a Space](https://docs.reelables.com/operation/operation-delete-spaces-parameter.md)
+
+- [Get Asset history for a Space](https://docs.reelables.com/operation/operation-get-spaces-parameter-assets.md)
+
+- [Link a Gateway to a Space](https://docs.reelables.com/operation/operation-post-spaces-parameter-gateways.md)
+
+- [Update a Gateway](https://docs.reelables.com/operation/operation-put-spaces-parameter-gateways-parameter.md)
+
+- [Unlink a Gateway from a Space](https://docs.reelables.com/operation/operation-delete-spaces-parameter-gateways-parameter.md)
+
+### [Workspaces](https://docs.reelables.com/group/endpoint-workspaces.md)
+
+- [List available Workspaces](https://docs.reelables.com/operation/operation-get-workspaces.md)
+
+- [Get a Workspace](https://docs.reelables.com/operation/operation-get-workspaces-parameter.md)
+
+- [List Assets in a Workspace](https://docs.reelables.com/operation/operation-get-workspaces-parameter-assets.md)
+
+- [Create new Assets in Workspace](https://docs.reelables.com/operation/operation-post-workspaces-parameter-assets.md)
+
+- [List Consignments in a Workspace](https://docs.reelables.com/operation/operation-get-workspaces-parameter-consignments.md)
+
+- [Create new Consignment in Workspace](https://docs.reelables.com/operation/operation-post-workspaces-parameter-consignments.md)
+
+- [Update a Consignment using a Tracking Reference](https://docs.reelables.com/operation/operation-patch-workspaces-parameter-consignments.md)
+
+- [List Facilities in a Workspace](https://docs.reelables.com/operation/operation-get-workspaces-parameter-facilities.md)
+
+- [List Print Templates in a Workspace](https://docs.reelables.com/operation/operation-get-workspaces-parameter-print-templates.md)
+
+- [List Printers in a Workspace](https://docs.reelables.com/operation/operation-get-workspaces-parameter-printers.md)
+
+- [Get a Printer](https://docs.reelables.com/operation/operation-get-workspaces-parameter-printers-parameter.md)
+
+- [Update a Printer](https://docs.reelables.com/operation/operation-put-workspaces-parameter-printers-parameter.md)
+
+- [Remove a Printer from a Workspace](https://docs.reelables.com/operation/operation-delete-workspaces-parameter-printers-parameter.md)
+
+- [List spaces in a Workspace](https://docs.reelables.com/operation/operation-get-workspaces-parameter-spaces.md)
+
+- [Create new Spaces in Workspace](https://docs.reelables.com/operation/operation-post-workspaces-parameter-spaces.md)
+
+
+
+[Powered by Bump.sh](https://bump.sh)

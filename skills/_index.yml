@@ -1,0 +1,26 @@
+generated: '2026-07-19'
+method: generated
+source: openapi/got-its-openapi-original.yml
+notes: >-
+  Packaged Agent Skills for the Reelables API, grounded in real documented operations. The
+  source OpenAPI ships no operationIds, so operations are referenced by HTTP method + path
+  (each verified present in openapi/got-its-openapi-original.yml).
+skills:
+- file: got-its-track-an-asset.md
+  name: Register and track a Reelables asset
+  api: openapi/got-its-openapi-original.yml
+  operations:
+  - POST /workspaces/{workspaceId}/assets
+  - POST /assets/{assetId}/labels
+  - GET /assets/{assetId}/locations
+  - GET /assets/{assetId}/temperatures
+  - GET /assets/{assetId}/facilities
+- file: got-its-manage-a-consignment.md
+  name: Create and monitor a consignment (shipment)
+  api: openapi/got-its-openapi-original.yml
+  operations:
+  - POST /workspaces/{workspaceId}/consignments
+  - POST /consignments/{consignmentId}/pieces
+  - POST /consignments/{consignmentId}/gateways
+  - GET /consignments/{consignmentId}
+  - PATCH /workspaces/{workspaceId}/consignments

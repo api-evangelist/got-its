@@ -1,0 +1,33 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/got-its-openapi-original.yml
+standards:
+- id: oauth2
+  conforms: true
+  evidence: securitySchemes declares oauth2 clientCredentials (AuthEndpoint) with tokenUrl https://auth.reelables.com/oauth2/token
+- id: oauth2-client-credentials
+  conforms: true
+  evidence: documented client-credentials grant; Basic base64(client_id:client_secret) -> bearer token
+- id: openid-connect
+  conforms: false
+  evidence: no openIdConnect scheme; no /.well-known/openid-configuration (404)
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: error responses use application/json with a JSON:API-style errors[] envelope, not application/problem+json
+- id: json-api-errors
+  conforms: true
+  evidence: ErrorResponse schema uses errors[] with code/id/title/detail/status members
+- id: cursor-pagination
+  conforms: true
+  evidence: list endpoints use limit + nextToken query params and items/nextToken response envelope
+- id: rfc8594-sunset
+  conforms: false
+  evidence: no Sunset/Deprecation header support documented
+- id: api-key-auth
+  conforms: true
+  evidence: Gateway API (openapi/got-its-gateway-openapi-original.yml) uses apiKey x-api-key header
+compliance_program:
+  published: false
+  notes: >-
+    No public trust center, SOC 2 / ISO 27001 / PCI / HIPAA / FedRAMP certifications, or
+    security.txt were found. No Compliance pointer emitted (would be fabrication).

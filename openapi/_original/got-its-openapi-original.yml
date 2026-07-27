@@ -1,0 +1,4135 @@
+---
+openapi: 3.0.1
+info:
+  title: Reelables API
+  description: RESTful API for communicating with the Reelables Platform.
+  contact:
+    email: team@reelables.com
+  version: 1.3.11
+servers:
+- url: https://api.reelables.com/{basePath}
+  variables:
+    basePath:
+      default: v1
+  description: The production URL for sending requests to the Reelables API.
+paths:
+  "/assets/{assetId}":
+    get:
+      tags:
+      - Assets
+      summary: Get an Asset
+      parameters:
+      - name: assetId
+        in: path
+        description: The identifier of the Asset
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: summaryLocations
+        in: query
+        description: 'Whether to return summary (merged) locations or raw locations.
+          Default: false'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Asset"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Asset not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    put:
+      tags:
+      - Assets
+      summary: Update an Asset
+      parameters:
+      - name: assetId
+        in: path
+        description: The identifier of the Asset
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/AssetInput"
+        required: true
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Asset"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Asset not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    delete:
+      tags:
+      - Assets
+      summary: Delete an Asset
+      parameters:
+      - name: assetId
+        in: path
+        description: The identifier of the Asset
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      responses:
+        '204':
+          description: 204 response
+          content: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Asset not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/assets/{assetId}/facilities":
+    get:
+      tags:
+      - Asset Facilities
+      summary: Get Facility history for an Asset
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        description: The identifier of the Asset
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AssetInFacilities"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Asset not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/assets/{assetId}/labels":
+    post:
+      tags:
+      - Asset Labels
+      summary: Link a Label to an Asset
+      parameters:
+      - name: assetId
+        in: path
+        description: The identifier of the Asset
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/AssetLabelInput"
+        required: true
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Asset"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Asset not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/assets/{assetId}/labels/{bleId}":
+    delete:
+      tags:
+      - Asset Labels
+      summary: Unlink a Label from an Asset
+      parameters:
+      - name: assetId
+        in: path
+        description: The identifier of the Asset
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: bleId
+        in: path
+        description: The identifier of the Label
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Asset"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Asset not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/assets/{assetId}/locations":
+    get:
+      tags:
+      - Asset Locations
+      summary: Get location history for an Asset
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      - name: summaryLocations
+        in: query
+        description: 'Whether to return summary (merged) locations or raw locations.
+          Default: false'
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        description: The identifier of the Asset
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AssetLocations"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Asset not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/assets/{assetId}/spaces":
+    get:
+      tags:
+      - Asset Spaces
+      summary: Get Space history for an Asset
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        description: The identifier of the Asset
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AssetInSpaces"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Asset not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/assets/{assetId}/temperatures":
+    get:
+      tags:
+      - Asset Temperatures
+      summary: Get temperature history for an Asset
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        description: The identifier of the Asset
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AssetTemperatures"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Asset not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/consignments/{consignmentId}":
+    get:
+      tags:
+      - Consignments
+      summary: Get Consignment
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: consignmentId
+        in: path
+        description: The identifier of the Consignment
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Consignment"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Consignment not found in Workspace
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/consignments/{consignmentId}/gateways":
+    get:
+      tags:
+      - Consignment Gateways
+      summary: List Gateways in a Consignment
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: consignmentId
+        in: path
+        description: The identifier of the Consignment
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ConsignmentGateways"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Consignment not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    post:
+      tags:
+      - Consignment Gateways
+      summary: Add Gateways to a Consignment
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: consignmentId
+        in: path
+        description: The identifier of the Consignment
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ConsignmentGatewaysInput"
+        required: true
+      responses:
+        '201':
+          description: 201 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ConsignmentGateways"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Consignment not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/consignments/{consignmentId}/gateways/{gatewayId}":
+    delete:
+      tags:
+      - Consignment Gateways
+      summary: Remove a Gateway from a Consignment
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: consignmentId
+        in: path
+        description: The identifier of the Consignment
+        required: true
+        schema:
+          type: string
+      - name: gatewayId
+        in: path
+        description: The identifier of the Gateway
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: 204 response
+          content: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Gateway not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/consignments/{consignmentId}/pieces":
+    get:
+      tags:
+      - Consignment Pieces
+      summary: List Pieces in a Consignment
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: consignmentId
+        in: path
+        description: The identifier of the Consignment
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ConsignmentPieces"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Consignment not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    post:
+      tags:
+      - Consignment Pieces
+      summary: Add Pieces to a Consignment
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: consignmentId
+        in: path
+        description: The identifier of the Consignment
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ConsignmentPiecesInput"
+        required: true
+      responses:
+        '201':
+          description: 201 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ConsignmentPieces"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Consignment not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/consignments/{consignmentId}/pieces/{pieceId}":
+    delete:
+      tags:
+      - Consignment Pieces
+      summary: Remove a Piece from a Consignment
+      parameters:
+      - name: pieceId
+        in: path
+        description: The identifier of the Piece
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: consignmentId
+        in: path
+        description: The identifier of the Consignment
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: 204 response
+          content: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Piece not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/facilities/{facilityId}":
+    get:
+      tags:
+      - Facilities
+      summary: Get a Facility
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: facilityId
+        in: path
+        description: The identifier of the Facility
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Facility"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Facility not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/facilities/{facilityId}/asset-groups":
+    get:
+      tags:
+      - Facility Asset Groups
+      summary: Get Asset Groups in a Facility
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      - name: facilityId
+        in: path
+        description: The identifier of the Facility
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/FacilityAssetGroups"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/print-jobs/{printJobId}":
+    get:
+      tags:
+      - Print Jobs
+      summary: Get a Print Job
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: printJobId
+        in: path
+        description: The identifier of the Print Job
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/PrintJob"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Printer or Print Job not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    delete:
+      tags:
+      - Print Jobs
+      summary: Cancel a Print Job
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: printJobId
+        in: path
+        description: The identifier of the Print Job
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: 204 response
+          content: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Printer or Print Job not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/print-jobs/{printJobId}/statuses":
+    get:
+      tags:
+      - Print Job Statuses
+      summary: Get statuses for a Print Job
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: printJobId
+        in: path
+        description: The identifier of the Print Job
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/PrintJobStatuses"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Printer or Print Job not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/printers/{printerId}/print-jobs":
+    get:
+      tags:
+      - Print Jobs
+      summary: Get Print Jobs for a Printer
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: printerId
+        in: path
+        description: The identifier of the Printer
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/PrintJobs"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Printer not found in workspace
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    post:
+      tags:
+      - Print Jobs
+      summary: Send Print Jobs to a Printer
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: printerId
+        in: path
+        description: The identifier of the Printer
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/PrintJobsInput"
+        required: true
+      responses:
+        '201':
+          description: 201 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/PrintJobs"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Printer not found in workspace
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/spaces/{spaceId}":
+    get:
+      tags:
+      - Spaces
+      summary: Get a Space
+      parameters:
+      - name: spaceId
+        in: path
+        description: The identifier of the Space
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Space"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Space not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    put:
+      tags:
+      - Spaces
+      summary: Update a Space
+      parameters:
+      - name: spaceId
+        in: path
+        description: The identifier of the Space
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/SpaceInput"
+        required: true
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Space"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Space not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    delete:
+      tags:
+      - Spaces
+      summary: Delete a Space
+      parameters:
+      - name: spaceId
+        in: path
+        description: The identifier of the Space
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      responses:
+        '204':
+          description: 204 response
+          content: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Space not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/spaces/{spaceId}/assets":
+    get:
+      tags:
+      - Space Assets
+      summary: Get Asset history for a Space
+      parameters:
+      - name: spaceId
+        in: path
+        description: The identifier of the Space
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AssetInSpaces"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Space not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/spaces/{spaceId}/gateways":
+    post:
+      tags:
+      - Space Gateways
+      summary: Link a Gateway to a Space
+      parameters:
+      - name: spaceId
+        in: path
+        description: The identifier of the Space
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/SpaceGatewayInput"
+        required: true
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Space"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Space not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/spaces/{spaceId}/gateways/{gatewayId}":
+    put:
+      tags:
+      - Space Gateways
+      summary: Update a Gateway
+      parameters:
+      - name: spaceId
+        in: path
+        description: The identifier of the Space
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: gatewayId
+        in: path
+        description: The identifier of the Gateway
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/GatewayInput"
+        required: true
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/SpaceGateway"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Space or Gateway not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    delete:
+      tags:
+      - Space Gateways
+      summary: Unlink a Gateway from a Space
+      parameters:
+      - name: spaceId
+        in: path
+        description: The identifier of the Space
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: gatewayId
+        in: path
+        description: The identifier of the Gateway
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Space"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Space not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/workspaces":
+    get:
+      tags:
+      - Workspaces
+      summary: List available Workspaces
+      parameters:
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Workspaces"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Workspace not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/workspaces/{workspaceId}":
+    get:
+      tags:
+      - Workspaces
+      summary: Get a Workspace
+      parameters:
+      - name: workspaceId
+        in: path
+        description: The identifier of the Workspace
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Workspaces"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Workspace not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/workspaces/{workspaceId}/assets":
+    get:
+      tags:
+      - Workspace Assets
+      - Assets
+      summary: List Assets in a Workspace
+      parameters:
+      - name: workspaceId
+        in: path
+        description: The identifier of the Workspace
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      - name: inSpaceIds
+        in: query
+        description: 'Filter the Assets to those currently in a set of Spaces. Comma-separated
+          list, for example: ''?inSpaceIds={spaceId1},{spaceId2},{spaceId3}'''
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: bleIds
+        in: query
+        description: 'Filter the Assets to those linked to a set of labels, identified
+          by their BLE_ID. Comma-separated list, for example: ''?bleIds={bleId1},{bleId2},{bleId3}'''
+        schema:
+          type: string
+      - name: searchTerm
+        in: query
+        description: String to match name of Assets
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/WorkspaceAssets"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    post:
+      tags:
+      - Workspace Assets
+      summary: Create new Assets in Workspace
+      parameters:
+      - name: workspaceId
+        in: path
+        description: The identifier of the Workspace
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/WorkspaceAssetsInput"
+        required: true
+      responses:
+        '201':
+          description: 201 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/WorkspaceAssets"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/workspaces/{workspaceId}/consignments":
+    get:
+      tags:
+      - Workspace Consignments
+      summary: List Consignments in a Workspace
+      parameters:
+      - name: workspaceId
+        in: path
+        description: The identifier of the Workspace
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      - name: trackingRef
+        in: query
+        description: The tracking reference that identifies the Consignment in the
+          user system
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/WorkspaceConsignments"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    post:
+      tags:
+      - Workspace Consignments
+      summary: Create new Consignment in Workspace
+      parameters:
+      - name: workspaceId
+        in: path
+        description: The identifier of the Workspace
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/WorkspaceConsignmentsInput"
+        required: true
+      responses:
+        '201':
+          description: 201 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/WorkspaceConsignments"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    patch:
+      tags:
+      - Workspace Consignments
+      summary: Update a Consignment using a Tracking Reference
+      parameters:
+      - name: workspaceId
+        in: path
+        description: The identifier of the Workspace
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: trackingRef
+        in: query
+        description: The tracking reference that identifies the Consignment in the
+          user system
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/PatchConsignmentInput"
+        required: true
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Consignment"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Consignment not found in Workspace
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/workspaces/{workspaceId}/facilities":
+    get:
+      tags:
+      - Workspace Facilities
+      summary: List Facilities in a Workspace
+      parameters:
+      - name: workspaceId
+        in: path
+        description: The identifier of the Workspace
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/WorkspaceFacilities"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/workspaces/{workspaceId}/print-templates":
+    get:
+      tags:
+      - Workspace Print Templates
+      summary: List Print Templates in a Workspace
+      parameters:
+      - name: workspaceId
+        in: path
+        description: The identifier of the Workspace
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/WorkspacePrintTemplates"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/workspaces/{workspaceId}/printers":
+    get:
+      tags:
+      - Workspace Printers
+      summary: List Printers in a Workspace
+      parameters:
+      - name: workspaceId
+        in: path
+        description: The identifier of the Workspace
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/WorkspacePrinters"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/workspaces/{workspaceId}/printers/{printerId}":
+    get:
+      tags:
+      - Workspace Printers
+      summary: Get a Printer
+      parameters:
+      - name: workspaceId
+        in: path
+        description: The identifier of the Workspace
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: printerId
+        in: path
+        description: The identifier of the Printer
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/WorkspacePrinter"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Printer not found in workspace
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    put:
+      tags:
+      - Workspace Printers
+      summary: Update a Printer
+      parameters:
+      - name: workspaceId
+        in: path
+        description: The identifier of the Workspace
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: printerId
+        in: path
+        description: The identifier of the Printer
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/WorkspacePrinterInput"
+        required: true
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/WorkspacePrinter"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Printer not found in workspace
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    delete:
+      tags:
+      - Workspace Printers
+      summary: Remove a Printer from a Workspace
+      parameters:
+      - name: workspaceId
+        in: path
+        description: The identifier of the Workspace
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: printerId
+        in: path
+        description: The identifier of the Printer
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: 204 response
+          content: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '404':
+          description: Printer not found in workspace
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+  "/workspaces/{workspaceId}/spaces":
+    get:
+      tags:
+      - Workspace Spaces
+      summary: List spaces in a Workspace
+      parameters:
+      - name: workspaceId
+        in: path
+        description: The identifier of the Workspace
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Number of items to return. Default: 10. Maximum: 10000'
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        description: Pagination token to get next page of items
+        schema:
+          type: string
+      - name: searchTerm
+        in: query
+        description: String to match name of Spaces
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/WorkspaceSpaces"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+    post:
+      tags:
+      - Workspace Spaces
+      summary: Create new Spaces in Workspace
+      parameters:
+      - name: workspaceId
+        in: path
+        description: The identifier of the Workspace
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/WorkspaceSpacesInput"
+        required: true
+      responses:
+        '201':
+          description: 201 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/WorkspaceSpaces"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+      security:
+      - AuthEndpoint:
+        - https://auth.reelables.com/full-access
+components:
+  schemas:
+    Address:
+      type: object
+      properties:
+        country:
+          maxLength: 255
+          type: string
+          description: The country name. Example 'United Kingdom'
+        road:
+          maxLength: 255
+          type: string
+          description: The road name. Example 'Downing Street'
+        city:
+          maxLength: 255
+          type: string
+          description: The city name. Example 'London'
+        district:
+          maxLength: 255
+          type: string
+          description: The district name. Example 'Westminster'
+        postalCode:
+          maxLength: 10
+          type: string
+          description: The postal code. Example 'SW1A 2AA'
+        county:
+          maxLength: 255
+          type: string
+          description: The county name. Example 'Greater London'
+        state:
+          maxLength: 255
+          type: string
+          description: The state name. Example 'England'
+      additionalProperties: false
+    WorkspaceSpaces:
+      required:
+      - items
+      type: object
+      properties:
+        total:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The total number of items in all pages of results
+          format: int32
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Space"
+      additionalProperties: false
+      description: Spaces in the Workspace
+    AssetInSpace:
+      required:
+      - enteredOn
+      - spaceId
+      - spaceName
+      type: object
+      properties:
+        spaceName:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Space
+        spaceId:
+          maxLength: 20
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Unique identifier of the Space. Example: ''00Es43YBJfNRXNSvLmni'''
+        hasExited:
+          type: boolean
+          description: Indicate whether the Asset has exited the Space
+        enteredOn:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'Date that the Asset entered the Space. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        exitedOn:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'Date that the Asset exited the Space. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+      additionalProperties: false
+    WorkspacePrintTemplates:
+      required:
+      - items
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/WorkspacePrintTemplate"
+      additionalProperties: false
+      description: Print Templates in the Workspace
+    AssetLabelInput:
+      required:
+      - nfcId
+      type: object
+      properties:
+        replaceExistingLabel:
+          type: boolean
+          description: Indicate whether to replace the existing Label, in the case
+            where the Asset is already linked to a Label
+        nfcId:
+          maxLength: 20
+          pattern: "^[a-zA-Z0-9]*$"
+          type: string
+          description: 'Label NFC identifier, used when creating an Asset and linking
+            a Label at the same time. Example: ''0000007B'''
+      additionalProperties: false
+    PrintJobsInput:
+      required:
+      - printJobs
+      type: object
+      properties:
+        printJobs:
+          type: array
+          items:
+            maxItems: 1000
+            required:
+            - assetId
+            type: object
+            properties:
+              assetId:
+                maxLength: 20
+                pattern: "^[-_A-Za-z0-9]*$"
+                type: string
+                description: 'Unique identifier of the Asset. Example: ''00Es43YBJfNRXNSvLmni'''
+              replaceExistingLabel:
+                type: boolean
+                description: Indicate whether to replace the existing Label, in the
+                  case where the Asset is already linked to a Label
+              templateParams:
+                type: object
+                additionalProperties: true
+                description: Dynamic object that is used to pass any params for the
+                  Print Template
+              templateId:
+                maxLength: 36
+                type: string
+                description: The indentifier of the Print Template
+            additionalProperties: false
+      additionalProperties: false
+      description: Print Jobs to send to Printer
+    PrintJobStatuses:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PrintJobStatus"
+      additionalProperties: false
+    Asset:
+      required:
+      - id
+      - name
+      - workspaceId
+      type: object
+      properties:
+        inSpaces:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AssetInSpace"
+        temperatures:
+          "$ref": "#/components/schemas/AssetTemperatures"
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Asset
+        locations:
+          "$ref": "#/components/schemas/AssetLocations"
+        id:
+          maxLength: 20
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Unique identifier of the Asset. Example: ''00Es43YBJfNRXNSvLmni'''
+        label:
+          "$ref": "#/components/schemas/AssetLabel"
+        createdOn:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'Date that the Asset was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        workspaceId:
+          maxLength: 36
+          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+      additionalProperties: false
+    InFacility:
+      required:
+      - enteredOn
+      - facilityId
+      - facilityName
+      type: object
+      properties:
+        hasExited:
+          type: boolean
+          description: Indicate whether the item has exited the Facility
+        facilityId:
+          maxLength: 36
+          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+          type: string
+          description: 'Unique identifier of the Facility. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        enteredOn:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'Date that the item entered the Facility. Example: ''2023-07-21T17:32:28Z'''
+          format: date-time
+        facilityName:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Facility
+        exitedOn:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'Date that the item exited the Facility. Example: ''2023-07-21T17:32:28Z'''
+          format: date-time
+        userFacilityId:
+          maxLength: 500
+          type: string
+          description: A facility identifier relevant to the user
+      additionalProperties: false
+    WorkspaceConsignments:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Consignment"
+      additionalProperties: false
+      description: Consignments in the Workspace
+    WorkspaceConsignmentsInput:
+      required:
+      - consignments
+      type: object
+      properties:
+        consignments:
+          maxItems: 1
+          type: array
+          items:
+            "$ref": "#/components/schemas/ConsignmentInput"
+      additionalProperties: false
+      description: Consignments to create in the Workspace
+    WorkspaceSpaceInputOLD:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Space
+        gatewayId:
+          maxLength: 100
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Gateway identifier, which is a combination of manufacturer
+            and deviceId. Example: ''sysLoco_e10fce301222e588e1d7482b'''
+      additionalProperties: false
+      description: "[DEPRECATED] Space to create in the Workspace"
+    AssetTemperatures:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Temperature"
+      additionalProperties: false
+    Space:
+      required:
+      - id
+      - name
+      - workspaceId
+      type: object
+      properties:
+        numberAssetsInSpace:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The total number of Assets currently in the Space
+          format: int32
+        facilityId:
+          maxLength: 36
+          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+          type: string
+          description: 'Unique identifier of the Facility. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Space
+        locations:
+          required:
+          - items
+          type: object
+          properties:
+            nextToken:
+              maxLength: 5000
+              pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+              type: string
+              description: Pagination token
+            items:
+              maxItems: 10000
+              type: array
+              items:
+                "$ref": "#/components/schemas/Location"
+          additionalProperties: false
+        id:
+          maxLength: 20
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Unique identifier of the Space. Example: ''00Es43YBJfNRXNSvLmni'''
+        createdOn:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'Date that the Space was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        gateway:
+          "$ref": "#/components/schemas/SpaceGateway"
+        workspaceId:
+          maxLength: 36
+          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+      additionalProperties: false
+    SpaceGatewayInput:
+      type: object
+      properties:
+        shortId:
+          maxLength: 10
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Short human-readable Gateway identifier. Example: ''AB1D'''
+        isStatic:
+          type: boolean
+          description: Indicate whether the Gateway is statically located. If so,
+            then longitude and latitude are required.
+        registerGateway:
+          type: boolean
+          description: Indicates whether the gateway should be registered. True -
+            will register a new gateway (productName is required) False - indicates
+            that the gateway has already been registered
+        replaceExistingGateway:
+          type: boolean
+          description: Indicate whether to replace the existig Gateway, in the case
+            where the Space is already linked to a Gateway
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: 'Latitude value of the coordinate. Example: 51.123'
+          format: float
+        rssiFilter:
+          description: The RSSI filter value for the Gateway BLE receiver (setting
+            RSSI Filter via the API is only currently supported for Particle Gateways)
+          oneOf:
+          - type: string
+            enum:
+            - FAR
+            - NEAR
+            - VERY_NEAR
+          - maximum: 0
+            minimum: -127
+            type: integer
+            format: int32
+        deviceId:
+          maxLength: 100
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Manufacturer identifier for the Gateway device. Example: ''e10fce301222e588e1d7482b'''
+        gatewayId:
+          maxLength: 100
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Gateway identifier, which is a combination of manufacturer
+            and deviceId. Example: ''sysLoco_e10fce301222e588e1d7482b'''
+        productName:
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: 'Name of Gateway product. Example: ''HGD4'''
+        manufacturer:
+          oneOf:
+          - type: string
+            description: 'Gateway manufacturer. Example: ''sysLoco''. If you want
+              us to support a new manufacturer, please contact us at support@reelables.com'
+            enum:
+            - hpeAruba
+            - cassiaNetworks
+            - particle
+            - sysLoco
+            - versa
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: 'Longitude value of the coordinate. Example: -0.123'
+          format: float
+      additionalProperties: false
+    AssetInFacilities:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/InFacility"
+      additionalProperties: false
+      description: Asset in Facilities
+    WorkspaceSpaceInput:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Space
+        gateway:
+          "$ref": "#/components/schemas/SpaceGatewayInput"
+      additionalProperties: false
+      description: Space to create in the Workspace
+    PrintJob:
+      required:
+      - assetId
+      - createdAt
+      - id
+      - origin
+      - printerId
+      - status
+      - workspaceId
+      type: object
+      properties:
+        origin:
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The origin of the Print Job (e.g. Remote or Local Barcode)
+        replaceExistingLabel:
+          type: boolean
+          description: Indicate whether to replace the existing Label, in the case
+            where the Asset is already linked to a Label
+        includeCutLine:
+          type: boolean
+          description: Indicates whether the Print Job has a cut line (where to cut
+            a label to de-activate) included
+        templateId:
+          maxLength: 36
+          type: string
+          description: The indentifier of the Print Template
+        createdAt:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'Date that the item was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        isSuccessful:
+          type: boolean
+          description: Indicates whether the Print Job was successful
+        assetId:
+          maxLength: 20
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Unique identifier of the Asset. Example: ''00Es43YBJfNRXNSvLmni'''
+        failureReason:
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: Describes the failure if the Print Job was unsuccessful
+        printerId:
+          maxLength: 50
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Printer identifier - the serial number of the Printer. Example:
+            ''abcdefgh123456789'''
+        id:
+          maxLength: 36
+          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+          type: string
+          description: 'Unique identifier of the Print Job. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        workspaceId:
+          maxLength: 36
+          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        updatedAt:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'Date that the item was last updated, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        status:
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The status of the Print Job
+        isComplete:
+          type: boolean
+          description: Indicates whether the Print Job is complete
+      additionalProperties: false
+    WorkspaceAssets:
+      required:
+      - items
+      type: object
+      properties:
+        total:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The total number of items in all pages of results
+          format: int32
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Asset"
+      additionalProperties: false
+      description: Assets in the Workspace
+    SpaceInput:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Space
+      additionalProperties: false
+    Workspaces:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Workspace"
+      additionalProperties: false
+    AssetLabel:
+      required:
+      - addedOn
+      - bleId
+      - nfcId
+      type: object
+      properties:
+        bleId:
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          description: 'Label BLE identifier. Example: 123'
+          format: int32
+        nfcId:
+          maxLength: 20
+          pattern: "^[a-zA-Z0-9]*$"
+          type: string
+          description: 'Label NFC identifier, used when creating an Asset and linking
+            a Label at the same time. Example: ''0000007B'''
+        config:
+          "$ref": "#/components/schemas/LabelConfig"
+        addedOn:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'Date that the Label was linked to the Asset, in UTC. Example:
+            ''2019-07-21T17:32:28Z'''
+          format: date-time
+      additionalProperties: false
+    LabelConfig:
+      type: object
+      properties:
+        reportingInterval:
+          type: string
+          description: Interval at which the label reports locations. Example values
+            include 'default (every 20 minutes), 'hourly', 'daily', 'twoDays'
+      additionalProperties: false
+    Coordinate:
+      required:
+      - latitude
+      - longitude
+      type: object
+      properties:
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: 'Latitude value of the coordinate. Example: 51.123'
+          format: float
+        accuracy:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The horrizontal accuracy in metres
+          format: int32
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: 'Longitude value of the coordinate. Example: -0.123'
+          format: float
+      additionalProperties: false
+    ConsignmentInput:
+      required:
+      - pieces
+      - trackingRef
+      type: object
+      properties:
+        pieces:
+          "$ref": "#/components/schemas/ConsignmentPiecesInput"
+        trackingRef:
+          maxLength: 500
+          type: string
+          description: The tracking reference that identifies the Consignment in the
+            user system
+        gateways:
+          "$ref": "#/components/schemas/ConsignmentGatewaysInput"
+      additionalProperties: false
+      description: Consignment data
+    ConsignmentPiecesInput:
+      maxItems: 100
+      type: array
+      description: Pieces to add to a Consignment
+      items:
+        required:
+        - label
+        type: object
+        properties:
+          trackingRef:
+            maxLength: 500
+            type: string
+            description: The tracking reference that identifies the Piece in the user
+              system
+          label:
+            required:
+            - nfcId
+            type: object
+            properties:
+              nfcId:
+                maxLength: 20
+                pattern: "^[a-zA-Z0-9]*$"
+                type: string
+                description: 'Label NFC identifier, used when creating an Asset and
+                  linking a Label at the same time. Example: ''0000007B'''
+            additionalProperties: false
+        additionalProperties: false
+    WorkspaceAssetsInput:
+      required:
+      - assets
+      type: object
+      properties:
+        assets:
+          maxItems: 1000
+          type: array
+          items:
+            required:
+            - name
+            type: object
+            properties:
+              name:
+                maxLength: 500
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+                type: string
+                description: The name of the Asset
+              nfcId:
+                maxLength: 20
+                pattern: "^[a-zA-Z0-9]*$"
+                type: string
+                description: 'Label NFC identifier, used when creating an Asset and
+                  linking a Label at the same time. Example: ''0000007B'''
+            additionalProperties: false
+      additionalProperties: false
+      description: Assets to create in the Workspace
+    Temperature:
+      required:
+      - degreesCelsius
+      - timestamp
+      type: object
+      properties:
+        timestamp:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'Timestamp of the temperature. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        degreesCelsius:
+          maximum: 500
+          minimum: -100
+          type: number
+          description: 'Temperature value rounded to 1 decimal place, for each minute
+            of the hour. Example: -2.1'
+          format: float
+      additionalProperties: false
+    AssetInSpaces:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AssetInSpace"
+      additionalProperties: false
+      description: Asset in Spaces
+    SpaceGateway:
+      required:
+      - addedOn
+      - gatewayId
+      type: object
+      properties:
+        shortId:
+          maxLength: 10
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Short human-readable Gateway identifier. Example: ''AB1D'''
+        isStatic:
+          type: boolean
+          description: Indicate whether the Gateway is statically located. If so,
+            then longitude and latitude are required.
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: 'Latitude value of the coordinate. Example: 51.123'
+          format: float
+        hasPendingCommands:
+          type: boolean
+          description: Indicate whether there are pending commands for the Gateway
+        rssiFilter:
+          description: The RSSI filter value for the Gateway BLE receiver (setting
+            RSSI Filter via the API is only currently supported for Particle Gateways)
+          oneOf:
+          - type: string
+            enum:
+            - FAR
+            - NEAR
+            - VERY_NEAR
+          - maximum: 0
+            minimum: -127
+            type: integer
+            format: int32
+        deviceId:
+          maxLength: 100
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Manufacturer identifier for the Gateway device. Example: ''e10fce301222e588e1d7482b'''
+        gatewayId:
+          maxLength: 100
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Gateway identifier, which is a combination of manufacturer
+            and deviceId. Example: ''sysLoco_e10fce301222e588e1d7482b'''
+        productName:
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: 'Name of Gateway product. Example: ''HGD4'''
+        addedOn:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'ISO Timestamp of when the Gateway was linked, in UTC. Example:
+            ''2023-07-21T17:32:28Z'''
+          format: date-time
+        manufacturer:
+          maxLength: 100
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Gateway manufacturer. Example: ''sysLoco'''
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: 'Longitude value of the coordinate. Example: -0.123'
+          format: float
+      additionalProperties: false
+    GatewayInput:
+      type: object
+      properties:
+        isStatic:
+          type: boolean
+          description: Indicate whether the Gateway is statically located. If so,
+            then longitude and latitude are required.
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: 'Latitude value of the coordinate. Example: 51.123'
+          format: float
+        rssiFilter:
+          description: The RSSI filter value for the Gateway BLE receiver (setting
+            RSSI Filter via the API is only currently supported for Particle Gateways)
+          oneOf:
+          - type: string
+            enum:
+            - FAR
+            - NEAR
+            - VERY_NEAR
+          - maximum: 0
+            minimum: -127
+            type: integer
+            format: int32
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: 'Longitude value of the coordinate. Example: -0.123'
+          format: float
+      additionalProperties: false
+    Consignment:
+      required:
+      - id
+      - trackingRef
+      - workspace
+      type: object
+      properties:
+        pieces:
+          "$ref": "#/components/schemas/ConsignmentPieces"
+        trackingRef:
+          maxLength: 500
+          type: string
+          description: The tracking reference that identifies the Consignment in the
+            user system
+        gateways:
+          "$ref": "#/components/schemas/ConsignmentGateways"
+        workspace:
+          "$ref": "#/components/schemas/Workspace"
+        destination:
+          type: object
+          properties:
+            name:
+              maxLength: 500
+              type: string
+              description: 'Name of the destination. Example: LHR'
+            facility:
+              "$ref": "#/components/schemas/Facility"
+          additionalProperties: false
+        id:
+          maxLength: 36
+          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+          type: string
+          description: 'Unique identifier of the Consignment. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        isActive:
+          type: boolean
+          description: Indicates whether the Consignment is actively being tracked
+        deactivated:
+          required:
+          - when
+          type: object
+          properties:
+            where:
+              type: object
+              properties:
+                facility:
+                  "$ref": "#/components/schemas/Facility"
+              additionalProperties: false
+            when:
+              maxLength: 20
+              pattern: "^[0-9TZ:-]*$"
+              type: string
+              description: 'ISO Timestamp when Consignment was de-activated. Example:
+                ''2023-07-21T17:32:28Z'''
+              format: date-time
+          additionalProperties: false
+        activated:
+          required:
+          - when
+          type: object
+          properties:
+            where:
+              type: object
+              properties:
+                facility:
+                  "$ref": "#/components/schemas/Facility"
+              additionalProperties: false
+            when:
+              maxLength: 20
+              pattern: "^[0-9TZ:-]*$"
+              type: string
+              description: 'ISO Timestamp when Consignment was activated. Example:
+                ''2023-07-21T17:32:28Z'''
+              format: date-time
+          additionalProperties: false
+      additionalProperties: false
+    PatchConsignmentInput:
+      type: object
+      properties:
+        isActive:
+          type: boolean
+          description: Indicates whether the Consignment is actively being tracked
+      additionalProperties: false
+      description: Consignment data
+    ConsignmentPieces:
+      required:
+      - items
+      type: object
+      properties:
+        total:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The total number of items in all pages of results
+          format: int32
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Piece"
+      additionalProperties: false
+      description: Pieces in the Consignment
+    AssetInput:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Asset
+      additionalProperties: false
+    PrintJobs:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PrintJob"
+      additionalProperties: false
+    PrintJobStatus:
+      required:
+      - createdAt
+      - status
+      type: object
+      properties:
+        createdAt:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'Date that the item was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        status:
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The status of the Print Job
+      additionalProperties: false
+    WorkspaceSpacesInput:
+      required:
+      - spaces
+      type: object
+      properties:
+        spaces:
+          maxItems: 1000
+          type: array
+          items:
+            anyOf:
+            - "$ref": "#/components/schemas/WorkspaceSpaceInput"
+            - "$ref": "#/components/schemas/WorkspaceSpaceInputOLD"
+      additionalProperties: false
+      description: Spaces to create in the Workspace
+    WorkspacePrintTemplate:
+      required:
+      - templateId
+      - workspaceId
+      type: object
+      properties:
+        requiredParams:
+          pattern: "^[a-zA-Z0-9]*$"
+          type: array
+          items:
+            maxLength: 200
+            type: string
+            description: Name of the required parameter for the given Print Template
+        templateId:
+          maxLength: 36
+          type: string
+          description: The indentifier of the Print Template
+        workspaceId:
+          maxLength: 36
+          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+      additionalProperties: false
+    WorkspacePrinter:
+      required:
+      - name
+      - printerId
+      - workspaceId
+      type: object
+      properties:
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Printer
+        printerId:
+          maxLength: 50
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Printer identifier - the serial number of the Printer. Example:
+            ''abcdefgh123456789'''
+        isOnline:
+          type: boolean
+          description: Indicates whether the Printer is currently online
+        addedOn:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'Date that the Printer was added to the Workspace, in UTC.
+            Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        workspaceId:
+          maxLength: 36
+          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+      additionalProperties: false
+    Gateway:
+      required:
+      - gatewayId
+      - manufacturer
+      type: object
+      properties:
+        shortId:
+          maxLength: 10
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Short human-readable Gateway identifier. Example: ''AB1D'''
+        isStatic:
+          type: boolean
+          description: Indicate whether the Gateway is statically located. If so,
+            then longitude and latitude are required.
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: 'Latitude value of the coordinate. Example: 51.123'
+          format: float
+        hasPendingCommands:
+          type: boolean
+          description: Indicate whether there are pending commands for the Gateway
+        rssiFilter:
+          description: The RSSI filter value for the Gateway BLE receiver (setting
+            RSSI Filter via the API is only currently supported for Particle Gateways)
+          oneOf:
+          - type: string
+            enum:
+            - FAR
+            - NEAR
+            - VERY_NEAR
+          - maximum: 0
+            minimum: -127
+            type: integer
+            format: int32
+        deviceId:
+          maxLength: 100
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Manufacturer identifier for the Gateway device. Example: ''e10fce301222e588e1d7482b'''
+        gatewayId:
+          maxLength: 100
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Gateway identifier, which is a combination of manufacturer
+            and deviceId. Example: ''sysLoco_e10fce301222e588e1d7482b'''
+        productName:
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: 'Name of Gateway product. Example: ''HGD4'''
+        addedOn:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'ISO Timestamp of when the Gateway was linked, in UTC. Example:
+            ''2023-07-21T17:32:28Z'''
+          format: date-time
+        manufacturer:
+          maxLength: 100
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Gateway manufacturer. Example: ''sysLoco'''
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: 'Longitude value of the coordinate. Example: -0.123'
+          format: float
+      additionalProperties: false
+    Piece:
+      required:
+      - consignmentId
+      - id
+      - trackingRef
+      - workspaceId
+      type: object
+      properties:
+        trackingRef:
+          maxLength: 500
+          type: string
+          description: The tracking reference that identifies the Piece in the user
+            system
+        inFacilities:
+          maxItems: 10000
+          type: array
+          items:
+            "$ref": "#/components/schemas/InFacility"
+        consignmentId:
+          maxLength: 36
+          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+          type: string
+          description: 'Unique identifier of the Consignment. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        id:
+          maxLength: 20
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Unique identifier of the Piece. Example: ''00Es43YBJfNRXNSvLmni'''
+        label:
+          "$ref": "#/components/schemas/AssetLabel"
+        createdOn:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'Date that the item was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        workspaceId:
+          maxLength: 36
+          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+      additionalProperties: false
+    ConsignmentGatewaysInput:
+      maxItems: 1
+      type: array
+      description: Gateways to add to a Consignment
+      items:
+        required:
+        - deviceId
+        - manufacturer
+        type: object
+        properties:
+          registerGateway:
+            type: boolean
+            description: Indicates whether the gateway should be registered. True
+              - will register a new gateway (productName is required) False - indicates
+              that the gateway has already been registered
+          deviceId:
+            maxLength: 100
+            pattern: "^[-_A-Za-z0-9]*$"
+            type: string
+            description: 'Manufacturer identifier for the Gateway device. Example:
+              ''e10fce301222e588e1d7482b'''
+          productName:
+            maxLength: 100
+            pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+            type: string
+            description: 'Name of Gateway product. Example: ''HGD4'''
+          manufacturer:
+            oneOf:
+            - type: string
+              description: 'Gateway manufacturer. Example: ''sysLoco''. If you want
+                us to support a new manufacturer, please contact us at support@reelables.com'
+              enum:
+              - hpeAruba
+              - cassiaNetworks
+              - particle
+              - sysLoco
+              - versa
+        additionalProperties: false
+    WorkspacePrinterInput:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Printer
+      additionalProperties: false
+    WorkspaceFacilities:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Facility"
+      additionalProperties: false
+      description: Facilities in the Workspace
+    ErrorResponse:
+      required:
+      - errors
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+                type: string
+                description: An application-specific error code, expressed as a string
+                  value
+              id:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+                type: string
+                description: A unique identifier for this particular occurrence of
+                  the problem
+              detail:
+                maxLength: 500
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+                type: string
+                description: A human-readable explanation specific to this occurrence
+                  of the problem
+              title:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+                type: string
+                description: A short, human-readable summary of the problem
+              status:
+                maxLength: 3
+                pattern: "^[0-9]*$"
+                type: string
+                description: The HTTP status code applicable to this problem, expressed
+                  as a string value
+            additionalProperties: false
+      additionalProperties: false
+      description: This is an error
+    WorkspacePrinters:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/WorkspacePrinter"
+      additionalProperties: false
+      description: Printers in the Workspace
+    ConsignmentGateways:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Gateway"
+      additionalProperties: false
+      description: Gateways in the Consignment
+    Facility:
+      required:
+      - id
+      - name
+      - workspaceId
+      type: object
+      properties:
+        createdAt:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'Date that the item was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Facility
+        id:
+          maxLength: 36
+          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+          type: string
+          description: 'Unique identifier of the Facility. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        workspaceId:
+          maxLength: 36
+          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        userFacilityId:
+          maxLength: 500
+          type: string
+          description: A facility identifier relevant to the user
+      additionalProperties: false
+    FacilityAssetGroups:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AssetGroup"
+      additionalProperties: false
+      description: Asset Groups in the Facility
+    AssetLocations:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Location"
+      additionalProperties: false
+    AssetGroup:
+      required:
+      - id
+      - name
+      - workspaceId
+      type: object
+      properties:
+        facilityId:
+          maxLength: 36
+          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+          type: string
+          description: 'Unique identifier of the Facility. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        availabilityThreshold:
+          maximum: 2147483647
+          minimum: 1
+          type: integer
+          description: Number of Assets that need to be present for the Asset Group
+            to be deemed available. Default 3
+          format: int32
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: 'The name of the Asset Group. Example: ''an-asset-group'
+        available:
+          type: boolean
+          description: Indicate whether the Asset Group is deemed to be available
+            (see availabilityThreshold property)
+        count:
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          description: 'Number of Assets currently available. Example: 102'
+          format: int32
+        id:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: 'Unique identifier of the Asset Group. Example: ''an-asset-group'''
+          format: uuid
+        workspaceId:
+          maxLength: 36
+          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+      additionalProperties: false
+    Location:
+      required:
+      - coordinate
+      - timestamp
+      type: object
+      properties:
+        lastSeenTimestamp:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'Timestamp last seen at the location. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        coordinate:
+          "$ref": "#/components/schemas/Coordinate"
+        address:
+          "$ref": "#/components/schemas/Address"
+        error:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The horrizontal error in metres [Deprecated - use coordinate.accuracy
+            instead]
+          format: int32
+        timestamp:
+          maxLength: 20
+          pattern: "^[0-9TZ:-]*$"
+          type: string
+          description: 'Timestamp of the location. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+      additionalProperties: false
+    Workspace:
+      required:
+      - id
+      - name
+      type: object
+      properties:
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Workspace
+        id:
+          maxLength: 36
+          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+      additionalProperties: false
+  securitySchemes:
+    AuthEndpoint:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.reelables.com/oauth2/token
+          scopes:
+            https://auth.reelables.com/full-access: Full access to the Public API
+security:
+- AuthEndpoint:
+  - https://auth.reelables.com/full-access
+x-topics:
+- title: Getting started
+  content: Before using the Reelables API, you require a `CLIENT_ID` and `CLIENT_SECRET`
+    to authenticate your requests. You can obtain these by contacting [Reelables Support](mailto:support@reelables.com)
+- title: Authentication
+  content: |
+    Our authentication is based on the Client Credentials flow of the OAuth 2.0 authentication framework ([Client Credentials](https://datatracker.ietf.org/doc/html/rfc6749#section-1.3.4)).
+
+    You need to retrieve an access token (`ACCESS_TOKEN`) from our authentication endpoint to then send in the header (`"Authorization: Bearer ACCESS_TOKEN"`) of subsequent requests.
+
+    **To obtain an `ACCESS_TOKEN`, send a POST request to https://auth.reelables.com/oauth2/token?grant_type=client_credentials with headers:**
+    - `"Content-Type": "application/x-www-form-urlencoded"`
+    - `"Authorization": "Basic base64(CLIENT_ID>:<CLIENT_SECRET>)"`
+    where base64() is the base64-encoded representation of the `<CLIENT_ID>:<CLIENT_SECRET>` combination.
+
+    **Using the `ACCESS_TOKEN` in requests:**
+    - add an `Authorization` header to your request including the `ACCESS_TOKEN` as the value: `"Authorization: Bearer ACCESS_TOKEN"`
+    - the `ACCESS_TOKEN` is valid for 1 hour. Once it has expired, re-authenticate to obtain a fresh `ACCESS_TOKEN`
+  example: |-
+    _Example Authentication request_
+    ```curl --request POST --url 'https://auth.reelables.com/oauth2/token?grant_type=client_credentials' --user CLIENT_ID:CLIENT_SECRET --header 'Content-Type: application/x-www-form-urlencoded'```
+    - Note: using the curl --user option adds an `Authorization` header with value `Basic Base64(CLIENT_ID:CLIENT_SECRET)`
+- title: Errors
+  content: 'The API uses standard HTTP response codes to indicate the success or failure
+    of requests. Statuses in the `2xx` range indicate success; statuses in the `4xx`
+    and `5xx` ranges indicate errors. The format of error messages is unified, and
+    can be distinguished by their `status` key. The `title` and `detail` are plain
+    English explanations of the problem.
+
+    '
+  example: |
+    ```json
+    {
+      "status": "status_code",
+      "id": "A unique identifier for this particular occurrence of the problem.",
+      "title": "A short, human-readable summary of the problem.",
+      "detail": "A human-readable explanation specific to this occurrence of the problem.",
+    }
+    ```
+- title: Versioning and backwards compatibility
+  content: |
+    The API is versioned by path (`/v1/...`). When we introduce breaking changes, we will increase this version number. We will of course continually make backward-compatible changes without increasing the version number.
+
+    Examples of things we do **not** consider breaking include:
+    * Adding new API resources.
+    * Adding new optional request parameters to existing API methods.
+    * Adding new properties to existing API responses. We will occasionally move response fields in the API, and will continue to return the existing field in its previous location, while removing it from this documentation.
+    * Changing the order of properties in existing API responses.
+    * Changing the length or format of opaque strings, such as object IDs, error messages, and other human-readable strings. Strings that are marked as const or enum in this documentation will not change.
+- title: Rate limiting
+  content: 'We enforce a rate limit on how many HTTP requests can be made in a given
+    period. When the limit is reached, the API will return an error `429 Too Many
+    Requests`.
+
+    '
+- title: Data Entities
+  content: |-
+    The core entities in the Reelables API are:
+    - **`Workspace`**: a permissions boundary within the Reelables Platform.
+    Typically this is an organization or team but it can also represent an application across several organizations, for example when multiple parties have visibility of `Assets` through a supply chain.
+
+    `Assets`, `Spaces`, `Printers`, `Consignments` and `Facilities` all exist within the context of a `Workspace`. `Users` can have permissions in more than one `Workspace`.
+    - **`Asset`**: a physical item that can be tracked. Reelables `Labels` are activated (typically by a `Printer`) and attached to `Assets`.
+    - **`Space`**: a physical area within which `Assets` can be detected. A `Space` can be static (e.g. a receiving bay in a `Facility`) or mobile (e.g. in the trailer of a truck). A `Space` is characterized in the real world by a `Gateway`, a physical device that listens for signals from Reelables `Labels`.
+    - **`Consignment`**: A collection of pieces that are being tracked. In the context of a `Consignment` a piece is an `Asset`.
+    - **`Facility`**: A physical location, comprised of one or more `Spaces` where `Assets` are stored or transit through. E.g. a warehouse or distribution center.
+    - **`Label`**: A Reelables smart label that produces signals that are detected by a `Gateway`.
+    - **`Gateway`**: A device that listens for signals from `Labels`.
+    - **`Printer`**: a physcial device that enables customers to use Reelables `Labels` at scale. `Printers` are linked to a `Workspace` and are used to print `Labels` for `Assets`.
+    - **`User`**: can be a part of one or more `Workspaces`, their permissions within those `Workspaces` are role-based.

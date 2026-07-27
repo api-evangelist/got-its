@@ -1,0 +1,392 @@
+---
+openapi: 3.0.1
+info:
+  title: Reelables Gateway API
+  description: RESTful API for partners to send data to the Reelables platform from
+    Gateway devices
+  contact:
+    email: team@reelables.com
+  version: 1.1.1
+servers:
+- url: https://api.reelables.com/{basePath}
+  variables:
+    basePath:
+      default: gateway
+  description: The production URL for sending requests to the Reelables Gateway API.
+paths:
+  "/external/v1/label-data":
+    post:
+      summary: Send label data from a Gateway device
+      parameters:
+      - name: x-api-key
+        in: header
+        description: Contact team@reelables.com to get an api key.
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      requestBody:
+        description: Gateway label data payload
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ExternalLabelData"
+        required: true
+      responses:
+        '202':
+          description: Events received and queued for processing
+          content: {}
+        '400':
+          description: Invalid input, object invalid
+          content: {}
+      security:
+      - api_key: []
+  "/external/v1/snapshot":
+    post:
+      summary: Send snapshot from a Gateway device
+      parameters:
+      - name: x-api-key
+        in: header
+        description: Contact team@reelables.com to get an api key.
+        required: true
+        schema:
+          type: string
+      - name: request-id
+        in: header
+        description: 'Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00'
+        schema:
+          type: string
+      requestBody:
+        description: Gateway snapshot events payload
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ExternalSnapshot"
+        required: true
+      responses:
+        '202':
+          description: Events received and queued for processing
+          content: {}
+        '400':
+          description: Invalid input, object invalid
+          content: {}
+      security:
+      - api_key: []
+components:
+  schemas:
+    ExternalLabelData:
+      required:
+      - data
+      - providerDeviceId
+      - timestamp
+      type: object
+      properties:
+        providerDeviceId:
+          maxLength: 50
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Identifier of the Gateway device. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        data:
+          required:
+          - labels
+          type: object
+          properties:
+            labels:
+              maxItems: 1000
+              type: array
+              description: Labels data being sent from the Gateway device
+              items:
+                type: object
+                properties:
+                  bleId:
+                    maximum: 2147483647
+                    minimum: 0
+                    type: integer
+                    description: 'Label BLE identifier. Example: 123'
+                    format: int32
+                    example: 34512
+                  macAddress:
+                    type: string
+                    description: 'The label mac address: e.g. 80:EA:00:00:00:7B'
+                    example: 80:EA:00:00:00:7B
+                  data:
+                    maxItems: 1000
+                    type: array
+                    description: Data for the label being sent from the Gateway device
+                    items:
+                      required:
+                      - timestamp
+                      type: object
+                      properties:
+                        rssi:
+                          maximum: 0
+                          minimum: -127
+                          type: integer
+                          description: RSSI value in dB of the label
+                          format: int32
+                          example: -70
+                        beaconPayload:
+                          type: string
+                          description: 'The ''manufacturer specific data'' BLE payload
+                            reported by the Label. Example: ''db0a03140000df91645d130004000000aabbcc016a0a717c00000001'''
+                          example: db0a03140000df91645d130004000000aabbcc016a0a717c00000001
+                        temperature:
+                          maximum: 500
+                          minimum: -100
+                          type: number
+                          description: 'Temperature value reported by the label, in
+                            degrees centigrade. Example: -2.1'
+                          format: float
+                          example: -2.1
+                        battery:
+                          maximum: 2147483647
+                          minimum: 0
+                          type: integer
+                          description: 'The Label battery level, in mV. Example: 2832'
+                          format: int32
+                          example: 2832
+                        timestamp:
+                          type: string
+                          description: 'Timestamp of the label data in UTC ISO format.
+                            Example: ''2019-07-21T17:32:28Z'''
+                          format: date-time
+                          example: '2019-07-21T17:32:28Z'
+                        rawTemperature:
+                          maximum: 2147483647
+                          minimum: 0
+                          type: integer
+                          description: The ADC reading reported by the Label temperature
+                            sensor. Example 43558
+                          format: int32
+                          example: 43558
+                oneOf:
+                - required:
+                  - bleId
+                  - data
+                  type: object
+                - required:
+                  - data
+                  - macAddress
+                  type: object
+        signalStrength:
+          type: number
+          description: 'Cellular signal strength indicator, in decibels. Example:
+            -30dBm'
+          format: float
+          example: -30
+        temperature:
+          maximum: 500
+          minimum: -200
+          type: number
+          description: 'Temperature reported by the Gateway device, in degrees centigrade.
+            Example: -2.1'
+          format: float
+          example: -2.1
+        location:
+          required:
+          - accuracy
+          - latitude
+          - longitude
+          type: object
+          properties:
+            latitude:
+              maximum: 90
+              minimum: -90
+              type: number
+              description: 'Latitude value of the coordinate. Example: 51.123'
+              format: float
+              example: 51.5074
+            accuracy:
+              maximum: 1000000
+              minimum: 0
+              type: number
+              description: 'The horizontal accuracy of the coordinate, in metres.
+                Example: 18.20'
+              format: float
+              example: 18.5
+            longitude:
+              maximum: 180
+              minimum: -180
+              type: number
+              description: 'Longitude value of the coordinate. Example: -0.123'
+              format: float
+              example: -0.1278
+          description: Location of the Gateway when data is sent
+        timestamp:
+          type: string
+          description: 'Timestamp at which the Gateway is sending the data, in UTC
+            ISO format. Example: ''2024-07-21T17:32:28Z'''
+          format: date-time
+          example: '2019-07-21T17:32:28Z'
+        batteryLevel:
+          type: number
+          description: 'Device battery charge level, as a percentage. Example: 42%'
+          format: float
+          example: 42
+    ExternalSnapshot:
+      required:
+      - data
+      - providerDeviceId
+      - timestamp
+      type: object
+      properties:
+        providerDeviceId:
+          maxLength: 50
+          pattern: "^[-_A-Za-z0-9]*$"
+          type: string
+          description: 'Identifier of the Gateway device. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        data:
+          required:
+          - labels
+          - page
+          - totalPages
+          type: object
+          properties:
+            totalPages:
+              maximum: 2147483647
+              minimum: 1
+              type: integer
+              description: 'Total number of pages of data. Example: 5'
+              format: int32
+              example: 1
+            page:
+              maximum: 2147483647
+              minimum: 1
+              type: integer
+              description: 'Page number. Example: 2'
+              format: int32
+              example: 1
+            labels:
+              maxItems: 1000
+              type: array
+              description: Labels detected in the snapshot
+              items:
+                type: object
+                properties:
+                  bleId:
+                    maximum: 2147483647
+                    minimum: 0
+                    type: integer
+                    description: 'Label BLE identifier. Example: 123'
+                    format: int32
+                    example: 34512
+                  macAddress:
+                    type: string
+                    description: 'The label mac address: e.g. 80:EA:00:00:00:7B'
+                    example: 80:EA:00:00:00:7B
+                  rssi:
+                    maximum: 0
+                    minimum: -127
+                    type: integer
+                    description: RSSI value in dB of the label
+                    format: int32
+                    example: -70
+                  beaconPayload:
+                    type: string
+                    description: 'The ''manufacturer specific data'' BLE payload reported
+                      by the Label. Example: ''db0a03140000df91645d130004000000aabbcc016a0a717c00000001'''
+                    example: db0a03140000df91645d130004000000aabbcc016a0a717c00000001
+                  enterTimestamp:
+                    type: string
+                    description: 'Timestamp of when the Label was first seen by the
+                      Gateway. Example: ''2019-07-21T17:32:28Z'''
+                    format: date-time
+                    example: '2019-07-21T17:32:28Z'
+                  temperature:
+                    maximum: 500
+                    minimum: -100
+                    type: number
+                    description: 'Temperature value reported by the label, in degrees
+                      centigrade. Example: -2.1'
+                    format: float
+                    example: -2.1
+                  battery:
+                    maximum: 2147483647
+                    minimum: 0
+                    type: integer
+                    description: 'The Label battery level, in mV. Example: 2832'
+                    format: int32
+                    example: 2832
+                  rawTemperature:
+                    maximum: 2147483647
+                    minimum: 0
+                    type: integer
+                    description: The ADC reading reported by the Label temperature
+                      sensor. Example 43558
+                    format: int32
+                    example: 43558
+                oneOf:
+                - required:
+                  - bleId
+                  type: object
+                - required:
+                  - macAddress
+                  type: object
+        signalStrength:
+          type: number
+          description: 'Cellular signal strength indicator, in decibels. Example:
+            -30dBm'
+          format: float
+          example: -30
+        temperature:
+          maximum: 500
+          minimum: -200
+          type: number
+          description: 'Temperature reported by the Gateway device, in degrees centigrade.
+            Example: -2.1'
+          format: float
+          example: -2.1
+        location:
+          required:
+          - accuracy
+          - latitude
+          - longitude
+          type: object
+          properties:
+            latitude:
+              maximum: 90
+              minimum: -90
+              type: number
+              description: 'Latitude value of the coordinate. Example: 51.123'
+              format: float
+              example: 51.5074
+            accuracy:
+              maximum: 1000000
+              minimum: 0
+              type: number
+              description: 'The horizontal accuracy of the coordinate, in metres.
+                Example: 18.20'
+              format: float
+              example: 18.5
+            longitude:
+              maximum: 180
+              minimum: -180
+              type: number
+              description: 'Longitude value of the coordinate. Example: -0.123'
+              format: float
+              example: -0.1278
+          description: Location of the Gateway when snapshot it taken
+        timestamp:
+          type: string
+          description: 'Timestamp of the snapshot, in UTC ISO format. Example: ''2019-07-21T17:32:28Z''.
+            When the snapshot requires multiple pages to send the full set of Labels
+            that are deteceted, the timestamp must be the same across all pages of
+            data'
+          format: date-time
+          example: '2019-07-21T17:32:28Z'
+        batteryLevel:
+          type: number
+          description: 'Device battery charge level, as a percentage. Example: 42%'
+          format: float
+          example: 42
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header

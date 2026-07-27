@@ -1,0 +1,19 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Reelables Gateway API
+  version: 1.0.0
+extends: openapi/got-its-gateway-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-rating: 2
+    x-apievangelist-notes: >-
+      Partner ingest API (v1.1.1). Two POST operations for pushing label-data and snapshots
+      from Gateway devices. apiKey (x-api-key header) auth. Overlay records recommended
+      operationIds and a tag.
+- target: $.paths['/external/v1/label-data'].post
+  update:
+    operationId: postLabelData
+- target: $.paths['/external/v1/snapshot'].post
+  update:
+    operationId: postSnapshot

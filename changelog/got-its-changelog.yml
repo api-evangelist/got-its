@@ -1,0 +1,54 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.reelables.com/changes
+scheme: semver
+current_version: 1.3.11
+notes: >-
+  Reelables publishes a dated, Bump.sh-generated changelog. Versioning is semantic
+  (major.minor.patch) and surfaced in the URL path (v1). Recent window captured below.
+entries:
+- version: 1.3.11
+  date: '2026-06-25'
+  breaking: false
+  additions:
+  - Added endpoint GET /assets/{assetId}/facilities
+- version: 1.3.10
+  date: '2026-06-03'
+  breaking: false
+  highlights:
+  - Added facilityId property to responses across space- and gateway-related operations (6 modifications)
+- version: 1.3.9
+  date: '2026-02-20'
+  breaking: false
+  highlights:
+  - Expanded label configuration support across asset and consignment endpoints (12 modifications)
+- version: 1.3.7
+  date: '2026-02-05'
+  breaking: false
+  additions:
+  - Added summaryLocations query parameter to asset retrieval endpoints
+- version: 1.3.6
+  date: '2025-08-27'
+  breaking: false
+  additions:
+  - Added bleIds query parameter for workspace asset queries
+- version: 1.3.4
+  date: '2025-04-09'
+  breaking: true
+  highlights:
+  - Removed printer, asset, printTemplate and spaces properties from workspace responses
+- version: 1.3.3
+  date: '2025-03-03'
+  breaking: true
+  highlights:
+  - Renamed temperature field degreesCelcius to degreesCelsius
+- version: 1.3.0
+  date: '2025-02-19'
+  breaking: true
+  highlights:
+  - Enhanced gateway properties across multiple endpoints (15 breaking modifications)
+- version: 1.2.8
+  date: '2024-06-28'
+  breaking: false
+  additions:
+  - Introduced consignment management endpoints (8 additions)

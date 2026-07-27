@@ -1,7 +1,27 @@
 aid: got-its
-name: Got-its
-description: Got-its is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/got-its.png
+name: Reelables
+description: >-
+  Reelables provides Track Anywhere smart labels and a RESTful platform API for global
+  supply-chain and logistics visibility. The paper-thin Bluetooth and cellular smart labels
+  are printed on off-the-shelf barcode printers, activated, attached to assets, and tracked in
+  real time across a network of devices and gateways. The Reelables API lets developers manage
+  Workspaces, Assets, Labels, Spaces, Gateways, Consignments, Facilities, Printers and Print
+  Jobs, and read location, temperature and facility history for tracked assets. A separate
+  Gateway API lets partner devices push label-data and snapshots into the platform. Reelables
+  is a 500 Global portfolio company (surfaced in this network under the stub slug "got-its").
 url: https://raw.githubusercontent.com/api-evangelist/got-its/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,15 +31,458 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Supply Chain
+- Logistics
+- Asset Tracking
+- IoT
+- Smart Labels
+- Bluetooth
+- Cellular
+- Track and Trace
+- Location
+apis:
+- aid: got-its:got-its-asset-facilities-api
+  name: Reelables Asset Facilities API
+  description: The Asset Facilities API from Reelables — 1 operation(s) for asset facilities.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Asset Facilities
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-asset-facilities-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-asset-labels-api
+  name: Reelables Asset Labels API
+  description: The Asset Labels API from Reelables — 2 operation(s) for asset labels.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Asset Labels
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-asset-labels-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-asset-locations-api
+  name: Reelables Asset Locations API
+  description: The Asset Locations API from Reelables — 1 operation(s) for asset locations.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Asset Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-asset-locations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-asset-spaces-api
+  name: Reelables Asset Spaces API
+  description: The Asset Spaces API from Reelables — 1 operation(s) for asset spaces.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Asset Spaces
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-asset-spaces-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-asset-temperatures-api
+  name: Reelables Asset Temperatures API
+  description: The Asset Temperatures API from Reelables — 1 operation(s) for asset temperatures.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Asset Temperatures
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-asset-temperatures-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-assets-api
+  name: Reelables Assets API
+  description: The Assets API from Reelables — 2 operation(s) for assets.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-assets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-consignment-gateways-api
+  name: Reelables Consignment Gateways API
+  description: The Consignment Gateways API from Reelables — 2 operation(s) for consignment gateways.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Consignment Gateways
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-consignment-gateways-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-consignment-pieces-api
+  name: Reelables Consignment Pieces API
+  description: The Consignment Pieces API from Reelables — 2 operation(s) for consignment pieces.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Consignment Pieces
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-consignment-pieces-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-consignments-api
+  name: Reelables Consignments API
+  description: The Consignments API from Reelables — 1 operation(s) for consignments.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Consignments
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-consignments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-external-api
+  name: Reelables External API
+  description: The External API from Reelables — 2 operation(s) for external.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - External
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-external-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-facilities-api
+  name: Reelables Facilities API
+  description: The Facilities API from Reelables — 1 operation(s) for facilities.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Facilities
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-facilities-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-facility-asset-groups-api
+  name: Reelables Facility Asset Groups API
+  description: The Facility Asset Groups API from Reelables — 1 operation(s) for facility asset groups.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Facility Asset Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-facility-asset-groups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-print-job-statuses-api
+  name: Reelables Print Job Statuses API
+  description: The Print Job Statuses API from Reelables — 1 operation(s) for print job statuses.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Print Job Statuses
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-print-job-statuses-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-print-jobs-api
+  name: Reelables Print Jobs API
+  description: The Print Jobs API from Reelables — 2 operation(s) for print jobs.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Print Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-print-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-space-assets-api
+  name: Reelables Space Assets API
+  description: The Space Assets API from Reelables — 1 operation(s) for space assets.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Space Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-space-assets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-space-gateways-api
+  name: Reelables Space Gateways API
+  description: The Space Gateways API from Reelables — 2 operation(s) for space gateways.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Space Gateways
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-space-gateways-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-spaces-api
+  name: Reelables Spaces API
+  description: The Spaces API from Reelables — 1 operation(s) for spaces.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Spaces
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-spaces-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-workspace-assets-api
+  name: Reelables Workspace Assets API
+  description: The Workspace Assets API from Reelables — 1 operation(s) for workspace assets.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Workspace Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-workspace-assets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-workspace-consignments-api
+  name: Reelables Workspace Consignments API
+  description: >-
+    The Workspace Consignments API from Reelables — 1 operation(s) for workspace consignments.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Workspace Consignments
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-workspace-consignments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-workspace-facilities-api
+  name: Reelables Workspace Facilities API
+  description: The Workspace Facilities API from Reelables — 1 operation(s) for workspace facilities.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Workspace Facilities
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-workspace-facilities-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-workspace-print-templates-api
+  name: Reelables Workspace Print Templates API
+  description: >-
+    The Workspace Print Templates API from Reelables — 1 operation(s) for workspace print templates.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Workspace Print Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-workspace-print-templates-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-workspace-printers-api
+  name: Reelables Workspace Printers API
+  description: The Workspace Printers API from Reelables — 2 operation(s) for workspace printers.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Workspace Printers
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-workspace-printers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-workspace-spaces-api
+  name: Reelables Workspace Spaces API
+  description: The Workspace Spaces API from Reelables — 1 operation(s) for workspace spaces.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Workspace Spaces
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-workspace-spaces-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
+- aid: got-its:got-its-workspaces-api
+  name: Reelables Workspaces API
+  description: The Workspaces API from Reelables — 2 operation(s) for workspaces.
+  humanURL: https://docs.reelables.com/
+  baseURL: https://api.reelables.com/v1
+  tags:
+  - Workspaces
+  properties:
+  - type: OpenAPI
+    url: openapi/got-its-workspaces-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reelables.com/
+  - type: APIReference
+    url: https://docs.reelables.com/
+  - type: Documentation
+    url: https://partner-docs.reelables.com/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/got-its-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/got-its-agentic-access.yml
+- type: Authentication
+  url: authentication/got-its-authentication.yml
 - type: Website
   url: https://reelables.com
+- type: DeveloperPortal
+  url: https://docs.reelables.com/
+- type: Documentation
+  url: https://docs.reelables.com/
+- type: APIReference
+  url: https://docs.reelables.com/
+- type: GettingStarted
+  url: https://docs.reelables.com/topic/topic-getting-started
+- type: Support
+  url: mailto:support@reelables.com
+- type: SignUp
+  url: https://app.reelables.com/
+- type: Login
+  url: https://app.reelables.com/
+- type: ChangeLog
+  url: https://docs.reelables.com/changes
+- type: LLMsTxt
+  url: llms/got-its-llms.txt
+- type: MCPServer
+  url: mcp/got-its-mcp.yml
+- type: ChangeLog
+  url: changelog/got-its-changelog.yml
+  name: Changelog artifact
+- type: Lifecycle
+  url: lifecycle/got-its-lifecycle.yml
+- type: Conventions
+  url: conventions/got-its-conventions.yml
+- type: ErrorCatalog
+  url: errors/got-its-problem-types.yml
+- type: Conformance
+  url: conformance/got-its-conformance.yml
+- type: DataModel
+  url: data-model/got-its-data-model.yml
+- type: OAuthScopes
+  url: scopes/got-its-scopes.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

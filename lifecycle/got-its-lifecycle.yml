@@ -1,0 +1,31 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.reelables.com/topic/topic-versioning-and-backwards-compatibility
+versioning:
+  scheme: uri-path
+  current: v1
+  semver: true
+  docs: https://docs.reelables.com/topic/topic-versioning-and-backwards-compatibility
+  non_breaking_examples:
+  - Adding new API resources
+  - Adding new optional request parameters to existing methods
+  - Adding new properties to existing responses
+  - Reordering response properties
+  - Changing length/format of opaque strings (object IDs, error messages)
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: >-
+    Backwards-compatibility policy is documented, but no formal deprecation timeline, Sunset
+    header (RFC 8594), or Deprecation header support is published. Breaking changes are shipped
+    via a new major path version.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+status_page_notes: >-
+  No claimed Reelables status page was found. reelables.statuspage.io resolves to the generic
+  unclaimed Atlassian Statuspage default (no Reelables content), so no StatusPage pointer is
+  emitted.
+changelog: https://docs.reelables.com/changes
+deprecated_operations: []

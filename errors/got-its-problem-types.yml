@@ -1,0 +1,40 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/got-its-openapi-original.yml
+docs: https://docs.reelables.com/topic/topic-errors
+format: json-api-errors
+envelope:
+  container: errors
+  is_array: true
+  fields:
+  - {name: code, type: string, description: Application-specific error code}
+  - {name: id, type: string, description: Unique identifier for this occurrence of the problem}
+  - {name: title, type: string, description: Short human-readable summary of the problem}
+  - {name: detail, type: string, description: Human-readable explanation specific to this occurrence}
+  - {name: status, type: string, description: HTTP status code as a string}
+  media_type: application/json
+  notes: >-
+    JSON:API-style error envelope (errors[] array of objects). Not RFC 9457 problem+json. The
+    docs error topic illustrates a single error object; the OpenAPI ErrorResponse schema wraps
+    one-or-more error objects in an errors[] array.
+problems:
+- status: 401
+  title: Unauthorized
+  meaning: Missing or invalid OAuth2 access token.
+  remediation: Obtain a fresh bearer token from https://auth.reelables.com/oauth2/token.
+  occurrences: 45
+- status: 403
+  title: Forbidden
+  meaning: Authenticated principal lacks permission for the target Workspace/resource.
+  remediation: Verify role-based permissions in the relevant Workspace.
+  occurrences: 45
+- status: 404
+  title: Not Found
+  meaning: The referenced resource (asset, consignment, space, printer, etc.) does not exist.
+  remediation: Confirm the resource identifier.
+  occurrences: 35
+- status: 429
+  title: Too Many Requests
+  meaning: Rate limit exceeded.
+  remediation: Back off and retry; no Retry-After header is documented.
+  occurrences: 45

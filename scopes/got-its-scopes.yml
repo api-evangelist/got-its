@@ -1,0 +1,24 @@
+generated: '2026-07-19'
+method: searched
+source: openapi/got-its-openapi-original.yml
+docs: https://docs.reelables.com/authentication
+notes: >-
+  Reelables uses a single coarse-grained OAuth 2.0 client-credentials scope granting full
+  access to the Public API. Credentials (CLIENT_ID/CLIENT_SECRET) are provisioned by contacting
+  support@reelables.com; access tokens are valid for 1 hour. No finer-grained scope catalog is
+  published.
+schemes:
+- name: AuthEndpoint
+  source: openapi/got-its-openapi-original.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://auth.reelables.com/oauth2/token
+    authScheme: 'Basic base64(CLIENT_ID:CLIENT_SECRET)'
+    tokenLifetimeSeconds: 3600
+scopes:
+- scope: https://auth.reelables.com/full-access
+  description: Full access to the Public API
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/got-its-openapi-original.yml

@@ -1,0 +1,74 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/got-its-openapi-original.yml
+docs: https://docs.reelables.com/topic/topic-data-entities
+notes: >-
+  Entity graph derived from OpenAPI component schemas and endpoint nesting, cross-checked with
+  the published Data Entities topic. Workspace is the top-level permissions boundary; Assets,
+  Spaces, Printers, Consignments and Facilities exist within a Workspace.
+entities:
+- name: Workspace
+  description: Permissions boundary (organization/team) that owns all other resources.
+- name: Asset
+  description: A physical item being tracked; Labels are attached to Assets.
+- name: Label
+  description: A Reelables smart label producing signals detected by Gateways.
+- name: Space
+  description: A physical area (static or mobile) where Assets can be detected; characterized by a Gateway.
+- name: Gateway
+  description: A device that listens for signals from Labels.
+- name: Consignment
+  description: A collection of pieces (Assets) being tracked together, e.g. a shipment.
+- name: Piece
+  description: An Asset in the context of a Consignment.
+- name: Facility
+  description: A physical location comprised of one or more Spaces.
+- name: Printer
+  description: A device linked to a Workspace used to print/activate Labels.
+- name: PrintJob
+  description: A printing operation queued to a Printer.
+relationships:
+- from: Workspace
+  to: Asset
+  type: has_many
+  via: workspaceId
+- from: Workspace
+  to: Space
+  type: has_many
+  via: workspaceId
+- from: Workspace
+  to: Consignment
+  type: has_many
+  via: workspaceId
+- from: Workspace
+  to: Facility
+  type: has_many
+  via: workspaceId
+- from: Workspace
+  to: Printer
+  type: has_many
+  via: workspaceId
+- from: Asset
+  to: Label
+  type: has_many
+  via: bleId
+- from: Space
+  to: Gateway
+  type: has_one
+  via: gatewayId
+- from: Facility
+  to: Space
+  type: has_many
+  via: facilityId
+- from: Consignment
+  to: Piece
+  type: has_many
+  via: consignmentId
+- from: Piece
+  to: Asset
+  type: belongs_to
+  via: assetId
+- from: Printer
+  to: PrintJob
+  type: has_many
+  via: printJobId

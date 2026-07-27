@@ -1,0 +1,48 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Reelables API
+  version: 1.0.0
+extends: openapi/got-its-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-rating: 3
+    x-apievangelist-notes: >-
+      Enriched by the API Evangelist enrichment pipeline. Source spec (v1.3.11) is complete on
+      paths/schemas/responses but ships no operationIds and no tag descriptions; overlay records
+      recommended operationIds and cross-cutting conventions. OAuth2 client-credentials, cursor
+      pagination (limit + nextToken), JSON:API-style error envelope, 429 rate limiting.
+- target: $.tags
+  update:
+  - name: Assets
+    description: Retrieve, modify and delete tracked assets, their labels, and location/temperature/facility history.
+  - name: Consignments
+    description: Manage shipments (consignments) and their gateways and pieces.
+  - name: Facilities
+    description: Access facilities and their asset groups.
+  - name: Print jobs
+    description: Manage print jobs and their statuses.
+  - name: Printers
+    description: Queue print jobs to printers.
+  - name: Spaces
+    description: Create and manage physical spaces and their gateway associations.
+  - name: Workspaces
+    description: The permissions boundary that owns assets, consignments, facilities, templates and printers.
+- target: $.paths['/assets/{assetId}'].get
+  update:
+    operationId: getAsset
+- target: $.paths['/workspaces'].get
+  update:
+    operationId: listWorkspaces
+- target: $.paths['/workspaces/{workspaceId}/assets'].get
+  update:
+    operationId: listWorkspaceAssets
+- target: $.paths['/workspaces/{workspaceId}/assets'].post
+  update:
+    operationId: createWorkspaceAssets
+- target: $.paths['/assets/{assetId}/locations'].get
+  update:
+    operationId: getAssetLocations
+- target: $.paths['/consignments/{consignmentId}'].get
+  update:
+    operationId: getConsignment

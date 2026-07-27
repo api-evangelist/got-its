@@ -1,0 +1,57 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.reelables.com/
+authentication:
+  style: oauth2-client-credentials
+  token_url: https://auth.reelables.com/oauth2/token
+  header: 'Authorization: Bearer ACCESS_TOKEN'
+  token_lifetime_seconds: 3600
+  gateway_api: apiKey (x-api-key header)
+  ref: authentication/got-its-authentication.yml
+idempotency:
+  supported: false
+  notes: >-
+    No Idempotency-Key header or idempotent-retry contract is documented for write operations.
+pagination:
+  style: cursor
+  request_params:
+  - name: limit
+    in: query
+    description: Page size
+  - name: nextToken
+    in: query
+    description: Opaque pagination token returned by the previous page
+  response_fields:
+  - items
+  - nextToken
+  notes: List responses return an object with items[] and a nextToken continuation cursor.
+request_tracing:
+  header: request-id
+  in: header
+  description: >-
+    Client-supplied unique identifier for the API request (UUID), accepted on operations for
+    correlation/tracing.
+versioning:
+  style: uri-path
+  current: v1
+  ref: lifecycle/got-its-lifecycle.yml
+error_envelope:
+  shape: json:api-style
+  container: errors[]
+  fields: [code, id, title, detail, status]
+  media_type: application/json
+  ref: errors/got-its-problem-types.yml
+rate_limiting:
+  signal: 429 Too Many Requests
+  headers: []
+  notes: >-
+    Rate limiting is enforced and returns 429; no X-RateLimit-* or Retry-After headers are
+    documented.
+  ref: null
+filtering:
+  query_params:
+  - searchTerm
+  - trackingRef
+  - bleIds
+  - inSpaceIds
+  - summaryLocations
