@@ -436,6 +436,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/got-its-gateway-openapi-overlay.yaml
 - type: DomainSecurity
   url: security/got-its-domain-security.yml
 - type: AgenticAccess
