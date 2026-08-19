@@ -1,0 +1,158 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reelables Gateway Asset Facilities Assets API",
+    "version": "1.1.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.reelables.com/{basePath}/assets/:assetId",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Asset"
+              },
+              {
+                "name": "summaryLocations",
+                "value": "",
+                "type": "query",
+                "description": "Whether to return summary (merged) locations or raw locations. Default: false"
+              }
+            ]
+          },
+          "docs": "Get an Asset"
+        },
+        {
+          "info": {
+            "name": "Update an Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.reelables.com/{basePath}/assets/:assetId",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Asset"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an Asset"
+        },
+        {
+          "info": {
+            "name": "Delete an Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.reelables.com/{basePath}/assets/:assetId",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Asset"
+              }
+            ]
+          },
+          "docs": "Delete an Asset"
+        },
+        {
+          "info": {
+            "name": "List Assets in a Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.reelables.com/{basePath}/workspaces/:workspaceId/assets",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Workspace"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return. Default: 10. Maximum: 10000"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token to get next page of items"
+              },
+              {
+                "name": "inSpaceIds",
+                "value": "",
+                "type": "query",
+                "description": "Filter the Assets to those currently in a set of Spaces. Comma-separated list, for example: '?inSpaceIds={spaceId1},{spaceId2},{spaceId3}'"
+              },
+              {
+                "name": "bleIds",
+                "value": "",
+                "type": "query",
+                "description": "Filter the Assets to those linked to a set of labels, identified by their BLE_ID. Comma-separated list, for example: '?bleIds={bleId1},{bleId2},{bleId3}'"
+              },
+              {
+                "name": "searchTerm",
+                "value": "",
+                "type": "query",
+                "description": "String to match name of Assets"
+              }
+            ]
+          },
+          "docs": "List Assets in a Workspace"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

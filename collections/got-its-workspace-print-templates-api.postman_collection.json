@@ -1,0 +1,337 @@
+{
+  "item": [
+    {
+      "id": "aa976f18-ddc0-4670-a139-256497605a7f",
+      "name": "Workspace Print Templates",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "71fe5531-b77e-409a-bef3-4844564f1457",
+          "name": "List Print Templates in a Workspace",
+          "request": {
+            "name": "List Print Templates in a Workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "workspaces",
+                ":workspaceId",
+                "print-templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) The identifier of the Workspace"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "25e0e303-bb85-4a69-a9dc-ea9e7e3fdff8",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "print-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"templateId\": \"string\",\n      \"workspaceId\": \"fB6d125b-2b8A-DcD3-e534-C1B6bf54daF3\",\n      \"requiredParams\": \"p5kQSkM0H\"\n    },\n    {\n      \"templateId\": \"string\",\n      \"workspaceId\": \"D34B68F2-73ad-5dD8-fC15-2191C3DCCF02\",\n      \"requiredParams\": \"J1\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0a3b67b-bcc5-4ef8-bd96-e9fbebeba11d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "print-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"RQD-(\",\n      \"id\": \"#RQTnIo(T\",\n      \"detail\": \"VEVT+B,\",\n      \"title\": \"+(2nU\",\n      \"status\": \"\"\n    },\n    {\n      \"code\": \"Ocfjzs\",\n      \"id\": \"D$/.y4\",\n      \"detail\": \"GRLwAn5s!\",\n      \"title\": \"F\",\n      \"status\": \"067\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ffd1bd9-61e3-4d14-816f-2375e1ef19ad",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "print-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"n4ov\",\n      \"id\": \"bRdbi4xZ`\",\n      \"detail\": \"#ohwIG2fI\",\n      \"title\": \"3paSg\",\n      \"status\": \"591\"\n    },\n    {\n      \"code\": \"SueYPbeh\",\n      \"id\": \"LV9wQHHPhg\",\n      \"detail\": \"g,dBeDp,f,\",\n      \"title\": \"\",\n      \"status\": \"427\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "61375bc9-c173-4874-97ee-07872c578306",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "print-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"n4ov\",\n      \"id\": \"bRdbi4xZ`\",\n      \"detail\": \"#ohwIG2fI\",\n      \"title\": \"3paSg\",\n      \"status\": \"591\"\n    },\n    {\n      \"code\": \"SueYPbeh\",\n      \"id\": \"LV9wQHHPhg\",\n      \"detail\": \"g,dBeDp,f,\",\n      \"title\": \"\",\n      \"status\": \"427\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "gateway",
+      "key": "basePath"
+    },
+    {
+      "type": "string",
+      "value": "https://api.reelables.com/{{basePath}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e09c9f11-2892-4322-a43c-9fec0fcac053",
+    "name": "Reelables Gateway Asset Facilities Workspace Print Templates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for partners to send data to the Reelables platform from Gateway devices\n\nContact Support:\n Email: team@reelables.com",
+      "type": "text/plain"
+    }
+  }
+}

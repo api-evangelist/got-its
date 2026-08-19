@@ -1,0 +1,455 @@
+{
+  "item": [
+    {
+      "id": "62a54aca-bf6d-4e10-85fc-81e642f22926",
+      "name": "Asset Facilities",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "afedeaf3-43eb-4539-bc1d-f6ee54162d1f",
+          "name": "Get Facility history for an Asset",
+          "request": {
+            "name": "Get Facility history for an Asset",
+            "description": {},
+            "url": {
+              "path": [
+                "assets",
+                ":assetId",
+                "facilities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>",
+                  "description": "Number of items to return. Default: 10. Maximum: 10000"
+                },
+                {
+                  "disabled": false,
+                  "key": "nextToken",
+                  "value": "<string>",
+                  "description": "Pagination token to get next page of items"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) The identifier of the Asset"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "3d8d916b-a13b-4761-8e8f-adeaa2ca0edc",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId",
+                    "facilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"enteredOn\": \"-6T-:83880\",\n      \"facilityId\": \"B3db2f0F-04Af-CeE7-d351-fcEdc6D70270\",\n      \"facilityName\": \"vE88LTk\",\n      \"hasExited\": true,\n      \"exitedOn\": \"\",\n      \"userFacilityId\": \"string\"\n    },\n    {\n      \"enteredOn\": \"82756\",\n      \"facilityId\": \"9D1Dace2-85fB-EB8f-DbC0-cAb6BD275a9d\",\n      \"facilityName\": \"l$fX&ao\",\n      \"hasExited\": true,\n      \"exitedOn\": \"5T54-\",\n      \"userFacilityId\": \"string\"\n    }\n  ],\n  \"nextToken\": \"$@\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f23c6725-ffd5-44d3-9993-e5fadd63a98a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId",
+                    "facilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"DiWa$\",\n      \"id\": \",MI.yUU\",\n      \"detail\": \"W/G`1Wn\",\n      \"title\": \"x\\\"+T\",\n      \"status\": \"153\"\n    },\n    {\n      \"code\": \"8/\",\n      \"id\": \"rf\",\n      \"detail\": \"7\",\n      \"title\": \"ZO$hkM$DH\",\n      \"status\": \"633\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55f16b35-3bec-49d1-b95b-b14f8a25118c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId",
+                    "facilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"V3!C.foif\",\n      \"id\": \"m1J7!\",\n      \"detail\": \"\",\n      \"title\": \"Bui!n\",\n      \"status\": \"102\"\n    },\n    {\n      \"code\": \"#\",\n      \"id\": \"hs9E2\",\n      \"detail\": \"C\",\n      \"title\": \"w#LZ`\",\n      \"status\": \"252\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3d436d1-fa2d-4000-89a2-9a00cf10d7ac",
+              "name": "Asset not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId",
+                    "facilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"V3!C.foif\",\n      \"id\": \"m1J7!\",\n      \"detail\": \"\",\n      \"title\": \"Bui!n\",\n      \"status\": \"102\"\n    },\n    {\n      \"code\": \"#\",\n      \"id\": \"hs9E2\",\n      \"detail\": \"C\",\n      \"title\": \"w#LZ`\",\n      \"status\": \"252\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04337872-2f5f-4d9c-8780-deadadcba639",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId",
+                    "facilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"V3!C.foif\",\n      \"id\": \"m1J7!\",\n      \"detail\": \"\",\n      \"title\": \"Bui!n\",\n      \"status\": \"102\"\n    },\n    {\n      \"code\": \"#\",\n      \"id\": \"hs9E2\",\n      \"detail\": \"C\",\n      \"title\": \"w#LZ`\",\n      \"status\": \"252\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "gateway",
+      "key": "basePath"
+    },
+    {
+      "type": "string",
+      "value": "https://api.reelables.com/{{basePath}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "40323cd3-d1c5-4c8a-90eb-535735732ff8",
+    "name": "Reelables Gateway Asset Facilities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for partners to send data to the Reelables platform from Gateway devices\n\nContact Support:\n Email: team@reelables.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,749 @@
+{
+  "item": [
+    {
+      "id": "77df1ee9-6705-4d4c-8691-6029dc2913a9",
+      "name": "Workspace Spaces",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3a0b6213-2659-4726-8ea2-b66ca54d179f",
+          "name": "List spaces in a Workspace",
+          "request": {
+            "name": "List spaces in a Workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "workspaces",
+                ":workspaceId",
+                "spaces"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>",
+                  "description": "Number of items to return. Default: 10. Maximum: 10000"
+                },
+                {
+                  "disabled": false,
+                  "key": "nextToken",
+                  "value": "<string>",
+                  "description": "Pagination token to get next page of items"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchTerm",
+                  "value": "<string>",
+                  "description": "String to match name of Spaces"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) The identifier of the Workspace"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "ddda46df-90d0-43f8-8226-d1c96a7bea7f",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "spaces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"\",\n      \"name\": \"\",\n      \"workspaceId\": \"fFDe6391-D2d2-9fdb-Dc6b-8b8E0DB2670B\",\n      \"numberAssetsInSpace\": 842601,\n      \"facilityId\": \"fBD74bC8-9a2c-7D46-EFeC-b3350D8eEE7a\",\n      \"locations\": {\n        \"items\": [\n          {\n            \"coordinate\": {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"accuracy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"timestamp\": \"34966\",\n            \"lastSeenTimestamp\": \"\",\n            \"address\": {\n              \"country\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"road\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"city\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"district\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"postalCode\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"county\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"error\": 849575\n          },\n          {\n            \"coordinate\": {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"accuracy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"timestamp\": \"\",\n            \"lastSeenTimestamp\": \"42023343\",\n            \"address\": {\n              \"country\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"road\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"city\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"district\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"postalCode\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"county\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"error\": 545254\n          }\n        ],\n        \"nextToken\": \"9x\"\n      },\n      \"createdOn\": \"017-3\",\n      \"gateway\": {\n        \"addedOn\": \"89502-27\",\n        \"gatewayId\": \"9q281zNXS\",\n        \"shortId\": \"\",\n        \"isStatic\": true,\n        \"latitude\": -51.95443509463269,\n        \"hasPendingCommands\": false,\n        \"rssiFilter\": \"VERY_NEAR\",\n        \"deviceId\": \"2Zc1MkeB\",\n        \"productName\": \"\",\n        \"manufacturer\": \"G\",\n        \"longitude\": 148.8641286608248\n      }\n    },\n    {\n      \"id\": \"T9b_qeqA\",\n      \"name\": \"nq168,P\",\n      \"workspaceId\": \"5F6DCC5C-9bCC-B2bD-4337-9Cb30c1b1B84\",\n      \"numberAssetsInSpace\": 604728,\n      \"facilityId\": \"CAd5DfCb-DA1d-bcBd-7e7b-030929A32fD0\",\n      \"locations\": {\n        \"items\": [\n          {\n            \"coordinate\": {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"accuracy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"timestamp\": \"6T77-\",\n            \"lastSeenTimestamp\": \"3:26\",\n            \"address\": {\n              \"country\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"road\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"city\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"district\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"postalCode\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"county\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"error\": 217809\n          },\n          {\n            \"coordinate\": {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"accuracy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"timestamp\": \"2889343\",\n            \"lastSeenTimestamp\": \"91\",\n            \"address\": {\n              \"country\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"road\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"city\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"district\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"postalCode\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"county\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"error\": 805427\n          }\n        ],\n        \"nextToken\": \"qcPyalw\"\n      },\n      \"createdOn\": \"8:Z51776Z9\",\n      \"gateway\": {\n        \"addedOn\": \"18581240\",\n        \"gatewayId\": \"pC\",\n        \"shortId\": \"7\",\n        \"isStatic\": true,\n        \"latitude\": 76.05397394956753,\n        \"hasPendingCommands\": false,\n        \"rssiFilter\": \"VERY_NEAR\",\n        \"deviceId\": \"KdONYawt2\",\n        \"productName\": \"4.XlK.iS\",\n        \"manufacturer\": \"iEFH\",\n        \"longitude\": 128.48003520105254\n      }\n    }\n  ],\n  \"total\": 729817,\n  \"nextToken\": \"aQpyTot!hZ\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e098a5f5-6162-470b-90b4-ef726eb9ede0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "spaces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"(\",\n      \"id\": \"K\",\n      \"detail\": \"gNFK\",\n      \"title\": \"ptw\",\n      \"status\": \"96\"\n    },\n    {\n      \"code\": \"5J#f\",\n      \"id\": \"X\",\n      \"detail\": \"Y\",\n      \"title\": \"5fDCi7\",\n      \"status\": \"117\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87058e98-f988-4218-b07d-9542f01bf17e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "spaces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"v,Zm0s\",\n      \"id\": \"OZsDMP\",\n      \"detail\": \"J/i1`\",\n      \"title\": \"!ly!jq)yYY\",\n      \"status\": \"771\"\n    },\n    {\n      \"code\": \"HdCFkr-O(\",\n      \"id\": \"DEa\",\n      \"detail\": \"L\",\n      \"title\": \"PYdZvtR\",\n      \"status\": \"9\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e1dd6e4-c30e-40e7-9438-d7ba52ee79b0",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "spaces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"v,Zm0s\",\n      \"id\": \"OZsDMP\",\n      \"detail\": \"J/i1`\",\n      \"title\": \"!ly!jq)yYY\",\n      \"status\": \"771\"\n    },\n    {\n      \"code\": \"HdCFkr-O(\",\n      \"id\": \"DEa\",\n      \"detail\": \"L\",\n      \"title\": \"PYdZvtR\",\n      \"status\": \"9\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4acfdf0-d57a-4685-91f2-d2081f82257a",
+          "name": "Create new Spaces in Workspace",
+          "request": {
+            "name": "Create new Spaces in Workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "workspaces",
+                ":workspaceId",
+                "spaces"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) The identifier of the Workspace"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"spaces\": [\n    {\n      \"name\": \"<string>\",\n      \"gateway\": {\n        \"shortId\": \"<string>\",\n        \"isStatic\": \"<boolean>\",\n        \"registerGateway\": \"<boolean>\",\n        \"replaceExistingGateway\": \"<boolean>\",\n        \"latitude\": \"<float>\",\n        \"rssiFilter\": \"<string>\",\n        \"deviceId\": \"<string>\",\n        \"gatewayId\": \"<string>\",\n        \"productName\": \"<string>\",\n        \"manufacturer\": \"<string>\",\n        \"longitude\": \"<float>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"gateway\": {\n        \"shortId\": \"<string>\",\n        \"isStatic\": \"<boolean>\",\n        \"registerGateway\": \"<boolean>\",\n        \"replaceExistingGateway\": \"<boolean>\",\n        \"latitude\": \"<float>\",\n        \"rssiFilter\": \"<string>\",\n        \"deviceId\": \"<string>\",\n        \"gatewayId\": \"<string>\",\n        \"productName\": \"<string>\",\n        \"manufacturer\": \"<string>\",\n        \"longitude\": \"<float>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "51e1e0e6-84f1-4b17-8aad-48c93fe2dec7",
+              "name": "201 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "spaces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spaces\": [\n    {\n      \"name\": \"<string>\",\n      \"gateway\": {\n        \"shortId\": \"<string>\",\n        \"isStatic\": \"<boolean>\",\n        \"registerGateway\": \"<boolean>\",\n        \"replaceExistingGateway\": \"<boolean>\",\n        \"latitude\": \"<float>\",\n        \"rssiFilter\": \"<string>\",\n        \"deviceId\": \"<string>\",\n        \"gatewayId\": \"<string>\",\n        \"productName\": \"<string>\",\n        \"manufacturer\": \"<string>\",\n        \"longitude\": \"<float>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"gateway\": {\n        \"shortId\": \"<string>\",\n        \"isStatic\": \"<boolean>\",\n        \"registerGateway\": \"<boolean>\",\n        \"replaceExistingGateway\": \"<boolean>\",\n        \"latitude\": \"<float>\",\n        \"rssiFilter\": \"<string>\",\n        \"deviceId\": \"<string>\",\n        \"gatewayId\": \"<string>\",\n        \"productName\": \"<string>\",\n        \"manufacturer\": \"<string>\",\n        \"longitude\": \"<float>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"Z0LM\",\n      \"name\": \"63gbnCn5\",\n      \"workspaceId\": \"ff48dB2b-11c8-fe26-cA9d-B1D12a19b0bD\",\n      \"numberAssetsInSpace\": 656885,\n      \"facilityId\": \"3A502cD9-b26b-8D20-df54-87dAE4d321BC\",\n      \"locations\": {\n        \"items\": [\n          {\n            \"coordinate\": {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"accuracy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"timestamp\": \"888-8:9\",\n            \"lastSeenTimestamp\": \"6TT84T471\",\n            \"address\": {\n              \"country\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"road\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"city\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"district\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"postalCode\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"county\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"error\": 509590\n          },\n          {\n            \"coordinate\": {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"accuracy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"timestamp\": \"8\",\n            \"lastSeenTimestamp\": \"21\",\n            \"address\": {\n              \"country\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"road\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"city\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"district\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"postalCode\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"county\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"error\": 240969\n          }\n        ],\n        \"nextToken\": \"SeZKn\"\n      },\n      \"createdOn\": \"716147-82\",\n      \"gateway\": {\n        \"addedOn\": \"Z9\",\n        \"gatewayId\": \"f\",\n        \"shortId\": \"TjW8hY\",\n        \"isStatic\": false,\n        \"latitude\": -67.35678533029295,\n        \"hasPendingCommands\": false,\n        \"rssiFilter\": \"VERY_NEAR\",\n        \"deviceId\": \"KtM4kh6L\",\n        \"productName\": \"trVC\",\n        \"manufacturer\": \"i8WP1FOFCF\",\n        \"longitude\": -110.24824242211594\n      }\n    },\n    {\n      \"id\": \"pHGiMhuP\",\n      \"name\": \"ne,O 1lC\",\n      \"workspaceId\": \"6faC7EeE-aD93-2b3a-c1fA-2dDB74Cd382B\",\n      \"numberAssetsInSpace\": 50727,\n      \"facilityId\": \"0Ce90a5B-f636-D95a-10d2-1f0caDc2B2bA\",\n      \"locations\": {\n        \"items\": [\n          {\n            \"coordinate\": {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"accuracy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"timestamp\": \"808\",\n            \"lastSeenTimestamp\": \"T259-0\",\n            \"address\": {\n              \"country\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"road\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"city\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"district\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"postalCode\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"county\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"error\": 494218\n          },\n          {\n            \"coordinate\": {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"accuracy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"timestamp\": \"35Z4\",\n            \"lastSeenTimestamp\": \"9410::\",\n            \"address\": {\n              \"country\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"road\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"city\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"district\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"postalCode\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"county\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"error\": 475757\n          }\n        ],\n        \"nextToken\": \"\"\n      },\n      \"createdOn\": \"132T0-\",\n      \"gateway\": {\n        \"addedOn\": \"2Z\",\n        \"gatewayId\": \"Gn4O\",\n        \"shortId\": \"crIrI8\",\n        \"isStatic\": true,\n        \"latitude\": 41.98509649210183,\n        \"hasPendingCommands\": false,\n        \"rssiFilter\": \"FAR\",\n        \"deviceId\": \"\",\n        \"productName\": \"UlTW6iH\",\n        \"manufacturer\": \"OI\",\n        \"longitude\": 67.0666857820367\n      }\n    }\n  ],\n  \"total\": 25471,\n  \"nextToken\": \"W\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "596dfc6b-6eb0-4a20-a404-743a54282d10",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "spaces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spaces\": [\n    {\n      \"name\": \"<string>\",\n      \"gateway\": {\n        \"shortId\": \"<string>\",\n        \"isStatic\": \"<boolean>\",\n        \"registerGateway\": \"<boolean>\",\n        \"replaceExistingGateway\": \"<boolean>\",\n        \"latitude\": \"<float>\",\n        \"rssiFilter\": \"<string>\",\n        \"deviceId\": \"<string>\",\n        \"gatewayId\": \"<string>\",\n        \"productName\": \"<string>\",\n        \"manufacturer\": \"<string>\",\n        \"longitude\": \"<float>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"gateway\": {\n        \"shortId\": \"<string>\",\n        \"isStatic\": \"<boolean>\",\n        \"registerGateway\": \"<boolean>\",\n        \"replaceExistingGateway\": \"<boolean>\",\n        \"latitude\": \"<float>\",\n        \"rssiFilter\": \"<string>\",\n        \"deviceId\": \"<string>\",\n        \"gatewayId\": \"<string>\",\n        \"productName\": \"<string>\",\n        \"manufacturer\": \"<string>\",\n        \"longitude\": \"<float>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"v,Zm0s\",\n      \"id\": \"OZsDMP\",\n      \"detail\": \"J/i1`\",\n      \"title\": \"!ly!jq)yYY\",\n      \"status\": \"771\"\n    },\n    {\n      \"code\": \"HdCFkr-O(\",\n      \"id\": \"DEa\",\n      \"detail\": \"L\",\n      \"title\": \"PYdZvtR\",\n      \"status\": \"9\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51427cd3-80fc-46ab-8c53-faf404998605",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "spaces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spaces\": [\n    {\n      \"name\": \"<string>\",\n      \"gateway\": {\n        \"shortId\": \"<string>\",\n        \"isStatic\": \"<boolean>\",\n        \"registerGateway\": \"<boolean>\",\n        \"replaceExistingGateway\": \"<boolean>\",\n        \"latitude\": \"<float>\",\n        \"rssiFilter\": \"<string>\",\n        \"deviceId\": \"<string>\",\n        \"gatewayId\": \"<string>\",\n        \"productName\": \"<string>\",\n        \"manufacturer\": \"<string>\",\n        \"longitude\": \"<float>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"gateway\": {\n        \"shortId\": \"<string>\",\n        \"isStatic\": \"<boolean>\",\n        \"registerGateway\": \"<boolean>\",\n        \"replaceExistingGateway\": \"<boolean>\",\n        \"latitude\": \"<float>\",\n        \"rssiFilter\": \"<string>\",\n        \"deviceId\": \"<string>\",\n        \"gatewayId\": \"<string>\",\n        \"productName\": \"<string>\",\n        \"manufacturer\": \"<string>\",\n        \"longitude\": \"<float>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"v,Zm0s\",\n      \"id\": \"OZsDMP\",\n      \"detail\": \"J/i1`\",\n      \"title\": \"!ly!jq)yYY\",\n      \"status\": \"771\"\n    },\n    {\n      \"code\": \"HdCFkr-O(\",\n      \"id\": \"DEa\",\n      \"detail\": \"L\",\n      \"title\": \"PYdZvtR\",\n      \"status\": \"9\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d0823cb-d98d-42a2-8fe3-4644a214da32",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "spaces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spaces\": [\n    {\n      \"name\": \"<string>\",\n      \"gateway\": {\n        \"shortId\": \"<string>\",\n        \"isStatic\": \"<boolean>\",\n        \"registerGateway\": \"<boolean>\",\n        \"replaceExistingGateway\": \"<boolean>\",\n        \"latitude\": \"<float>\",\n        \"rssiFilter\": \"<string>\",\n        \"deviceId\": \"<string>\",\n        \"gatewayId\": \"<string>\",\n        \"productName\": \"<string>\",\n        \"manufacturer\": \"<string>\",\n        \"longitude\": \"<float>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"gateway\": {\n        \"shortId\": \"<string>\",\n        \"isStatic\": \"<boolean>\",\n        \"registerGateway\": \"<boolean>\",\n        \"replaceExistingGateway\": \"<boolean>\",\n        \"latitude\": \"<float>\",\n        \"rssiFilter\": \"<string>\",\n        \"deviceId\": \"<string>\",\n        \"gatewayId\": \"<string>\",\n        \"productName\": \"<string>\",\n        \"manufacturer\": \"<string>\",\n        \"longitude\": \"<float>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"v,Zm0s\",\n      \"id\": \"OZsDMP\",\n      \"detail\": \"J/i1`\",\n      \"title\": \"!ly!jq)yYY\",\n      \"status\": \"771\"\n    },\n    {\n      \"code\": \"HdCFkr-O(\",\n      \"id\": \"DEa\",\n      \"detail\": \"L\",\n      \"title\": \"PYdZvtR\",\n      \"status\": \"9\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "gateway",
+      "key": "basePath"
+    },
+    {
+      "type": "string",
+      "value": "https://api.reelables.com/{{basePath}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d272e7c8-bdda-4630-b140-425c7b7b878d",
+    "name": "Reelables Gateway Asset Facilities Workspace Spaces API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for partners to send data to the Reelables platform from Gateway devices\n\nContact Support:\n Email: team@reelables.com",
+      "type": "text/plain"
+    }
+  }
+}

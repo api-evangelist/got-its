@@ -1,0 +1,386 @@
+{
+  "item": [
+    {
+      "id": "37f034f2-f589-4a79-9508-d76bde3e5346",
+      "name": "Facility Asset Groups",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f4085eef-be7c-41b3-9999-3099ffb96186",
+          "name": "Get Asset Groups in a Facility",
+          "request": {
+            "name": "Get Asset Groups in a Facility",
+            "description": {},
+            "url": {
+              "path": [
+                "facilities",
+                ":facilityId",
+                "asset-groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>",
+                  "description": "Number of items to return. Default: 10. Maximum: 10000"
+                },
+                {
+                  "disabled": false,
+                  "key": "nextToken",
+                  "value": "<string>",
+                  "description": "Pagination token to get next page of items"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "facilityId",
+                  "description": "(Required) The identifier of the Facility"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "b028eee5-6af5-435b-aee1-525cd9625872",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "facilities",
+                    ":facilityId",
+                    "asset-groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "facilityId",
+                      "description": "(Required) The identifier of the Facility"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"Mr0XNDgFaW\",\n      \"name\": \"G&du!PN.&F\",\n      \"workspaceId\": \"632c5eb8-FD3a-6de8-d904-9f93C781f7CA\",\n      \"facilityId\": \"12e7D2bD-05A5-9Bc7-bC0E-23ac7Cbc39D2\",\n      \"availabilityThreshold\": 1359343580,\n      \"available\": true,\n      \"count\": 2052529621\n    },\n    {\n      \"id\": \"8laQ5,+\",\n      \"name\": \"r#rA1ftCm$\",\n      \"workspaceId\": \"0CeEc39d-388e-fC99-9e24-f69eF0Ec0921\",\n      \"facilityId\": \"EdE30401-1d2F-25fB-61D7-0E86fc7a3ad1\",\n      \"availabilityThreshold\": 1992174625,\n      \"available\": true,\n      \"count\": 1433011949\n    }\n  ],\n  \"nextToken\": \"mPDE&7,D,2\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ea887cb-57bc-4640-aaf5-5738bbf941a0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "facilities",
+                    ":facilityId",
+                    "asset-groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "facilityId",
+                      "description": "(Required) The identifier of the Facility"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"+AEy0`TP-d\",\n      \"id\": \"2i9BX\",\n      \"detail\": \"\",\n      \"title\": \"$B(#QU-.F\",\n      \"status\": \"973\"\n    },\n    {\n      \"code\": \"sF\",\n      \"id\": \"IOGyQz\",\n      \"detail\": \"\\\"bnJ9n)`o\",\n      \"title\": \"HiC\",\n      \"status\": \"882\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9990c2b6-078e-4c88-ae7d-465415f739f0",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "facilities",
+                    ":facilityId",
+                    "asset-groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "facilityId",
+                      "description": "(Required) The identifier of the Facility"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"&((D\",\n      \"id\": \"!D3WqB2ktu\",\n      \"detail\": \"A\",\n      \"title\": \"v\\\")\",\n      \"status\": \"249\"\n    },\n    {\n      \"code\": \"\",\n      \"id\": \"LxDb(G.E\",\n      \"detail\": \"N5#8n!4,\",\n      \"title\": \"9EV9Wu-v\",\n      \"status\": \"858\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a3682064-3048-4612-a567-b5372cb21478",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "facilities",
+                    ":facilityId",
+                    "asset-groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "facilityId",
+                      "description": "(Required) The identifier of the Facility"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"&((D\",\n      \"id\": \"!D3WqB2ktu\",\n      \"detail\": \"A\",\n      \"title\": \"v\\\")\",\n      \"status\": \"249\"\n    },\n    {\n      \"code\": \"\",\n      \"id\": \"LxDb(G.E\",\n      \"detail\": \"N5#8n!4,\",\n      \"title\": \"9EV9Wu-v\",\n      \"status\": \"858\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "gateway",
+      "key": "basePath"
+    },
+    {
+      "type": "string",
+      "value": "https://api.reelables.com/{{basePath}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0e7d4958-3225-4670-bf56-2538abcaf591",
+    "name": "Reelables Gateway Asset Facilities Facility Asset Groups API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for partners to send data to the Reelables platform from Gateway devices\n\nContact Support:\n Email: team@reelables.com",
+      "type": "text/plain"
+    }
+  }
+}

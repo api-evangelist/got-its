@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reelables Gateway Asset Facilities Workspace Facilities API",
+    "version": "1.1.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workspace Facilities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Facilities in a Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.reelables.com/{basePath}/workspaces/:workspaceId/facilities",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Workspace"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return. Default: 10. Maximum: 10000"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token to get next page of items"
+              }
+            ]
+          },
+          "docs": "List Facilities in a Workspace"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1560 @@
+{
+  "item": [
+    {
+      "id": "4fc18456-ff13-4ec1-a28a-6c7c705233fc",
+      "name": "Print Jobs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b1591be6-9615-432f-b5ea-8224cab09a96",
+          "name": "Get a Print Job",
+          "request": {
+            "name": "Get a Print Job",
+            "description": {},
+            "url": {
+              "path": [
+                "print-jobs",
+                ":printJobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "printJobId",
+                  "description": "(Required) The identifier of the Print Job"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "65527ccd-b525-46e5-99f6-0d46462fa9a0",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "print-jobs",
+                    ":printJobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printJobId",
+                      "description": "(Required) The identifier of the Print Job"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetId\": \"f6PG\",\n  \"createdAt\": \"\",\n  \"id\": \"1Bc14B24-11f3-1F01-b4BC-B7D7c39dD4Fc\",\n  \"origin\": \"-8nav\\\"6#7$\",\n  \"printerId\": \"2S8C\",\n  \"status\": \"`j6zg\",\n  \"workspaceId\": \"ECFc8a96-eCd5-4D6A-5C68-F3800F7fe1a0\",\n  \"replaceExistingLabel\": false,\n  \"includeCutLine\": false,\n  \"templateId\": \"string\",\n  \"isSuccessful\": false,\n  \"failureReason\": \"U5Y\",\n  \"updatedAt\": \"490-4:\",\n  \"isComplete\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c3d758b-c129-4f62-9b80-932e673e0dc5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "print-jobs",
+                    ":printJobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printJobId",
+                      "description": "(Required) The identifier of the Print Job"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"+\",\n      \"id\": \"!\",\n      \"detail\": \"JdNM2/sy\",\n      \"title\": \"kA$P@/\",\n      \"status\": \"5\"\n    },\n    {\n      \"code\": \"+YkhID\",\n      \"id\": \"MlX&e\",\n      \"detail\": \"5J\",\n      \"title\": \"fUsfJc \",\n      \"status\": \"521\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa07c57a-b660-4415-9ecb-66b3be666f2d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "print-jobs",
+                    ":printJobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printJobId",
+                      "description": "(Required) The identifier of the Print Job"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"r\\\"+,CU3F\",\n      \"id\": \"Njutdv\",\n      \"detail\": \"U+1FR1p4\",\n      \"title\": \"B9(n/8+c\",\n      \"status\": \"069\"\n    },\n    {\n      \"code\": \"C5\",\n      \"id\": \"9k\",\n      \"detail\": \"gH\",\n      \"title\": \"8N,3snwyb\",\n      \"status\": \"92\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01326479-e83c-427f-9eaf-314b60d3cc4d",
+              "name": "Printer or Print Job not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "print-jobs",
+                    ":printJobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printJobId",
+                      "description": "(Required) The identifier of the Print Job"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"r\\\"+,CU3F\",\n      \"id\": \"Njutdv\",\n      \"detail\": \"U+1FR1p4\",\n      \"title\": \"B9(n/8+c\",\n      \"status\": \"069\"\n    },\n    {\n      \"code\": \"C5\",\n      \"id\": \"9k\",\n      \"detail\": \"gH\",\n      \"title\": \"8N,3snwyb\",\n      \"status\": \"92\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "74d93493-ed5e-422c-9106-0bee72cd3511",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "print-jobs",
+                    ":printJobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printJobId",
+                      "description": "(Required) The identifier of the Print Job"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"r\\\"+,CU3F\",\n      \"id\": \"Njutdv\",\n      \"detail\": \"U+1FR1p4\",\n      \"title\": \"B9(n/8+c\",\n      \"status\": \"069\"\n    },\n    {\n      \"code\": \"C5\",\n      \"id\": \"9k\",\n      \"detail\": \"gH\",\n      \"title\": \"8N,3snwyb\",\n      \"status\": \"92\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ac443be-6e22-4162-80e6-85602cb8d409",
+          "name": "Cancel a Print Job",
+          "request": {
+            "name": "Cancel a Print Job",
+            "description": {},
+            "url": {
+              "path": [
+                "print-jobs",
+                ":printJobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "printJobId",
+                  "description": "(Required) The identifier of the Print Job"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "5f36ed94-1ed6-44b5-a612-1b4fed9b9874",
+              "name": "204 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "print-jobs",
+                    ":printJobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printJobId",
+                      "description": "(Required) The identifier of the Print Job"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "06457345-cfd6-4c41-bd03-eed888619ac3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "print-jobs",
+                    ":printJobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printJobId",
+                      "description": "(Required) The identifier of the Print Job"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"r\\\"+,CU3F\",\n      \"id\": \"Njutdv\",\n      \"detail\": \"U+1FR1p4\",\n      \"title\": \"B9(n/8+c\",\n      \"status\": \"069\"\n    },\n    {\n      \"code\": \"C5\",\n      \"id\": \"9k\",\n      \"detail\": \"gH\",\n      \"title\": \"8N,3snwyb\",\n      \"status\": \"92\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63ad3805-9cb3-47ff-aa21-50867a15a364",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "print-jobs",
+                    ":printJobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printJobId",
+                      "description": "(Required) The identifier of the Print Job"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"r\\\"+,CU3F\",\n      \"id\": \"Njutdv\",\n      \"detail\": \"U+1FR1p4\",\n      \"title\": \"B9(n/8+c\",\n      \"status\": \"069\"\n    },\n    {\n      \"code\": \"C5\",\n      \"id\": \"9k\",\n      \"detail\": \"gH\",\n      \"title\": \"8N,3snwyb\",\n      \"status\": \"92\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7d94a08-dfee-49d8-a40a-5c278a47349d",
+              "name": "Printer or Print Job not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "print-jobs",
+                    ":printJobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printJobId",
+                      "description": "(Required) The identifier of the Print Job"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"r\\\"+,CU3F\",\n      \"id\": \"Njutdv\",\n      \"detail\": \"U+1FR1p4\",\n      \"title\": \"B9(n/8+c\",\n      \"status\": \"069\"\n    },\n    {\n      \"code\": \"C5\",\n      \"id\": \"9k\",\n      \"detail\": \"gH\",\n      \"title\": \"8N,3snwyb\",\n      \"status\": \"92\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8cece1b1-19b8-42d1-b118-fb05a24d72a0",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "print-jobs",
+                    ":printJobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printJobId",
+                      "description": "(Required) The identifier of the Print Job"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"r\\\"+,CU3F\",\n      \"id\": \"Njutdv\",\n      \"detail\": \"U+1FR1p4\",\n      \"title\": \"B9(n/8+c\",\n      \"status\": \"069\"\n    },\n    {\n      \"code\": \"C5\",\n      \"id\": \"9k\",\n      \"detail\": \"gH\",\n      \"title\": \"8N,3snwyb\",\n      \"status\": \"92\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25caefe5-88ab-4a3b-853a-1fa996a6d71b",
+          "name": "Get Print Jobs for a Printer",
+          "request": {
+            "name": "Get Print Jobs for a Printer",
+            "description": {},
+            "url": {
+              "path": [
+                "printers",
+                ":printerId",
+                "print-jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>",
+                  "description": "Number of items to return. Default: 10. Maximum: 10000"
+                },
+                {
+                  "disabled": false,
+                  "key": "nextToken",
+                  "value": "<string>",
+                  "description": "Pagination token to get next page of items"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "printerId",
+                  "description": "(Required) The identifier of the Printer"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "f6de7f78-ed4a-4197-9291-47a508b2134a",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "printers",
+                    ":printerId",
+                    "print-jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printerId",
+                      "description": "(Required) The identifier of the Printer"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"assetId\": \"\",\n      \"createdAt\": \":8734TT3\",\n      \"id\": \"70CbceEc-0dfB-8AbE-AAb8-3704A7ff9A2a\",\n      \"origin\": \"xAHl\",\n      \"printerId\": \"5Zj0SnMZjW\",\n      \"status\": \"T0#\",\n      \"workspaceId\": \"02BaF857-418A-6450-e2D5-A67d8aAA7Bc9\",\n      \"replaceExistingLabel\": true,\n      \"includeCutLine\": false,\n      \"templateId\": \"string\",\n      \"isSuccessful\": false,\n      \"failureReason\": \"X`TkSu.\",\n      \"updatedAt\": \":T074:4Z\",\n      \"isComplete\": false\n    },\n    {\n      \"assetId\": \"mX-R\",\n      \"createdAt\": \"8:Z293857\",\n      \"id\": \"1D70CDdf-9CdF-E4Df-7eF2-FfccAEf8A43F\",\n      \"origin\": \"6v+&\",\n      \"printerId\": \"cHRhl\",\n      \"status\": \"iqdtpgg\",\n      \"workspaceId\": \"821e7C0b-Ef0E-5491-d3A3-b3ED9eb66bB9\",\n      \"replaceExistingLabel\": false,\n      \"includeCutLine\": true,\n      \"templateId\": \"string\",\n      \"isSuccessful\": true,\n      \"failureReason\": \"trhQ\",\n      \"updatedAt\": \"79Z4838--3\",\n      \"isComplete\": true\n    }\n  ],\n  \"nextToken\": \"4XroX\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9420dbc3-2fd6-4974-9b3b-8ecd2094a041",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "printers",
+                    ":printerId",
+                    "print-jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printerId",
+                      "description": "(Required) The identifier of the Printer"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"r\\\"+,CU3F\",\n      \"id\": \"Njutdv\",\n      \"detail\": \"U+1FR1p4\",\n      \"title\": \"B9(n/8+c\",\n      \"status\": \"069\"\n    },\n    {\n      \"code\": \"C5\",\n      \"id\": \"9k\",\n      \"detail\": \"gH\",\n      \"title\": \"8N,3snwyb\",\n      \"status\": \"92\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b543b38-03b3-4528-a28c-9d29b3fa8dea",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "printers",
+                    ":printerId",
+                    "print-jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printerId",
+                      "description": "(Required) The identifier of the Printer"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"r\\\"+,CU3F\",\n      \"id\": \"Njutdv\",\n      \"detail\": \"U+1FR1p4\",\n      \"title\": \"B9(n/8+c\",\n      \"status\": \"069\"\n    },\n    {\n      \"code\": \"C5\",\n      \"id\": \"9k\",\n      \"detail\": \"gH\",\n      \"title\": \"8N,3snwyb\",\n      \"status\": \"92\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e1b1db4-b457-44b5-9850-a13d41a76703",
+              "name": "Printer not found in workspace",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "printers",
+                    ":printerId",
+                    "print-jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printerId",
+                      "description": "(Required) The identifier of the Printer"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"r\\\"+,CU3F\",\n      \"id\": \"Njutdv\",\n      \"detail\": \"U+1FR1p4\",\n      \"title\": \"B9(n/8+c\",\n      \"status\": \"069\"\n    },\n    {\n      \"code\": \"C5\",\n      \"id\": \"9k\",\n      \"detail\": \"gH\",\n      \"title\": \"8N,3snwyb\",\n      \"status\": \"92\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3dfa6f2d-e63e-45e8-bf7c-7e7969cf5c9a",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "printers",
+                    ":printerId",
+                    "print-jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printerId",
+                      "description": "(Required) The identifier of the Printer"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"r\\\"+,CU3F\",\n      \"id\": \"Njutdv\",\n      \"detail\": \"U+1FR1p4\",\n      \"title\": \"B9(n/8+c\",\n      \"status\": \"069\"\n    },\n    {\n      \"code\": \"C5\",\n      \"id\": \"9k\",\n      \"detail\": \"gH\",\n      \"title\": \"8N,3snwyb\",\n      \"status\": \"92\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ba0d167-057f-45c4-800d-6c3eebfcea63",
+          "name": "Send Print Jobs to a Printer",
+          "request": {
+            "name": "Send Print Jobs to a Printer",
+            "description": {},
+            "url": {
+              "path": [
+                "printers",
+                ":printerId",
+                "print-jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "printerId",
+                  "description": "(Required) The identifier of the Printer"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"printJobs\": [\n    {\n      \"assetId\": \"<string>\",\n      \"replaceExistingLabel\": \"<boolean>\",\n      \"templateParams\": {\n        \"key_0\": 1682.7160525182428\n      },\n      \"templateId\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"replaceExistingLabel\": \"<boolean>\",\n      \"templateParams\": {\n        \"key_0\": 8659,\n        \"key_1\": \"string\"\n      },\n      \"templateId\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0666729e-b24c-451f-9546-a4fd8cbc1fa3",
+              "name": "201 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "printers",
+                    ":printerId",
+                    "print-jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printerId",
+                      "description": "(Required) The identifier of the Printer"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"printJobs\": [\n    {\n      \"assetId\": \"<string>\",\n      \"replaceExistingLabel\": \"<boolean>\",\n      \"templateParams\": {\n        \"key_0\": false\n      },\n      \"templateId\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"replaceExistingLabel\": \"<boolean>\",\n      \"templateParams\": {\n        \"key_0\": 7820.826391679695,\n        \"key_1\": 4878.460027382476\n      },\n      \"templateId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"assetId\": \"B\",\n      \"createdAt\": \"7\",\n      \"id\": \"9adCfc57-7Bbf-B157-649B-4B2CCddec56E\",\n      \"origin\": \"cA\",\n      \"printerId\": \"qOpRh\",\n      \"status\": \"-L0ZroMinx\",\n      \"workspaceId\": \"413aeEF2-cbcC-828a-f4B6-7bdEFbd39ef9\",\n      \"replaceExistingLabel\": true,\n      \"includeCutLine\": false,\n      \"templateId\": \"string\",\n      \"isSuccessful\": true,\n      \"failureReason\": \"ZAC2.D 07\",\n      \"updatedAt\": \"11\",\n      \"isComplete\": false\n    },\n    {\n      \"assetId\": \"Wi\",\n      \"createdAt\": \"2-940\",\n      \"id\": \"b0fFf0Db-1b9c-bB4d-744c-Be8cDaB34C07\",\n      \"origin\": \"N\",\n      \"printerId\": \"-n\",\n      \"status\": \"em#2P\",\n      \"workspaceId\": \"D8eE5bbf-f4E7-9BD9-Cd8D-3fcbD9b12fd6\",\n      \"replaceExistingLabel\": false,\n      \"includeCutLine\": false,\n      \"templateId\": \"string\",\n      \"isSuccessful\": true,\n      \"failureReason\": \"/c8\",\n      \"updatedAt\": \"21:2-84863\",\n      \"isComplete\": true\n    }\n  ],\n  \"nextToken\": \"75Asi2w\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0398c5f8-6a2f-4839-a419-039b260fe3c6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "printers",
+                    ":printerId",
+                    "print-jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printerId",
+                      "description": "(Required) The identifier of the Printer"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"printJobs\": [\n    {\n      \"assetId\": \"<string>\",\n      \"replaceExistingLabel\": \"<boolean>\",\n      \"templateParams\": {\n        \"key_0\": false\n      },\n      \"templateId\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"replaceExistingLabel\": \"<boolean>\",\n      \"templateParams\": {\n        \"key_0\": 7820.826391679695,\n        \"key_1\": 4878.460027382476\n      },\n      \"templateId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"r\\\"+,CU3F\",\n      \"id\": \"Njutdv\",\n      \"detail\": \"U+1FR1p4\",\n      \"title\": \"B9(n/8+c\",\n      \"status\": \"069\"\n    },\n    {\n      \"code\": \"C5\",\n      \"id\": \"9k\",\n      \"detail\": \"gH\",\n      \"title\": \"8N,3snwyb\",\n      \"status\": \"92\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef85eb5b-a25c-4427-a096-58b74e604444",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "printers",
+                    ":printerId",
+                    "print-jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printerId",
+                      "description": "(Required) The identifier of the Printer"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"printJobs\": [\n    {\n      \"assetId\": \"<string>\",\n      \"replaceExistingLabel\": \"<boolean>\",\n      \"templateParams\": {\n        \"key_0\": false\n      },\n      \"templateId\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"replaceExistingLabel\": \"<boolean>\",\n      \"templateParams\": {\n        \"key_0\": 7820.826391679695,\n        \"key_1\": 4878.460027382476\n      },\n      \"templateId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"r\\\"+,CU3F\",\n      \"id\": \"Njutdv\",\n      \"detail\": \"U+1FR1p4\",\n      \"title\": \"B9(n/8+c\",\n      \"status\": \"069\"\n    },\n    {\n      \"code\": \"C5\",\n      \"id\": \"9k\",\n      \"detail\": \"gH\",\n      \"title\": \"8N,3snwyb\",\n      \"status\": \"92\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "639ac042-5f11-4c8c-b6ce-421076e49581",
+              "name": "Printer not found in workspace",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "printers",
+                    ":printerId",
+                    "print-jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printerId",
+                      "description": "(Required) The identifier of the Printer"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"printJobs\": [\n    {\n      \"assetId\": \"<string>\",\n      \"replaceExistingLabel\": \"<boolean>\",\n      \"templateParams\": {\n        \"key_0\": false\n      },\n      \"templateId\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"replaceExistingLabel\": \"<boolean>\",\n      \"templateParams\": {\n        \"key_0\": 7820.826391679695,\n        \"key_1\": 4878.460027382476\n      },\n      \"templateId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"r\\\"+,CU3F\",\n      \"id\": \"Njutdv\",\n      \"detail\": \"U+1FR1p4\",\n      \"title\": \"B9(n/8+c\",\n      \"status\": \"069\"\n    },\n    {\n      \"code\": \"C5\",\n      \"id\": \"9k\",\n      \"detail\": \"gH\",\n      \"title\": \"8N,3snwyb\",\n      \"status\": \"92\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7dbd2782-3bad-4472-9c2a-4c76f1a6a985",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "printers",
+                    ":printerId",
+                    "print-jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "printerId",
+                      "description": "(Required) The identifier of the Printer"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"printJobs\": [\n    {\n      \"assetId\": \"<string>\",\n      \"replaceExistingLabel\": \"<boolean>\",\n      \"templateParams\": {\n        \"key_0\": false\n      },\n      \"templateId\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"replaceExistingLabel\": \"<boolean>\",\n      \"templateParams\": {\n        \"key_0\": 7820.826391679695,\n        \"key_1\": 4878.460027382476\n      },\n      \"templateId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"r\\\"+,CU3F\",\n      \"id\": \"Njutdv\",\n      \"detail\": \"U+1FR1p4\",\n      \"title\": \"B9(n/8+c\",\n      \"status\": \"069\"\n    },\n    {\n      \"code\": \"C5\",\n      \"id\": \"9k\",\n      \"detail\": \"gH\",\n      \"title\": \"8N,3snwyb\",\n      \"status\": \"92\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "gateway",
+      "key": "basePath"
+    },
+    {
+      "type": "string",
+      "value": "https://api.reelables.com/{{basePath}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cfb57dfa-182c-46da-a4b8-8e3138fb3ad8",
+    "name": "Reelables Gateway Asset Facilities Print Jobs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for partners to send data to the Reelables platform from Gateway devices\n\nContact Support:\n Email: team@reelables.com",
+      "type": "text/plain"
+    }
+  }
+}

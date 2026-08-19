@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reelables Gateway Asset Facilities Space Gateways API",
+    "version": "1.1.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Space Gateways",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Link a Gateway to a Space",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.reelables.com/{basePath}/spaces/:spaceId/gateways",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "spaceId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Space"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Link a Gateway to a Space"
+        },
+        {
+          "info": {
+            "name": "Update a Gateway",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.reelables.com/{basePath}/spaces/:spaceId/gateways/:gatewayId",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "spaceId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Space"
+              },
+              {
+                "name": "gatewayId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Gateway"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a Gateway"
+        },
+        {
+          "info": {
+            "name": "Unlink a Gateway from a Space",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.reelables.com/{basePath}/spaces/:spaceId/gateways/:gatewayId",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "spaceId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Space"
+              },
+              {
+                "name": "gatewayId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Gateway"
+              }
+            ]
+          },
+          "docs": "Unlink a Gateway from a Space"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

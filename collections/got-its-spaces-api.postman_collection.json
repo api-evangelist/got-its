@@ -1,0 +1,1140 @@
+{
+  "item": [
+    {
+      "id": "2040d6d5-6719-4272-bec2-89277be2e166",
+      "name": "Spaces",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "984f8053-5206-408e-9551-3a0a14176f82",
+          "name": "Get a Space",
+          "request": {
+            "name": "Get a Space",
+            "description": {},
+            "url": {
+              "path": [
+                "spaces",
+                ":spaceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "spaceId",
+                  "description": "(Required) The identifier of the Space"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "990bacb6-5de6-446f-a363-4feef6f2e77b",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"cs\",\n  \"name\": \"sCt\",\n  \"workspaceId\": \"D004E3F9-1cB0-1EBE-e462-FFc463aEc50a\",\n  \"numberAssetsInSpace\": 591564,\n  \"facilityId\": \"6f8D3BA9-ec59-fDFa-260F-8ECFFcbFA9ad\",\n  \"locations\": {\n    \"items\": [\n      {\n        \"coordinate\": {\n          \"latitude\": 87.40831822916223,\n          \"longitude\": 116.16225256123136,\n          \"accuracy\": 835436\n        },\n        \"timestamp\": \"8579968\",\n        \"lastSeenTimestamp\": \"780Z\",\n        \"address\": {\n          \"country\": \"string\",\n          \"road\": \"string\",\n          \"city\": \"string\",\n          \"district\": \"string\",\n          \"postalCode\": \"string\",\n          \"county\": \"string\",\n          \"state\": \"string\"\n        },\n        \"error\": 326937\n      },\n      {\n        \"coordinate\": {\n          \"latitude\": 28.269876582999217,\n          \"longitude\": -27.6679867024377,\n          \"accuracy\": 338864\n        },\n        \"timestamp\": \"\",\n        \"lastSeenTimestamp\": \"75\",\n        \"address\": {\n          \"country\": \"string\",\n          \"road\": \"string\",\n          \"city\": \"string\",\n          \"district\": \"string\",\n          \"postalCode\": \"string\",\n          \"county\": \"string\",\n          \"state\": \"string\"\n        },\n        \"error\": 142314\n      }\n    ],\n    \"nextToken\": \"$Ym&\"\n  },\n  \"createdOn\": \"\",\n  \"gateway\": {\n    \"addedOn\": \"17:6079229\",\n    \"gatewayId\": \"ckBX\",\n    \"shortId\": \"TKu\",\n    \"isStatic\": false,\n    \"latitude\": -50.512472756768055,\n    \"hasPendingCommands\": false,\n    \"rssiFilter\": \"NEAR\",\n    \"deviceId\": \"wz\",\n    \"productName\": \"\",\n    \"manufacturer\": \"Q\",\n    \"longitude\": -61.621915532019926\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e4f15bc1-d7f6-47e7-a896-4b34fd408f97",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"O2LJu8SG\",\n      \"id\": \"0vXl3\",\n      \"detail\": \"(3d\",\n      \"title\": \"Y\",\n      \"status\": \"254\"\n    },\n    {\n      \"code\": \"QV/s192\",\n      \"id\": \"X5Z&#hiUuJ\",\n      \"detail\": \"\",\n      \"title\": \"7X,dG#2OhB\",\n      \"status\": \"352\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d35e516-533b-4cef-8af0-c864aae7e792",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"S\\\"th(xz\",\n      \"id\": \")R2/c8l0qV\",\n      \"detail\": \"GdAN8HS\",\n      \"title\": \",B\",\n      \"status\": \"694\"\n    },\n    {\n      \"code\": \"AEO1i$\",\n      \"id\": \"\",\n      \"detail\": \"IKT\",\n      \"title\": \"Q\",\n      \"status\": \"269\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7728fc9-277f-433a-bb52-6f3303c45ebb",
+              "name": "Space not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"S\\\"th(xz\",\n      \"id\": \")R2/c8l0qV\",\n      \"detail\": \"GdAN8HS\",\n      \"title\": \",B\",\n      \"status\": \"694\"\n    },\n    {\n      \"code\": \"AEO1i$\",\n      \"id\": \"\",\n      \"detail\": \"IKT\",\n      \"title\": \"Q\",\n      \"status\": \"269\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d0ada9f-6acf-4737-8ef4-97857b668ee1",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"S\\\"th(xz\",\n      \"id\": \")R2/c8l0qV\",\n      \"detail\": \"GdAN8HS\",\n      \"title\": \",B\",\n      \"status\": \"694\"\n    },\n    {\n      \"code\": \"AEO1i$\",\n      \"id\": \"\",\n      \"detail\": \"IKT\",\n      \"title\": \"Q\",\n      \"status\": \"269\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73ce5383-02ef-4b08-a222-5fd989774e82",
+          "name": "Update a Space",
+          "request": {
+            "name": "Update a Space",
+            "description": {},
+            "url": {
+              "path": [
+                "spaces",
+                ":spaceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "spaceId",
+                  "description": "(Required) The identifier of the Space"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "737d1301-0383-4dba-a451-d215aa62206e",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"cs\",\n  \"name\": \"sCt\",\n  \"workspaceId\": \"D004E3F9-1cB0-1EBE-e462-FFc463aEc50a\",\n  \"numberAssetsInSpace\": 591564,\n  \"facilityId\": \"6f8D3BA9-ec59-fDFa-260F-8ECFFcbFA9ad\",\n  \"locations\": {\n    \"items\": [\n      {\n        \"coordinate\": {\n          \"latitude\": 87.40831822916223,\n          \"longitude\": 116.16225256123136,\n          \"accuracy\": 835436\n        },\n        \"timestamp\": \"8579968\",\n        \"lastSeenTimestamp\": \"780Z\",\n        \"address\": {\n          \"country\": \"string\",\n          \"road\": \"string\",\n          \"city\": \"string\",\n          \"district\": \"string\",\n          \"postalCode\": \"string\",\n          \"county\": \"string\",\n          \"state\": \"string\"\n        },\n        \"error\": 326937\n      },\n      {\n        \"coordinate\": {\n          \"latitude\": 28.269876582999217,\n          \"longitude\": -27.6679867024377,\n          \"accuracy\": 338864\n        },\n        \"timestamp\": \"\",\n        \"lastSeenTimestamp\": \"75\",\n        \"address\": {\n          \"country\": \"string\",\n          \"road\": \"string\",\n          \"city\": \"string\",\n          \"district\": \"string\",\n          \"postalCode\": \"string\",\n          \"county\": \"string\",\n          \"state\": \"string\"\n        },\n        \"error\": 142314\n      }\n    ],\n    \"nextToken\": \"$Ym&\"\n  },\n  \"createdOn\": \"\",\n  \"gateway\": {\n    \"addedOn\": \"17:6079229\",\n    \"gatewayId\": \"ckBX\",\n    \"shortId\": \"TKu\",\n    \"isStatic\": false,\n    \"latitude\": -50.512472756768055,\n    \"hasPendingCommands\": false,\n    \"rssiFilter\": \"NEAR\",\n    \"deviceId\": \"wz\",\n    \"productName\": \"\",\n    \"manufacturer\": \"Q\",\n    \"longitude\": -61.621915532019926\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3296805a-9e29-4315-972b-06e99615ef8c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"S\\\"th(xz\",\n      \"id\": \")R2/c8l0qV\",\n      \"detail\": \"GdAN8HS\",\n      \"title\": \",B\",\n      \"status\": \"694\"\n    },\n    {\n      \"code\": \"AEO1i$\",\n      \"id\": \"\",\n      \"detail\": \"IKT\",\n      \"title\": \"Q\",\n      \"status\": \"269\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d86b75f-4729-499c-9650-927e41c07cbe",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"S\\\"th(xz\",\n      \"id\": \")R2/c8l0qV\",\n      \"detail\": \"GdAN8HS\",\n      \"title\": \",B\",\n      \"status\": \"694\"\n    },\n    {\n      \"code\": \"AEO1i$\",\n      \"id\": \"\",\n      \"detail\": \"IKT\",\n      \"title\": \"Q\",\n      \"status\": \"269\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3f802afe-47a3-47bc-a2f7-86f023d204a7",
+              "name": "Space not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"S\\\"th(xz\",\n      \"id\": \")R2/c8l0qV\",\n      \"detail\": \"GdAN8HS\",\n      \"title\": \",B\",\n      \"status\": \"694\"\n    },\n    {\n      \"code\": \"AEO1i$\",\n      \"id\": \"\",\n      \"detail\": \"IKT\",\n      \"title\": \"Q\",\n      \"status\": \"269\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f321baa1-d20e-4cac-8772-61fbaf7f583b",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"S\\\"th(xz\",\n      \"id\": \")R2/c8l0qV\",\n      \"detail\": \"GdAN8HS\",\n      \"title\": \",B\",\n      \"status\": \"694\"\n    },\n    {\n      \"code\": \"AEO1i$\",\n      \"id\": \"\",\n      \"detail\": \"IKT\",\n      \"title\": \"Q\",\n      \"status\": \"269\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9191ba8-4f6e-4c9d-8a59-8e43f6b708c5",
+          "name": "Delete a Space",
+          "request": {
+            "name": "Delete a Space",
+            "description": {},
+            "url": {
+              "path": [
+                "spaces",
+                ":spaceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "spaceId",
+                  "description": "(Required) The identifier of the Space"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "6f56f142-be26-4098-8d8b-4eef0d5b49de",
+              "name": "204 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cb083fbf-c8cb-425e-9d70-734d85c7b962",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"S\\\"th(xz\",\n      \"id\": \")R2/c8l0qV\",\n      \"detail\": \"GdAN8HS\",\n      \"title\": \",B\",\n      \"status\": \"694\"\n    },\n    {\n      \"code\": \"AEO1i$\",\n      \"id\": \"\",\n      \"detail\": \"IKT\",\n      \"title\": \"Q\",\n      \"status\": \"269\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27dcb246-cf2a-4418-85ae-968d2e9e7378",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"S\\\"th(xz\",\n      \"id\": \")R2/c8l0qV\",\n      \"detail\": \"GdAN8HS\",\n      \"title\": \",B\",\n      \"status\": \"694\"\n    },\n    {\n      \"code\": \"AEO1i$\",\n      \"id\": \"\",\n      \"detail\": \"IKT\",\n      \"title\": \"Q\",\n      \"status\": \"269\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b066b169-6e18-4197-a68d-47dc7fa1138a",
+              "name": "Space not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"S\\\"th(xz\",\n      \"id\": \")R2/c8l0qV\",\n      \"detail\": \"GdAN8HS\",\n      \"title\": \",B\",\n      \"status\": \"694\"\n    },\n    {\n      \"code\": \"AEO1i$\",\n      \"id\": \"\",\n      \"detail\": \"IKT\",\n      \"title\": \"Q\",\n      \"status\": \"269\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a2f0eb6-dc48-4cdd-bdef-b2df8d3347f1",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"S\\\"th(xz\",\n      \"id\": \")R2/c8l0qV\",\n      \"detail\": \"GdAN8HS\",\n      \"title\": \",B\",\n      \"status\": \"694\"\n    },\n    {\n      \"code\": \"AEO1i$\",\n      \"id\": \"\",\n      \"detail\": \"IKT\",\n      \"title\": \"Q\",\n      \"status\": \"269\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "gateway",
+      "key": "basePath"
+    },
+    {
+      "type": "string",
+      "value": "https://api.reelables.com/{{basePath}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4e62ab4d-1f0c-4321-a8df-993da6492fde",
+    "name": "Reelables Gateway Asset Facilities Spaces API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for partners to send data to the Reelables platform from Gateway devices\n\nContact Support:\n Email: team@reelables.com",
+      "type": "text/plain"
+    }
+  }
+}

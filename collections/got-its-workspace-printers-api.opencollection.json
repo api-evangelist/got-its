@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reelables Gateway Asset Facilities Workspace Printers API",
+    "version": "1.1.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workspace Printers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Printers in a Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.reelables.com/{basePath}/workspaces/:workspaceId/printers",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Workspace"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return. Default: 10. Maximum: 10000"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token to get next page of items"
+              }
+            ]
+          },
+          "docs": "List Printers in a Workspace"
+        },
+        {
+          "info": {
+            "name": "Get a Printer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.reelables.com/{basePath}/workspaces/:workspaceId/printers/:printerId",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Workspace"
+              },
+              {
+                "name": "printerId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Printer"
+              }
+            ]
+          },
+          "docs": "Get a Printer"
+        },
+        {
+          "info": {
+            "name": "Update a Printer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.reelables.com/{basePath}/workspaces/:workspaceId/printers/:printerId",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Workspace"
+              },
+              {
+                "name": "printerId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Printer"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a Printer"
+        },
+        {
+          "info": {
+            "name": "Remove a Printer from a Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.reelables.com/{basePath}/workspaces/:workspaceId/printers/:printerId",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Workspace"
+              },
+              {
+                "name": "printerId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Printer"
+              }
+            ]
+          },
+          "docs": "Remove a Printer from a Workspace"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

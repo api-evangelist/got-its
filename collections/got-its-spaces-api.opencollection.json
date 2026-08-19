@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reelables Gateway Asset Facilities Spaces API",
+    "version": "1.1.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Spaces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a Space",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.reelables.com/{basePath}/spaces/:spaceId",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "spaceId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Space"
+              }
+            ]
+          },
+          "docs": "Get a Space"
+        },
+        {
+          "info": {
+            "name": "Update a Space",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.reelables.com/{basePath}/spaces/:spaceId",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "spaceId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Space"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a Space"
+        },
+        {
+          "info": {
+            "name": "Delete a Space",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.reelables.com/{basePath}/spaces/:spaceId",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "spaceId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Space"
+              }
+            ]
+          },
+          "docs": "Delete a Space"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

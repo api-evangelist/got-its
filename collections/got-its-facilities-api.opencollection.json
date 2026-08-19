@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reelables Gateway Asset Facilities API",
+    "version": "1.1.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Facilities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a Facility",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.reelables.com/{basePath}/facilities/:facilityId",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "facilityId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Facility"
+              }
+            ]
+          },
+          "docs": "Get a Facility"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

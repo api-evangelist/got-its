@@ -1,0 +1,1583 @@
+{
+  "item": [
+    {
+      "id": "36090e76-8f51-49dd-ad46-d27da38e377a",
+      "name": "Assets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cca128c9-864b-4125-8a43-f1a71c21c93e",
+          "name": "Get an Asset",
+          "request": {
+            "name": "Get an Asset",
+            "description": {},
+            "url": {
+              "path": [
+                "assets",
+                ":assetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "summaryLocations",
+                  "value": "<string>",
+                  "description": "Whether to return summary (merged) locations or raw locations. Default: false"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) The identifier of the Asset"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "7be9e485-4a34-40a5-bce7-aa61a9853e88",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "summaryLocations",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"DpGzL71hk\",\n  \"name\": \"\\\"j64@-\",\n  \"workspaceId\": \"0dedcEfE-DbD4-5bba-0Cd2-Bb1ecaadd60a\",\n  \"inSpaces\": [\n    {\n      \"enteredOn\": \"31T2\",\n      \"spaceId\": \"d\",\n      \"spaceName\": \"\",\n      \"hasExited\": false,\n      \"exitedOn\": \"\"\n    },\n    {\n      \"enteredOn\": \"T0Z792\",\n      \"spaceId\": \"2\",\n      \"spaceName\": \"te$53-C,\",\n      \"hasExited\": false,\n      \"exitedOn\": \"\"\n    }\n  ],\n  \"temperatures\": {\n    \"items\": [\n      {\n        \"degreesCelsius\": 410.27668308358943,\n        \"timestamp\": \"4:\"\n      },\n      {\n        \"degreesCelsius\": 246.75941232652968,\n        \"timestamp\": \"164\"\n      }\n    ],\n    \"nextToken\": \"B,S1F/d+\"\n  },\n  \"locations\": {\n    \"items\": [\n      {\n        \"coordinate\": {\n          \"latitude\": 71.44935322041445,\n          \"longitude\": -133.46131736662414,\n          \"accuracy\": 89451\n        },\n        \"timestamp\": \"T4960T77\",\n        \"lastSeenTimestamp\": \"2548:3:\",\n        \"address\": {\n          \"country\": \"string\",\n          \"road\": \"string\",\n          \"city\": \"string\",\n          \"district\": \"string\",\n          \"postalCode\": \"string\",\n          \"county\": \"string\",\n          \"state\": \"string\"\n        },\n        \"error\": 169720\n      },\n      {\n        \"coordinate\": {\n          \"latitude\": 87.13368364133024,\n          \"longitude\": 161.43380186641696,\n          \"accuracy\": 320322\n        },\n        \"timestamp\": \"3\",\n        \"lastSeenTimestamp\": \"8:T\",\n        \"address\": {\n          \"country\": \"string\",\n          \"road\": \"string\",\n          \"city\": \"string\",\n          \"district\": \"string\",\n          \"postalCode\": \"string\",\n          \"county\": \"string\",\n          \"state\": \"string\"\n        },\n        \"error\": 316408\n      }\n    ],\n    \"nextToken\": \"VODeUsH\"\n  },\n  \"label\": {\n    \"addedOn\": \"Z8\",\n    \"bleId\": 1431582010,\n    \"nfcId\": \"\",\n    \"config\": {\n      \"reportingInterval\": \"string\"\n    }\n  },\n  \"createdOn\": \"43Z3163:3-\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a897547-e357-4cc6-bf21-50463a63c0da",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "summaryLocations",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"1N06\",\n      \"id\": \"1)N3HP\",\n      \"detail\": \"GoH-45)Pu(\",\n      \"title\": \"JIA-(`il\",\n      \"status\": \"38\"\n    },\n    {\n      \"code\": \"s6\\\"Ud6\",\n      \"id\": \"NJN\",\n      \"detail\": \"5a9sO-EZQz\",\n      \"title\": \"Uf\",\n      \"status\": \"743\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b02ef7b-f144-49c1-a962-17aa9aa935e8",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "summaryLocations",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"Z4U\",\n      \"id\": \"URWoPQK\",\n      \"detail\": \"RwM4cf&P\",\n      \"title\": \"o6N\",\n      \"status\": \"840\"\n    },\n    {\n      \"code\": \"@,\",\n      \"id\": \"RU\",\n      \"detail\": \"I\",\n      \"title\": \"hk6\",\n      \"status\": \"63\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ed74ce9-8bcf-49bb-8b06-e3305dbd42c3",
+              "name": "Asset not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "summaryLocations",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"Z4U\",\n      \"id\": \"URWoPQK\",\n      \"detail\": \"RwM4cf&P\",\n      \"title\": \"o6N\",\n      \"status\": \"840\"\n    },\n    {\n      \"code\": \"@,\",\n      \"id\": \"RU\",\n      \"detail\": \"I\",\n      \"title\": \"hk6\",\n      \"status\": \"63\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "35807b31-e977-45e5-8f9a-68ed235922eb",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "summaryLocations",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"Z4U\",\n      \"id\": \"URWoPQK\",\n      \"detail\": \"RwM4cf&P\",\n      \"title\": \"o6N\",\n      \"status\": \"840\"\n    },\n    {\n      \"code\": \"@,\",\n      \"id\": \"RU\",\n      \"detail\": \"I\",\n      \"title\": \"hk6\",\n      \"status\": \"63\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "babb2a93-0e01-4c72-af3e-7a3d6db7a24a",
+          "name": "Update an Asset",
+          "request": {
+            "name": "Update an Asset",
+            "description": {},
+            "url": {
+              "path": [
+                "assets",
+                ":assetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) The identifier of the Asset"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3cc97a77-169e-44f7-a458-b832535b6fb2",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"9pTPR1\",\n  \"name\": \"ybFqLbGGQd\",\n  \"workspaceId\": \"4D400ccb-D505-94eF-e919-a3A961e81d7F\",\n  \"inSpaces\": [\n    {\n      \"enteredOn\": \"6:Z\",\n      \"spaceId\": \"VxtIEXP\",\n      \"spaceName\": \"Ha1uRM#R+\",\n      \"hasExited\": true,\n      \"exitedOn\": \"05Z3\"\n    },\n    {\n      \"enteredOn\": \"165451Z3\",\n      \"spaceId\": \"gsV5i\",\n      \"spaceName\": \"iQS@D0YvF\",\n      \"hasExited\": true,\n      \"exitedOn\": \"Z8T\"\n    }\n  ],\n  \"temperatures\": {\n    \"items\": [\n      {\n        \"degreesCelsius\": 52.675882762672245,\n        \"timestamp\": \"\"\n      },\n      {\n        \"degreesCelsius\": 447.98994172924483,\n        \"timestamp\": \"924::0:9T4\"\n      }\n    ],\n    \"nextToken\": \"xAo2-T\"\n  },\n  \"locations\": {\n    \"items\": [\n      {\n        \"coordinate\": {\n          \"latitude\": -24.64351605871417,\n          \"longitude\": 117.14911213390917,\n          \"accuracy\": 12372\n        },\n        \"timestamp\": \":TZ\",\n        \"lastSeenTimestamp\": \"445:T\",\n        \"address\": {\n          \"country\": \"string\",\n          \"road\": \"string\",\n          \"city\": \"string\",\n          \"district\": \"string\",\n          \"postalCode\": \"string\",\n          \"county\": \"string\",\n          \"state\": \"string\"\n        },\n        \"error\": 546036\n      },\n      {\n        \"coordinate\": {\n          \"latitude\": -79.61728217109048,\n          \"longitude\": -62.63103069035853,\n          \"accuracy\": 669656\n        },\n        \"timestamp\": \"6T05424933\",\n        \"lastSeenTimestamp\": \"432T5Z\",\n        \"address\": {\n          \"country\": \"string\",\n          \"road\": \"string\",\n          \"city\": \"string\",\n          \"district\": \"string\",\n          \"postalCode\": \"string\",\n          \"county\": \"string\",\n          \"state\": \"string\"\n        },\n        \"error\": 128677\n      }\n    ],\n    \"nextToken\": \"KF#p\"\n  },\n  \"label\": {\n    \"addedOn\": \"3050\",\n    \"bleId\": 698452579,\n    \"nfcId\": \"\",\n    \"config\": {\n      \"reportingInterval\": \"string\"\n    }\n  },\n  \"createdOn\": \"39142\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c2f3ea2-1609-4518-a49d-50eb1e0035db",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"Z4U\",\n      \"id\": \"URWoPQK\",\n      \"detail\": \"RwM4cf&P\",\n      \"title\": \"o6N\",\n      \"status\": \"840\"\n    },\n    {\n      \"code\": \"@,\",\n      \"id\": \"RU\",\n      \"detail\": \"I\",\n      \"title\": \"hk6\",\n      \"status\": \"63\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e494a25-c077-4457-8991-561fd23d2e40",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"Z4U\",\n      \"id\": \"URWoPQK\",\n      \"detail\": \"RwM4cf&P\",\n      \"title\": \"o6N\",\n      \"status\": \"840\"\n    },\n    {\n      \"code\": \"@,\",\n      \"id\": \"RU\",\n      \"detail\": \"I\",\n      \"title\": \"hk6\",\n      \"status\": \"63\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "92335952-09d5-4167-a41d-2ce76ab5c20c",
+              "name": "Asset not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"Z4U\",\n      \"id\": \"URWoPQK\",\n      \"detail\": \"RwM4cf&P\",\n      \"title\": \"o6N\",\n      \"status\": \"840\"\n    },\n    {\n      \"code\": \"@,\",\n      \"id\": \"RU\",\n      \"detail\": \"I\",\n      \"title\": \"hk6\",\n      \"status\": \"63\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d58a7bdb-6dc2-468c-baa2-4cb7bb3e0f8e",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"Z4U\",\n      \"id\": \"URWoPQK\",\n      \"detail\": \"RwM4cf&P\",\n      \"title\": \"o6N\",\n      \"status\": \"840\"\n    },\n    {\n      \"code\": \"@,\",\n      \"id\": \"RU\",\n      \"detail\": \"I\",\n      \"title\": \"hk6\",\n      \"status\": \"63\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "331c0252-6e0d-45f1-85d8-8f8d40fa82d7",
+          "name": "Delete an Asset",
+          "request": {
+            "name": "Delete an Asset",
+            "description": {},
+            "url": {
+              "path": [
+                "assets",
+                ":assetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) The identifier of the Asset"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "d29afb01-6f70-4662-a972-c611af7bd591",
+              "name": "204 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3fca68c4-7d85-46f5-98da-776037922038",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"Z4U\",\n      \"id\": \"URWoPQK\",\n      \"detail\": \"RwM4cf&P\",\n      \"title\": \"o6N\",\n      \"status\": \"840\"\n    },\n    {\n      \"code\": \"@,\",\n      \"id\": \"RU\",\n      \"detail\": \"I\",\n      \"title\": \"hk6\",\n      \"status\": \"63\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1a0fa45-2401-4e31-8b3f-a55138f120ad",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"Z4U\",\n      \"id\": \"URWoPQK\",\n      \"detail\": \"RwM4cf&P\",\n      \"title\": \"o6N\",\n      \"status\": \"840\"\n    },\n    {\n      \"code\": \"@,\",\n      \"id\": \"RU\",\n      \"detail\": \"I\",\n      \"title\": \"hk6\",\n      \"status\": \"63\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42ab6945-62f6-48de-af17-52c77e315ada",
+              "name": "Asset not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"Z4U\",\n      \"id\": \"URWoPQK\",\n      \"detail\": \"RwM4cf&P\",\n      \"title\": \"o6N\",\n      \"status\": \"840\"\n    },\n    {\n      \"code\": \"@,\",\n      \"id\": \"RU\",\n      \"detail\": \"I\",\n      \"title\": \"hk6\",\n      \"status\": \"63\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8cdb62b3-f52e-424c-b1b1-eec31b2a1087",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The identifier of the Asset"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"Z4U\",\n      \"id\": \"URWoPQK\",\n      \"detail\": \"RwM4cf&P\",\n      \"title\": \"o6N\",\n      \"status\": \"840\"\n    },\n    {\n      \"code\": \"@,\",\n      \"id\": \"RU\",\n      \"detail\": \"I\",\n      \"title\": \"hk6\",\n      \"status\": \"63\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71838f23-d5b6-48a0-b7f3-28404ce038aa",
+          "name": "List Assets in a Workspace",
+          "request": {
+            "name": "List Assets in a Workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "workspaces",
+                ":workspaceId",
+                "assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>",
+                  "description": "Number of items to return. Default: 10. Maximum: 10000"
+                },
+                {
+                  "disabled": false,
+                  "key": "nextToken",
+                  "value": "<string>",
+                  "description": "Pagination token to get next page of items"
+                },
+                {
+                  "disabled": false,
+                  "key": "inSpaceIds",
+                  "value": "<string>",
+                  "description": "Filter the Assets to those currently in a set of Spaces. Comma-separated list, for example: '?inSpaceIds={spaceId1},{spaceId2},{spaceId3}'"
+                },
+                {
+                  "disabled": false,
+                  "key": "bleIds",
+                  "value": "<string>",
+                  "description": "Filter the Assets to those linked to a set of labels, identified by their BLE_ID. Comma-separated list, for example: '?bleIds={bleId1},{bleId2},{bleId3}'"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchTerm",
+                  "value": "<string>",
+                  "description": "String to match name of Assets"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) The identifier of the Workspace"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "1dc041ad-05af-4559-acf2-50b350ee1f8e",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inSpaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bleIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"onEusRT\",\n      \"name\": \"0c#/wYDCM\",\n      \"workspaceId\": \"BBcce2Ea-C7Ec-E386-bd3b-83d909532e2C\",\n      \"inSpaces\": [\n        {\n          \"enteredOn\": \"\",\n          \"spaceId\": \"Amj4s2znSN\",\n          \"spaceName\": \"R4(A9X4\",\n          \"hasExited\": true,\n          \"exitedOn\": \"58\"\n        },\n        {\n          \"enteredOn\": \"\",\n          \"spaceId\": \"Kkz\",\n          \"spaceName\": \"m.L!iZt&C\",\n          \"hasExited\": true,\n          \"exitedOn\": \"97\"\n        }\n      ],\n      \"temperatures\": {\n        \"items\": [\n          {\n            \"degreesCelsius\": -7.138160160758275,\n            \"timestamp\": \"6-9TT2T04\"\n          },\n          {\n            \"degreesCelsius\": 172.17700149226465,\n            \"timestamp\": \"07:47T6252\"\n          }\n        ],\n        \"nextToken\": \"Aqe\"\n      },\n      \"locations\": {\n        \"items\": [\n          {\n            \"coordinate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timestamp\": \"3\",\n            \"lastSeenTimestamp\": \"Z015095ZT\",\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"error\": 745960\n          },\n          {\n            \"coordinate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timestamp\": \"666:0\",\n            \"lastSeenTimestamp\": \"T4T\",\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"error\": 32961\n          }\n        ],\n        \"nextToken\": \"z3z$t!ReI!\"\n      },\n      \"label\": {\n        \"addedOn\": \"-62080562Z\",\n        \"bleId\": 2121316016,\n        \"nfcId\": \"KGq\",\n        \"config\": {\n          \"reportingInterval\": \"string\"\n        }\n      },\n      \"createdOn\": \":1\"\n    },\n    {\n      \"id\": \"TUl\",\n      \"name\": \"2n82\",\n      \"workspaceId\": \"5Aa2a499-a69d-4694-a437-bC3f92Dc7fc0\",\n      \"inSpaces\": [\n        {\n          \"enteredOn\": \"\",\n          \"spaceId\": \"r\",\n          \"spaceName\": \"NLO5y\",\n          \"hasExited\": false,\n          \"exitedOn\": \"153\"\n        },\n        {\n          \"enteredOn\": \"\",\n          \"spaceId\": \"n85Q\",\n          \"spaceName\": \"GJm(3xkO\",\n          \"hasExited\": false,\n          \"exitedOn\": \"39882-40\"\n        }\n      ],\n      \"temperatures\": {\n        \"items\": [\n          {\n            \"degreesCelsius\": 35.136729839890876,\n            \"timestamp\": \"3T47118\"\n          },\n          {\n            \"degreesCelsius\": 44.14512189163386,\n            \"timestamp\": \"6-3T99--\"\n          }\n        ],\n        \"nextToken\": \"KR-\"\n      },\n      \"locations\": {\n        \"items\": [\n          {\n            \"coordinate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timestamp\": \"Z98-60\",\n            \"lastSeenTimestamp\": \"Z7502\",\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"error\": 415304\n          },\n          {\n            \"coordinate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timestamp\": \":944Z\",\n            \"lastSeenTimestamp\": \"Z51\",\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"error\": 623959\n          }\n        ],\n        \"nextToken\": \"J#U3Nb\"\n      },\n      \"label\": {\n        \"addedOn\": \"0-\",\n        \"bleId\": 93054960,\n        \"nfcId\": \"VZx\",\n        \"config\": {\n          \"reportingInterval\": \"string\"\n        }\n      },\n      \"createdOn\": \"715290Z836\"\n    }\n  ],\n  \"total\": 234735,\n  \"nextToken\": \"m$\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b208afc-dbac-408a-a4e7-3c7204fc063d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inSpaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bleIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"Z4U\",\n      \"id\": \"URWoPQK\",\n      \"detail\": \"RwM4cf&P\",\n      \"title\": \"o6N\",\n      \"status\": \"840\"\n    },\n    {\n      \"code\": \"@,\",\n      \"id\": \"RU\",\n      \"detail\": \"I\",\n      \"title\": \"hk6\",\n      \"status\": \"63\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7bbf5191-508a-4c35-9ecc-7e9f4ed5ad9b",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inSpaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bleIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"Z4U\",\n      \"id\": \"URWoPQK\",\n      \"detail\": \"RwM4cf&P\",\n      \"title\": \"o6N\",\n      \"status\": \"840\"\n    },\n    {\n      \"code\": \"@,\",\n      \"id\": \"RU\",\n      \"detail\": \"I\",\n      \"title\": \"hk6\",\n      \"status\": \"63\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46fa26a7-7c8d-4046-adf8-7a10ef109fa5",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inSpaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bleIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"Z4U\",\n      \"id\": \"URWoPQK\",\n      \"detail\": \"RwM4cf&P\",\n      \"title\": \"o6N\",\n      \"status\": \"840\"\n    },\n    {\n      \"code\": \"@,\",\n      \"id\": \"RU\",\n      \"detail\": \"I\",\n      \"title\": \"hk6\",\n      \"status\": \"63\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "gateway",
+      "key": "basePath"
+    },
+    {
+      "type": "string",
+      "value": "https://api.reelables.com/{{basePath}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5cbaa410-ce36-4eeb-aae1-9c3e98bef7a5",
+    "name": "Reelables Gateway Asset Facilities Assets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for partners to send data to the Reelables platform from Gateway devices\n\nContact Support:\n Email: team@reelables.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reelables Gateway Asset Facilities Print Jobs API",
+    "version": "1.1.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Print Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a Print Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.reelables.com/{basePath}/print-jobs/:printJobId",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "printJobId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Print Job"
+              }
+            ]
+          },
+          "docs": "Get a Print Job"
+        },
+        {
+          "info": {
+            "name": "Cancel a Print Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.reelables.com/{basePath}/print-jobs/:printJobId",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "printJobId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Print Job"
+              }
+            ]
+          },
+          "docs": "Cancel a Print Job"
+        },
+        {
+          "info": {
+            "name": "Get Print Jobs for a Printer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.reelables.com/{basePath}/printers/:printerId/print-jobs",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "printerId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Printer"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return. Default: 10. Maximum: 10000"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token to get next page of items"
+              }
+            ]
+          },
+          "docs": "Get Print Jobs for a Printer"
+        },
+        {
+          "info": {
+            "name": "Send Print Jobs to a Printer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.reelables.com/{basePath}/printers/:printerId/print-jobs",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "printerId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Printer"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send Print Jobs to a Printer"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1190 @@
+{
+  "item": [
+    {
+      "id": "7a4aae98-45a2-46fd-a355-35ad7e5260a2",
+      "name": "Workspace Consignments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "721e686e-1cde-4de1-b85a-32d498032953",
+          "name": "List Consignments in a Workspace",
+          "request": {
+            "name": "List Consignments in a Workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "workspaces",
+                ":workspaceId",
+                "consignments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>",
+                  "description": "Number of items to return. Default: 10. Maximum: 10000"
+                },
+                {
+                  "disabled": false,
+                  "key": "nextToken",
+                  "value": "<string>",
+                  "description": "Pagination token to get next page of items"
+                },
+                {
+                  "disabled": false,
+                  "key": "trackingRef",
+                  "value": "<string>",
+                  "description": "The tracking reference that identifies the Consignment in the user system"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) The identifier of the Workspace"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "5c3a191a-ad4e-4a73-836c-5fe62def06ca",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "consignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trackingRef",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"EAbf2BCa-b0aB-2FD0-40a5-D6e5e79B3CE1\",\n      \"trackingRef\": \"string\",\n      \"workspace\": {\n        \"id\": \"9cC9F986-bf5D-440d-94CC-1b48f9e23Df6\",\n        \"name\": \"walN0OWu(\"\n      },\n      \"pieces\": {\n        \"items\": [\n          {\n            \"consignmentId\": \"Bd174DEc-FAA4-e410-20Ba-EA40DB7D7FDa\",\n            \"id\": \"JYrXEsGP\",\n            \"trackingRef\": \"string\",\n            \"workspaceId\": \"8DB8c3F1-B7AA-5129-4c39-9DB2Df1CA646\",\n            \"inFacilities\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdOn\": \"034\"\n          },\n          {\n            \"consignmentId\": \"62CFa5de-A544-f5aE-Fdd7-eB421eFBa57d\",\n            \"id\": \"GNFA\",\n            \"trackingRef\": \"string\",\n            \"workspaceId\": \"CDf9CA5C-90e9-C05d-fC6D-31855f1112ca\",\n            \"inFacilities\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdOn\": \"46T52072\"\n          }\n        ],\n        \"total\": 152140,\n        \"nextToken\": \"Qs\"\n      },\n      \"gateways\": {\n        \"items\": [\n          {\n            \"gatewayId\": \"EG\",\n            \"manufacturer\": \"f\",\n            \"shortId\": \"g8\",\n            \"isStatic\": true,\n            \"latitude\": 83.44579385026648,\n            \"hasPendingCommands\": true,\n            \"rssiFilter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceId\": \"\",\n            \"productName\": \"Mo&BSdt2\",\n            \"addedOn\": \"7-:3-ZT3:\",\n            \"longitude\": -13.065712782597814\n          },\n          {\n            \"gatewayId\": \"0KsAICAYzN\",\n            \"manufacturer\": \"5mwNaYdoiQ\",\n            \"shortId\": \"UIr\",\n            \"isStatic\": true,\n            \"latitude\": -15.524409332557411,\n            \"hasPendingCommands\": false,\n            \"rssiFilter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceId\": \"ME\",\n            \"productName\": \"Q\",\n            \"addedOn\": \"153\",\n            \"longitude\": -135.47181733537698\n          }\n        ],\n        \"nextToken\": \"HfOAKe$-l\"\n      },\n      \"destination\": {\n        \"name\": \"string\",\n        \"facility\": {\n          \"id\": \"0cca516F-05fE-3856-BBCB-E99fcD08A391\",\n          \"name\": \"-$`-\",\n          \"workspaceId\": \"EDed4EB4-571B-64D9-739f-3C1237CDfF27\",\n          \"createdAt\": \"696ZT8\",\n          \"userFacilityId\": \"string\"\n        }\n      },\n      \"isActive\": false,\n      \"deactivated\": {\n        \"when\": \"78\",\n        \"where\": {\n          \"facility\": {\n            \"id\": \"616E297E-f4Be-7cDd-6bcc-23c71abD8fBf\",\n            \"name\": \"zAIcP\",\n            \"workspaceId\": \"6DD9Ca28-2Bac-08A1-49b6-6ffdF15504e1\",\n            \"createdAt\": \"Z46938\",\n            \"userFacilityId\": \"string\"\n          }\n        }\n      },\n      \"activated\": {\n        \"when\": \"7-9\",\n        \"where\": {\n          \"facility\": {\n            \"id\": \"bede1071-9eDb-c4dE-a4b3-Afea557c4CC8\",\n            \"name\": \"\",\n            \"workspaceId\": \"4D9c8c18-DCbe-7a15-F544-c15BF5E36fD0\",\n            \"createdAt\": \"6-096T31-:\",\n            \"userFacilityId\": \"string\"\n          }\n        }\n      }\n    },\n    {\n      \"id\": \"88FDde4a-DbA3-4b90-5f2E-b0Bf4Ef77D4c\",\n      \"trackingRef\": \"string\",\n      \"workspace\": {\n        \"id\": \"6f5EBbD5-f86D-CA5B-3eaa-474Aa46B672F\",\n        \"name\": \"2xE\"\n      },\n      \"pieces\": {\n        \"items\": [\n          {\n            \"consignmentId\": \"9974c8c2-e8Fd-A1DF-bc5B-2BaEb9c6c35d\",\n            \"id\": \"x\",\n            \"trackingRef\": \"string\",\n            \"workspaceId\": \"ccCe84F3-9aCD-FfC1-EFeD-CDdeBd54d5A7\",\n            \"inFacilities\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdOn\": \":\"\n          },\n          {\n            \"consignmentId\": \"aF7a4ea3-aa5e-cdfb-f290-5dB2DdF1C1E0\",\n            \"id\": \"H1dy0NR7Da\",\n            \"trackingRef\": \"string\",\n            \"workspaceId\": \"0BAb75BF-C6E6-eF08-0009-A87D669514FE\",\n            \"inFacilities\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdOn\": \"\"\n          }\n        ],\n        \"total\": 495028,\n        \"nextToken\": \"lD#6GPd..\\\"\"\n      },\n      \"gateways\": {\n        \"items\": [\n          {\n            \"gatewayId\": \"Q\",\n            \"manufacturer\": \"oASHNCn\",\n            \"shortId\": \"ZN\",\n            \"isStatic\": true,\n            \"latitude\": -24.384699243515456,\n            \"hasPendingCommands\": false,\n            \"rssiFilter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceId\": \"EuZPscH\",\n            \"productName\": \"m/Tr Xe\",\n            \"addedOn\": \"31\",\n            \"longitude\": 17.73478284931963\n          },\n          {\n            \"gatewayId\": \"EOzI\",\n            \"manufacturer\": \"\",\n            \"shortId\": \"X1kr4\",\n            \"isStatic\": false,\n            \"latitude\": -12.529213073510206,\n            \"hasPendingCommands\": true,\n            \"rssiFilter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceId\": \"qPGExJ\",\n            \"productName\": \",dDFYonB\",\n            \"addedOn\": \":Z387:\",\n            \"longitude\": -7.859938479184166\n          }\n        ],\n        \"nextToken\": \"S\"\n      },\n      \"destination\": {\n        \"name\": \"string\",\n        \"facility\": {\n          \"id\": \"CfDa1cEc-02fB-fe9B-dbE2-442ab13226fB\",\n          \"name\": \"j$vfPk0TTy\",\n          \"workspaceId\": \"EB4bC0A6-E4aE-1ecF-D190-57AaBBeA4f5a\",\n          \"createdAt\": \"35006-T\",\n          \"userFacilityId\": \"string\"\n        }\n      },\n      \"isActive\": true,\n      \"deactivated\": {\n        \"when\": \"659\",\n        \"where\": {\n          \"facility\": {\n            \"id\": \"00f83aA7-fE67-2A88-9001-07aC8E672708\",\n            \"name\": \"lvwAju\",\n            \"workspaceId\": \"8e6650ac-fcD3-FC5A-f21A-6aCF9418bE1f\",\n            \"createdAt\": \"0TZ97T485-\",\n            \"userFacilityId\": \"string\"\n          }\n        }\n      },\n      \"activated\": {\n        \"when\": \"9T7T08\",\n        \"where\": {\n          \"facility\": {\n            \"id\": \"dF825CCe-3f46-D1B5-7EE8-4172Da51CaFD\",\n            \"name\": \"\",\n            \"workspaceId\": \"88c519Eb-0Dce-0DEa-Eb61-A1ee0A4edB4B\",\n            \"createdAt\": \"\",\n            \"userFacilityId\": \"string\"\n          }\n        }\n      }\n    }\n  ],\n  \"nextToken\": \"Z!4s\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84d9a667-6a51-4357-8a90-d60c72dba43a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "consignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trackingRef",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"t-\",\n      \"id\": \"SXg9uV/mXE\",\n      \"detail\": \"R\",\n      \"title\": \"Jg(\",\n      \"status\": \"596\"\n    },\n    {\n      \"code\": \"QD@\\\"621Ml\",\n      \"id\": \"amU\",\n      \"detail\": \"k!-nFD& 9\",\n      \"title\": \"1$\",\n      \"status\": \"034\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "05246aba-a064-48a4-9d7d-687b573ff5b4",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "consignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trackingRef",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"SIaM)E\\\"yjK\",\n      \"id\": \"pU/Z!\",\n      \"detail\": \"f0!HB6xnLj\",\n      \"title\": \"UzVk\",\n      \"status\": \"600\"\n    },\n    {\n      \"code\": \"8+iY\",\n      \"id\": \"B\",\n      \"detail\": \"N3mnKANXN\",\n      \"title\": \"iO6\",\n      \"status\": \"345\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c8f7554e-e6e5-4fd4-8356-c18d27f9a98d",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "consignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trackingRef",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"SIaM)E\\\"yjK\",\n      \"id\": \"pU/Z!\",\n      \"detail\": \"f0!HB6xnLj\",\n      \"title\": \"UzVk\",\n      \"status\": \"600\"\n    },\n    {\n      \"code\": \"8+iY\",\n      \"id\": \"B\",\n      \"detail\": \"N3mnKANXN\",\n      \"title\": \"iO6\",\n      \"status\": \"345\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01a7c88e-2415-4d40-9bdf-c274a94f7218",
+          "name": "Create new Consignment in Workspace",
+          "request": {
+            "name": "Create new Consignment in Workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "workspaces",
+                ":workspaceId",
+                "consignments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) The identifier of the Workspace"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"consignments\": [\n    {\n      \"pieces\": [\n        {\n          \"label\": {\n            \"nfcId\": \"<string>\"\n          },\n          \"trackingRef\": \"<string>\"\n        },\n        {\n          \"label\": {\n            \"nfcId\": \"<string>\"\n          },\n          \"trackingRef\": \"<string>\"\n        }\n      ],\n      \"trackingRef\": \"<string>\",\n      \"gateways\": [\n        {\n          \"deviceId\": \"<string>\",\n          \"manufacturer\": \"<string>\",\n          \"registerGateway\": \"<boolean>\",\n          \"productName\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "93b28ebb-55f1-4e8b-9a05-c8175c0d77c9",
+              "name": "201 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "consignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"consignments\": [\n    {\n      \"pieces\": [\n        {\n          \"label\": {\n            \"nfcId\": \"<string>\"\n          },\n          \"trackingRef\": \"<string>\"\n        },\n        {\n          \"label\": {\n            \"nfcId\": \"<string>\"\n          },\n          \"trackingRef\": \"<string>\"\n        }\n      ],\n      \"trackingRef\": \"<string>\",\n      \"gateways\": [\n        {\n          \"deviceId\": \"<string>\",\n          \"manufacturer\": \"<string>\",\n          \"registerGateway\": \"<boolean>\",\n          \"productName\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"bA2BDda3-3e33-26Cc-cF7f-38bC03f4eaFE\",\n      \"trackingRef\": \"string\",\n      \"workspace\": {\n        \"id\": \"b5cbe75f-B370-2cCA-fbbb-AAa568A61016\",\n        \"name\": \"5yE0\"\n      },\n      \"pieces\": {\n        \"items\": [\n          {\n            \"consignmentId\": \"c8b3B19C-EA6a-B31a-0Efd-0b1E5A63Ae1D\",\n            \"id\": \"_OPMVa5gD\",\n            \"trackingRef\": \"string\",\n            \"workspaceId\": \"fFAD3F7D-Db72-fAE3-c929-6eFB7F3E3Dc0\",\n            \"inFacilities\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdOn\": \"-T\"\n          },\n          {\n            \"consignmentId\": \"9FADaAF7-8084-6058-9f67-083B7Edf53fD\",\n            \"id\": \"RKMt7P\",\n            \"trackingRef\": \"string\",\n            \"workspaceId\": \"7BDA1Df9-a7C3-bAB2-dbF2-6eaA69C47cF4\",\n            \"inFacilities\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdOn\": \"400-\"\n          }\n        ],\n        \"total\": 841987,\n        \"nextToken\": \"p\"\n      },\n      \"gateways\": {\n        \"items\": [\n          {\n            \"gatewayId\": \"t6u2PA\",\n            \"manufacturer\": \"WINJyb0gJ\",\n            \"shortId\": \"IJqw09T_Qm\",\n            \"isStatic\": true,\n            \"latitude\": -64.82114648477253,\n            \"hasPendingCommands\": true,\n            \"rssiFilter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceId\": \"Jy3d\",\n            \"productName\": \"@&GeXN!s`\",\n            \"addedOn\": \"16\",\n            \"longitude\": -47.806208581347505\n          },\n          {\n            \"gatewayId\": \"jh\",\n            \"manufacturer\": \"\",\n            \"shortId\": \"17Z\",\n            \"isStatic\": true,\n            \"latitude\": 88.27187728489554,\n            \"hasPendingCommands\": true,\n            \"rssiFilter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceId\": \"\",\n            \"productName\": \"$deo2l\",\n            \"addedOn\": \"6:73824TT\",\n            \"longitude\": 56.365000041199636\n          }\n        ],\n        \"nextToken\": \"of4h\"\n      },\n      \"destination\": {\n        \"name\": \"string\",\n        \"facility\": {\n          \"id\": \"adbABE09-33A9-fD82-19a2-e4B7b0abAA6E\",\n          \"name\": \"DctT\",\n          \"workspaceId\": \"f60D9842-FBcb-AE04-fbA7-1cbA3Ebc867f\",\n          \"createdAt\": \"T813230-5\",\n          \"userFacilityId\": \"string\"\n        }\n      },\n      \"isActive\": false,\n      \"deactivated\": {\n        \"when\": \"-7-\",\n        \"where\": {\n          \"facility\": {\n            \"id\": \"45Ff2120-c4CF-fB8d-af5f-fb63ef2f1651\",\n            \"name\": \"o@cAt\",\n            \"workspaceId\": \"bc8BF63e-976b-76CE-4106-118aa8bDDF3A\",\n            \"createdAt\": \"\",\n            \"userFacilityId\": \"string\"\n          }\n        }\n      },\n      \"activated\": {\n        \"when\": \"T506\",\n        \"where\": {\n          \"facility\": {\n            \"id\": \"BeafeAEF-A22a-afCe-05B3-4DBBFdaCa8Dd\",\n            \"name\": \"vZ1C1xNT#d\",\n            \"workspaceId\": \"11f62665-26e3-c7FE-c5Fc-e7aDC1CeA90A\",\n            \"createdAt\": \":06-2\",\n            \"userFacilityId\": \"string\"\n          }\n        }\n      }\n    },\n    {\n      \"id\": \"951349AC-1baC-dAe0-f2Fe-2EADa5A08B69\",\n      \"trackingRef\": \"string\",\n      \"workspace\": {\n        \"id\": \"d72f22Ad-cd68-ffE5-1896-fCDE354544fd\",\n        \"name\": \")\"\n      },\n      \"pieces\": {\n        \"items\": [\n          {\n            \"consignmentId\": \"0f2ffced-fecD-7ab4-0479-810aa567e79E\",\n            \"id\": \"EZ1DV5KLKc\",\n            \"trackingRef\": \"string\",\n            \"workspaceId\": \"e7aEE5E0-6e63-1258-e2E4-B7ce0ff2dd2D\",\n            \"inFacilities\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdOn\": \"ZTTZTZTZ1\"\n          },\n          {\n            \"consignmentId\": \"bdeBa1C8-638b-F8Df-dbAb-FF2D33b1c679\",\n            \"id\": \"s\",\n            \"trackingRef\": \"string\",\n            \"workspaceId\": \"7b414B9C-E7b9-5E4B-3bB9-2EDf4cEB0Fc6\",\n            \"inFacilities\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdOn\": \"6Z2\"\n          }\n        ],\n        \"total\": 700158,\n        \"nextToken\": \"Ee9&xi\"\n      },\n      \"gateways\": {\n        \"items\": [\n          {\n            \"gatewayId\": \"9i37ijliX\",\n            \"manufacturer\": \"K53\",\n            \"shortId\": \"TPk\",\n            \"isStatic\": false,\n            \"latitude\": 81.37598010177302,\n            \"hasPendingCommands\": false,\n            \"rssiFilter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceId\": \"csWv\",\n            \"productName\": \"@a2D\",\n            \"addedOn\": \"927640\",\n            \"longitude\": -178.07305620104663\n          },\n          {\n            \"gatewayId\": \"52mXjawC\",\n            \"manufacturer\": \"\",\n            \"shortId\": \"\",\n            \"isStatic\": true,\n            \"latitude\": -50.544270415846086,\n            \"hasPendingCommands\": false,\n            \"rssiFilter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceId\": \"P2b_hp\",\n            \"productName\": \"cgUG\",\n            \"addedOn\": \"82\",\n            \"longitude\": -113.64721273044641\n          }\n        ],\n        \"nextToken\": \"tgEzR\\\"fZ\"\n      },\n      \"destination\": {\n        \"name\": \"string\",\n        \"facility\": {\n          \"id\": \"4C55fd8A-98a2-0ACb-Be1D-c75010eFcbBb\",\n          \"name\": \"0I1\",\n          \"workspaceId\": \"3CC3eAaa-81d4-7De5-914b-EfDCf5419c8d\",\n          \"createdAt\": \"658T0076\",\n          \"userFacilityId\": \"string\"\n        }\n      },\n      \"isActive\": true,\n      \"deactivated\": {\n        \"when\": \":32\",\n        \"where\": {\n          \"facility\": {\n            \"id\": \"198F29CC-D85E-6dCb-ed95-6e7d1DfaD7Ad\",\n            \"name\": \"#Uigb+\\\"+\",\n            \"workspaceId\": \"0FBAbf13-e873-9cE5-Afac-aDf4fe143fe0\",\n            \"createdAt\": \"65:37\",\n            \"userFacilityId\": \"string\"\n          }\n        }\n      },\n      \"activated\": {\n        \"when\": \":Z\",\n        \"where\": {\n          \"facility\": {\n            \"id\": \"cEc161D9-C4f3-62d0-C151-175F07D9Fe9C\",\n            \"name\": \"npH&\",\n            \"workspaceId\": \"A0913fb5-36f5-bD0a-12AD-90E4a5EA5f3a\",\n            \"createdAt\": \"\",\n            \"userFacilityId\": \"string\"\n          }\n        }\n      }\n    }\n  ],\n  \"nextToken\": \"AIvWuOAzJ\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e37d737-6b41-47d1-9861-10a17a5901ca",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "consignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"consignments\": [\n    {\n      \"pieces\": [\n        {\n          \"label\": {\n            \"nfcId\": \"<string>\"\n          },\n          \"trackingRef\": \"<string>\"\n        },\n        {\n          \"label\": {\n            \"nfcId\": \"<string>\"\n          },\n          \"trackingRef\": \"<string>\"\n        }\n      ],\n      \"trackingRef\": \"<string>\",\n      \"gateways\": [\n        {\n          \"deviceId\": \"<string>\",\n          \"manufacturer\": \"<string>\",\n          \"registerGateway\": \"<boolean>\",\n          \"productName\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"SIaM)E\\\"yjK\",\n      \"id\": \"pU/Z!\",\n      \"detail\": \"f0!HB6xnLj\",\n      \"title\": \"UzVk\",\n      \"status\": \"600\"\n    },\n    {\n      \"code\": \"8+iY\",\n      \"id\": \"B\",\n      \"detail\": \"N3mnKANXN\",\n      \"title\": \"iO6\",\n      \"status\": \"345\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "61f182b7-7858-4934-a443-193ffb4b9628",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "consignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"consignments\": [\n    {\n      \"pieces\": [\n        {\n          \"label\": {\n            \"nfcId\": \"<string>\"\n          },\n          \"trackingRef\": \"<string>\"\n        },\n        {\n          \"label\": {\n            \"nfcId\": \"<string>\"\n          },\n          \"trackingRef\": \"<string>\"\n        }\n      ],\n      \"trackingRef\": \"<string>\",\n      \"gateways\": [\n        {\n          \"deviceId\": \"<string>\",\n          \"manufacturer\": \"<string>\",\n          \"registerGateway\": \"<boolean>\",\n          \"productName\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"SIaM)E\\\"yjK\",\n      \"id\": \"pU/Z!\",\n      \"detail\": \"f0!HB6xnLj\",\n      \"title\": \"UzVk\",\n      \"status\": \"600\"\n    },\n    {\n      \"code\": \"8+iY\",\n      \"id\": \"B\",\n      \"detail\": \"N3mnKANXN\",\n      \"title\": \"iO6\",\n      \"status\": \"345\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b017b532-7363-4cb8-8c55-e7f04187c1f7",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "consignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"consignments\": [\n    {\n      \"pieces\": [\n        {\n          \"label\": {\n            \"nfcId\": \"<string>\"\n          },\n          \"trackingRef\": \"<string>\"\n        },\n        {\n          \"label\": {\n            \"nfcId\": \"<string>\"\n          },\n          \"trackingRef\": \"<string>\"\n        }\n      ],\n      \"trackingRef\": \"<string>\",\n      \"gateways\": [\n        {\n          \"deviceId\": \"<string>\",\n          \"manufacturer\": \"<string>\",\n          \"registerGateway\": \"<boolean>\",\n          \"productName\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"SIaM)E\\\"yjK\",\n      \"id\": \"pU/Z!\",\n      \"detail\": \"f0!HB6xnLj\",\n      \"title\": \"UzVk\",\n      \"status\": \"600\"\n    },\n    {\n      \"code\": \"8+iY\",\n      \"id\": \"B\",\n      \"detail\": \"N3mnKANXN\",\n      \"title\": \"iO6\",\n      \"status\": \"345\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d01f7a09-33a9-4232-9e64-46efb7963742",
+          "name": "Update a Consignment using a Tracking Reference",
+          "request": {
+            "name": "Update a Consignment using a Tracking Reference",
+            "description": {},
+            "url": {
+              "path": [
+                "workspaces",
+                ":workspaceId",
+                "consignments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "trackingRef",
+                  "value": "<string>",
+                  "description": "The tracking reference that identifies the Consignment in the user system"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) The identifier of the Workspace"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isActive\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "924f2d04-1293-4214-8635-7294cb9e26ae",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "consignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "trackingRef",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isActive\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"8fD1DA16-fdBA-030F-5A5d-b0164e8f77E1\",\n  \"trackingRef\": \"string\",\n  \"workspace\": {\n    \"id\": \"bb548Ee9-14e0-87a3-fd82-D4AC68AF70fa\",\n    \"name\": \"U\"\n  },\n  \"pieces\": {\n    \"items\": [\n      {\n        \"consignmentId\": \"D2A0F4f0-95Ad-dbae-6FcB-6CA3dDBCf77a\",\n        \"id\": \"T3ZT\",\n        \"trackingRef\": \"string\",\n        \"workspaceId\": \"99Ec2338-FBb7-F40d-119a-0dBBA57aA72F\",\n        \"inFacilities\": [\n          {\n            \"enteredOn\": \"\",\n            \"facilityId\": \"FAeFd3Fb-CEBE-B2Bc-a03C-d138e9DcE2ED\",\n            \"facilityName\": \"6yLedRKJ68\",\n            \"hasExited\": true,\n            \"exitedOn\": \"6538041:71\",\n            \"userFacilityId\": \"string\"\n          },\n          {\n            \"enteredOn\": \"41317\",\n            \"facilityId\": \"f289a3C1-7824-a9Ed-2B9a-38caE67acEAA\",\n            \"facilityName\": \"\",\n            \"hasExited\": true,\n            \"exitedOn\": \"\",\n            \"userFacilityId\": \"string\"\n          }\n        ],\n        \"label\": {\n          \"addedOn\": \"-113220Z\",\n          \"bleId\": 632228369,\n          \"nfcId\": \"g\",\n          \"config\": {\n            \"reportingInterval\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"createdOn\": \"6685T5Z6\"\n      },\n      {\n        \"consignmentId\": \"a35f0AdD-AdEA-CeFf-EB8A-A8eEDb90b9C4\",\n        \"id\": \"4EKTDlfDC\",\n        \"trackingRef\": \"string\",\n        \"workspaceId\": \"0D4Df5CD-7b4e-c0eC-e511-b3ad0df21AAc\",\n        \"inFacilities\": [\n          {\n            \"enteredOn\": \"034953\",\n            \"facilityId\": \"Fd4eaF0C-c7eB-F7E8-e51d-aecBf49A12E8\",\n            \"facilityName\": \"p0e-MAKkSJ\",\n            \"hasExited\": false,\n            \"exitedOn\": \"-232\",\n            \"userFacilityId\": \"string\"\n          },\n          {\n            \"enteredOn\": \"3483-T0\",\n            \"facilityId\": \"F7FcCA3e-056f-d342-e68A-f379cEFa9d5a\",\n            \"facilityName\": \"BIh-\",\n            \"hasExited\": true,\n            \"exitedOn\": \"T\",\n            \"userFacilityId\": \"string\"\n          }\n        ],\n        \"label\": {\n          \"addedOn\": \"6826:338\",\n          \"bleId\": 1641590611,\n          \"nfcId\": \"nLux9657m\",\n          \"config\": {\n            \"reportingInterval\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"createdOn\": \"770Z9\"\n      }\n    ],\n    \"total\": 123211,\n    \"nextToken\": \"eYB/bo\"\n  },\n  \"gateways\": {\n    \"items\": [\n      {\n        \"gatewayId\": \"NvD\",\n        \"manufacturer\": \"Y\",\n        \"shortId\": \"FPvpI3Ce3F\",\n        \"isStatic\": true,\n        \"latitude\": -87.96540003066339,\n        \"hasPendingCommands\": false,\n        \"rssiFilter\": \"FAR\",\n        \"deviceId\": \"3pvHx90fVa\",\n        \"productName\": \" VYg\",\n        \"addedOn\": \"5-7T65-\",\n        \"longitude\": 169.70221200871958\n      },\n      {\n        \"gatewayId\": \"m3FfNpj\",\n        \"manufacturer\": \"-bk02a0luK\",\n        \"shortId\": \"YfXQJee\",\n        \"isStatic\": true,\n        \"latitude\": 62.249754019531764,\n        \"hasPendingCommands\": true,\n        \"rssiFilter\": \"NEAR\",\n        \"deviceId\": \"kjHR\",\n        \"productName\": \"\\\"Au\",\n        \"addedOn\": \"1::3ZZ44:3\",\n        \"longitude\": -76.85750266921636\n      }\n    ],\n    \"nextToken\": \"RQ\"\n  },\n  \"destination\": {\n    \"name\": \"string\",\n    \"facility\": {\n      \"id\": \"15CF20ed-45c7-182F-cECa-C9aB85B90114\",\n      \"name\": \"9\",\n      \"workspaceId\": \"D2ab976E-43Bf-7Be1-C901-7E2FFFfd1df2\",\n      \"createdAt\": \"0::173\",\n      \"userFacilityId\": \"string\"\n    }\n  },\n  \"isActive\": true,\n  \"deactivated\": {\n    \"when\": \"1Z586:358T\",\n    \"where\": {\n      \"facility\": {\n        \"id\": \"c55bfE3e-BbBd-E80a-d9Ef-9e90077EaFad\",\n        \"name\": \"K)nTtE#Kf/\",\n        \"workspaceId\": \"CCB2AA08-1908-5D23-FaBc-A28F1Fa706C5\",\n        \"createdAt\": \"6Z05\",\n        \"userFacilityId\": \"string\"\n      }\n    }\n  },\n  \"activated\": {\n    \"when\": \"TT4\",\n    \"where\": {\n      \"facility\": {\n        \"id\": \"62cEf233-6Fcd-0D5b-0Dec-261863cb6dbF\",\n        \"name\": \"1rm\",\n        \"workspaceId\": \"979cD41C-c183-BCeE-9238-00ec6A410651\",\n        \"createdAt\": \"05Z\",\n        \"userFacilityId\": \"string\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b61b08f5-e783-428d-aa49-940bac872a1c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "consignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "trackingRef",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isActive\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"SIaM)E\\\"yjK\",\n      \"id\": \"pU/Z!\",\n      \"detail\": \"f0!HB6xnLj\",\n      \"title\": \"UzVk\",\n      \"status\": \"600\"\n    },\n    {\n      \"code\": \"8+iY\",\n      \"id\": \"B\",\n      \"detail\": \"N3mnKANXN\",\n      \"title\": \"iO6\",\n      \"status\": \"345\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dbacf4d3-e818-47ad-a410-ab8b0c093bdc",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "consignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "trackingRef",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isActive\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"SIaM)E\\\"yjK\",\n      \"id\": \"pU/Z!\",\n      \"detail\": \"f0!HB6xnLj\",\n      \"title\": \"UzVk\",\n      \"status\": \"600\"\n    },\n    {\n      \"code\": \"8+iY\",\n      \"id\": \"B\",\n      \"detail\": \"N3mnKANXN\",\n      \"title\": \"iO6\",\n      \"status\": \"345\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4ba96e7-eaaf-4a69-8fdb-afc6ea4c1d20",
+              "name": "Consignment not found in Workspace",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "consignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "trackingRef",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isActive\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"SIaM)E\\\"yjK\",\n      \"id\": \"pU/Z!\",\n      \"detail\": \"f0!HB6xnLj\",\n      \"title\": \"UzVk\",\n      \"status\": \"600\"\n    },\n    {\n      \"code\": \"8+iY\",\n      \"id\": \"B\",\n      \"detail\": \"N3mnKANXN\",\n      \"title\": \"iO6\",\n      \"status\": \"345\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6fe0174a-873d-41d7-82e1-82a6b62d5c7f",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "consignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "trackingRef",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isActive\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"SIaM)E\\\"yjK\",\n      \"id\": \"pU/Z!\",\n      \"detail\": \"f0!HB6xnLj\",\n      \"title\": \"UzVk\",\n      \"status\": \"600\"\n    },\n    {\n      \"code\": \"8+iY\",\n      \"id\": \"B\",\n      \"detail\": \"N3mnKANXN\",\n      \"title\": \"iO6\",\n      \"status\": \"345\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "gateway",
+      "key": "basePath"
+    },
+    {
+      "type": "string",
+      "value": "https://api.reelables.com/{{basePath}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "be760267-c64a-47c2-92b9-dfb04b2bcd93",
+    "name": "Reelables Gateway Asset Facilities Workspace Consignments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for partners to send data to the Reelables platform from Gateway devices\n\nContact Support:\n Email: team@reelables.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,391 @@
+{
+  "item": [
+    {
+      "id": "4031f3ae-6312-41e3-b0ca-4143f9c00149",
+      "name": "Consignments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cf6c1197-6bae-426a-9a02-812e0fd3b6ed",
+          "name": "Get Consignment",
+          "request": {
+            "name": "Get Consignment",
+            "description": {},
+            "url": {
+              "path": [
+                "consignments",
+                ":consignmentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "consignmentId",
+                  "description": "(Required) The identifier of the Consignment"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "13833f63-e14b-4163-bf77-0b7860069c86",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consignments",
+                    ":consignmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "consignmentId",
+                      "description": "(Required) The identifier of the Consignment"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"5Acd207E-B7ef-50FE-a75e-2E0d0e5Fd2Fe\",\n  \"trackingRef\": \"string\",\n  \"workspace\": {\n    \"id\": \"2F8f03d2-E05b-439b-546a-40E2c9458a25\",\n    \"name\": \"HSV!VJMD\"\n  },\n  \"pieces\": {\n    \"items\": [\n      {\n        \"consignmentId\": \"3dA3D4De-7b1C-bE7c-4aE2-3eDDeDaA068D\",\n        \"id\": \"VL-\",\n        \"trackingRef\": \"string\",\n        \"workspaceId\": \"0f8C0834-5fFa-2856-c41A-4Dac2578B4F5\",\n        \"inFacilities\": [\n          {\n            \"enteredOn\": \"-542Z75T\",\n            \"facilityId\": \"330E02AB-f14A-fd0d-AEed-EdFcC2Aebf4D\",\n            \"facilityName\": \"8uM6d7RDY\",\n            \"hasExited\": true,\n            \"exitedOn\": \"15\",\n            \"userFacilityId\": \"string\"\n          },\n          {\n            \"enteredOn\": \"49\",\n            \"facilityId\": \"EF7E4aE0-28f7-F7Be-EDbe-5f1c867bF2B5\",\n            \"facilityName\": \"Eubdx.x\",\n            \"hasExited\": true,\n            \"exitedOn\": \"0-1\",\n            \"userFacilityId\": \"string\"\n          }\n        ],\n        \"label\": {\n          \"addedOn\": \"78210:\",\n          \"bleId\": 1309228294,\n          \"nfcId\": \"xa7Hzwq\",\n          \"config\": {\n            \"reportingInterval\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"createdOn\": \":\"\n      },\n      {\n        \"consignmentId\": \"8aCF3da7-9d6c-bFAf-acEC-Cd91cDDC678f\",\n        \"id\": \"E\",\n        \"trackingRef\": \"string\",\n        \"workspaceId\": \"6dCEaDdF-52C4-F5cA-C6cF-0ea1eCDE0c2A\",\n        \"inFacilities\": [\n          {\n            \"enteredOn\": \"55579208\",\n            \"facilityId\": \"C082Df5c-cafE-fCbC-487b-7ccF74dbb1fc\",\n            \"facilityName\": \"T\",\n            \"hasExited\": true,\n            \"exitedOn\": \"831685\",\n            \"userFacilityId\": \"string\"\n          },\n          {\n            \"enteredOn\": \"64-3574448\",\n            \"facilityId\": \"7f7aB4e9-ff89-3b56-ab84-0Df17745b5DC\",\n            \"facilityName\": \"rfeS\",\n            \"hasExited\": false,\n            \"exitedOn\": \"01ZZ174-9\",\n            \"userFacilityId\": \"string\"\n          }\n        ],\n        \"label\": {\n          \"addedOn\": \"32:1Z\",\n          \"bleId\": 235900411,\n          \"nfcId\": \"TBd2DRX\",\n          \"config\": {\n            \"reportingInterval\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"createdOn\": \"T526657\"\n      }\n    ],\n    \"total\": 339313,\n    \"nextToken\": \"EbLty,L\"\n  },\n  \"gateways\": {\n    \"items\": [\n      {\n        \"gatewayId\": \"XokkAXuu\",\n        \"manufacturer\": \"F\",\n        \"shortId\": \"qSoPFXGqb\",\n        \"isStatic\": true,\n        \"latitude\": -14.11961156645981,\n        \"hasPendingCommands\": true,\n        \"rssiFilter\": \"NEAR\",\n        \"deviceId\": \"QyD-t44Et\",\n        \"productName\": \"\",\n        \"addedOn\": \"727Z74\",\n        \"longitude\": 105.16407235028186\n      },\n      {\n        \"gatewayId\": \"v\",\n        \"manufacturer\": \"OEu34kB\",\n        \"shortId\": \"qLW5ZhWJV\",\n        \"isStatic\": false,\n        \"latitude\": -67.47877527045377,\n        \"hasPendingCommands\": false,\n        \"rssiFilter\": \"FAR\",\n        \"deviceId\": \"EW\",\n        \"productName\": \"C-\",\n        \"addedOn\": \"5T82041541\",\n        \"longitude\": 12.758101956745946\n      }\n    ],\n    \"nextToken\": \"pT5+.Wq\"\n  },\n  \"destination\": {\n    \"name\": \"string\",\n    \"facility\": {\n      \"id\": \"55dDA6Ee-C1dc-fbeC-Fa1a-7a2510f77FC2\",\n      \"name\": \"asnPZx O\",\n      \"workspaceId\": \"1A7FC551-73ca-1a9B-5C4c-9416dCFA9dA7\",\n      \"createdAt\": \"05TZ-\",\n      \"userFacilityId\": \"string\"\n    }\n  },\n  \"isActive\": true,\n  \"deactivated\": {\n    \"when\": \"7667T7:7-\",\n    \"where\": {\n      \"facility\": {\n        \"id\": \"dE2F76c6-d57C-dD9E-9BEc-Ff84a8AeBdAF\",\n        \"name\": \"XiA\",\n        \"workspaceId\": \"FCDdACA4-368d-E748-7d8E-CAAE3CC22dff\",\n        \"createdAt\": \"467ZT38\",\n        \"userFacilityId\": \"string\"\n      }\n    }\n  },\n  \"activated\": {\n    \"when\": \"45:918624T\",\n    \"where\": {\n      \"facility\": {\n        \"id\": \"D21504DA-050a-A1dF-2C52-e179ffBfffE3\",\n        \"name\": \"&oT-\",\n        \"workspaceId\": \"ca60Ea62-6beC-b098-6e00-b5DE16DEEAF1\",\n        \"createdAt\": \"0:53\",\n        \"userFacilityId\": \"string\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8161ede-3a5a-4d5f-a7f0-1375740e28a8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consignments",
+                    ":consignmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "consignmentId",
+                      "description": "(Required) The identifier of the Consignment"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"hsa5\",\n      \"id\": \"o,G\",\n      \"detail\": \"`)d1jq@8s\",\n      \"title\": \"C`\",\n      \"status\": \"598\"\n    },\n    {\n      \"code\": \"\",\n      \"id\": \"sRJs\",\n      \"detail\": \"\",\n      \"title\": \"/CEp\\\"n8NVV\",\n      \"status\": \"646\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a85dfd01-f199-473d-8c97-06069d85b2e7",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consignments",
+                    ":consignmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "consignmentId",
+                      "description": "(Required) The identifier of the Consignment"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"y`r).VwDbz\",\n      \"id\": \"D!)4UTg\",\n      \"detail\": \"q\",\n      \"title\": \"\",\n      \"status\": \"556\"\n    },\n    {\n      \"code\": \"FQAT!\",\n      \"id\": \"m,LiJY(\",\n      \"detail\": \"JHe`Tn#,P\",\n      \"title\": \"K3p0G@4.\",\n      \"status\": \"619\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8bca54ee-6220-4f96-9419-e8c09ce30c75",
+              "name": "Consignment not found in Workspace",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consignments",
+                    ":consignmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "consignmentId",
+                      "description": "(Required) The identifier of the Consignment"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"y`r).VwDbz\",\n      \"id\": \"D!)4UTg\",\n      \"detail\": \"q\",\n      \"title\": \"\",\n      \"status\": \"556\"\n    },\n    {\n      \"code\": \"FQAT!\",\n      \"id\": \"m,LiJY(\",\n      \"detail\": \"JHe`Tn#,P\",\n      \"title\": \"K3p0G@4.\",\n      \"status\": \"619\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "004ef857-eebf-4f21-9cde-04c4b0e39a42",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consignments",
+                    ":consignmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "consignmentId",
+                      "description": "(Required) The identifier of the Consignment"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"y`r).VwDbz\",\n      \"id\": \"D!)4UTg\",\n      \"detail\": \"q\",\n      \"title\": \"\",\n      \"status\": \"556\"\n    },\n    {\n      \"code\": \"FQAT!\",\n      \"id\": \"m,LiJY(\",\n      \"detail\": \"JHe`Tn#,P\",\n      \"title\": \"K3p0G@4.\",\n      \"status\": \"619\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "gateway",
+      "key": "basePath"
+    },
+    {
+      "type": "string",
+      "value": "https://api.reelables.com/{{basePath}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "dd034b7b-009a-4012-b090-e9a91b35a748",
+    "name": "Reelables Gateway Asset Facilities Consignments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for partners to send data to the Reelables platform from Gateway devices\n\nContact Support:\n Email: team@reelables.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reelables Gateway Asset Facilities Workspace Consignments API",
+    "version": "1.1.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workspace Consignments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Consignments in a Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.reelables.com/{basePath}/workspaces/:workspaceId/consignments",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Workspace"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return. Default: 10. Maximum: 10000"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token to get next page of items"
+              },
+              {
+                "name": "trackingRef",
+                "value": "",
+                "type": "query",
+                "description": "The tracking reference that identifies the Consignment in the user system"
+              }
+            ]
+          },
+          "docs": "List Consignments in a Workspace"
+        },
+        {
+          "info": {
+            "name": "Create new Consignment in Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.reelables.com/{basePath}/workspaces/:workspaceId/consignments",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Workspace"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create new Consignment in Workspace"
+        },
+        {
+          "info": {
+            "name": "Update a Consignment using a Tracking Reference",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.reelables.com/{basePath}/workspaces/:workspaceId/consignments",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Workspace"
+              },
+              {
+                "name": "trackingRef",
+                "value": "",
+                "type": "query",
+                "description": "The tracking reference that identifies the Consignment in the user system"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a Consignment using a Tracking Reference"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

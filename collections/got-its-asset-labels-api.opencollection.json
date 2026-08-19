@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reelables Gateway Asset Facilities Asset Labels API",
+    "version": "1.1.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Asset Labels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Link a Label to an Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.reelables.com/{basePath}/assets/:assetId/labels",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Asset"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Link a Label to an Asset"
+        },
+        {
+          "info": {
+            "name": "Unlink a Label from an Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.reelables.com/{basePath}/assets/:assetId/labels/:bleId",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Asset"
+              },
+              {
+                "name": "bleId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Label"
+              }
+            ]
+          },
+          "docs": "Unlink a Label from an Asset"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

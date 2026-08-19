@@ -1,0 +1,793 @@
+{
+  "item": [
+    {
+      "id": "0ad5d4b7-5464-40e1-a2f4-4ad86c95aac6",
+      "name": "Workspace Assets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d6be1fd3-54cf-442e-bbf6-ac8be6d4e8b2",
+          "name": "List Assets in a Workspace",
+          "request": {
+            "name": "List Assets in a Workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "workspaces",
+                ":workspaceId",
+                "assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>",
+                  "description": "Number of items to return. Default: 10. Maximum: 10000"
+                },
+                {
+                  "disabled": false,
+                  "key": "nextToken",
+                  "value": "<string>",
+                  "description": "Pagination token to get next page of items"
+                },
+                {
+                  "disabled": false,
+                  "key": "inSpaceIds",
+                  "value": "<string>",
+                  "description": "Filter the Assets to those currently in a set of Spaces. Comma-separated list, for example: '?inSpaceIds={spaceId1},{spaceId2},{spaceId3}'"
+                },
+                {
+                  "disabled": false,
+                  "key": "bleIds",
+                  "value": "<string>",
+                  "description": "Filter the Assets to those linked to a set of labels, identified by their BLE_ID. Comma-separated list, for example: '?bleIds={bleId1},{bleId2},{bleId3}'"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchTerm",
+                  "value": "<string>",
+                  "description": "String to match name of Assets"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) The identifier of the Workspace"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "4d4ac98b-b356-435a-979c-6346106f6d8e",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inSpaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bleIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"KazIA\",\n      \"name\": \"OBKEB\",\n      \"workspaceId\": \"f9C0cbc3-fCaA-5D5E-FFCC-96e4A01a6773\",\n      \"inSpaces\": [\n        {\n          \"enteredOn\": \"0-9553:-:\",\n          \"spaceId\": \"fbFOsJ\",\n          \"spaceName\": \"Ty\",\n          \"hasExited\": true,\n          \"exitedOn\": \":\"\n        },\n        {\n          \"enteredOn\": \"-1:T:9\",\n          \"spaceId\": \"NHSiWnG\",\n          \"spaceName\": \"ZUVo9\",\n          \"hasExited\": false,\n          \"exitedOn\": \"6609\"\n        }\n      ],\n      \"temperatures\": {\n        \"items\": [\n          {\n            \"degreesCelsius\": 277.32452955521273,\n            \"timestamp\": \"7:75\"\n          },\n          {\n            \"degreesCelsius\": 421.4531239009258,\n            \"timestamp\": \"\"\n          }\n        ],\n        \"nextToken\": \"aB!aR1Xn\"\n      },\n      \"locations\": {\n        \"items\": [\n          {\n            \"coordinate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timestamp\": \"\",\n            \"lastSeenTimestamp\": \"\",\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"error\": 544475\n          },\n          {\n            \"coordinate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timestamp\": \"84840-279\",\n            \"lastSeenTimestamp\": \"--109381\",\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"error\": 520950\n          }\n        ],\n        \"nextToken\": \"iw7&x,sc6\"\n      },\n      \"label\": {\n        \"addedOn\": \"66Z01\",\n        \"bleId\": 1798476998,\n        \"nfcId\": \"kzo6uiSH\",\n        \"config\": {\n          \"reportingInterval\": \"string\"\n        }\n      },\n      \"createdOn\": \"3649\"\n    },\n    {\n      \"id\": \"q2IvGE81o\",\n      \"name\": \"LE\",\n      \"workspaceId\": \"acE6242b-FD6a-efAC-fCa6-cF28d9DCa0e0\",\n      \"inSpaces\": [\n        {\n          \"enteredOn\": \"10\",\n          \"spaceId\": \"ptB6s_A\",\n          \"spaceName\": \"+Hn`Nn\",\n          \"hasExited\": true,\n          \"exitedOn\": \"7T3:-\"\n        },\n        {\n          \"enteredOn\": \"65-31\",\n          \"spaceId\": \"V1uW7Y_\",\n          \"spaceName\": \",.c\",\n          \"hasExited\": false,\n          \"exitedOn\": \"TTTT78:\"\n        }\n      ],\n      \"temperatures\": {\n        \"items\": [\n          {\n            \"degreesCelsius\": 449.9920544477701,\n            \"timestamp\": \"-5:3Z7-\"\n          },\n          {\n            \"degreesCelsius\": 457.1627849552174,\n            \"timestamp\": \"88T\"\n          }\n        ],\n        \"nextToken\": \"\\\"\"\n      },\n      \"locations\": {\n        \"items\": [\n          {\n            \"coordinate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timestamp\": \"47586247\",\n            \"lastSeenTimestamp\": \"\",\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"error\": 555683\n          },\n          {\n            \"coordinate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timestamp\": \"0138::T6-3\",\n            \"lastSeenTimestamp\": \"517471\",\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"error\": 990771\n          }\n        ],\n        \"nextToken\": \"xzgSsR.p\"\n      },\n      \"label\": {\n        \"addedOn\": \"\",\n        \"bleId\": 1385136145,\n        \"nfcId\": \"nN24\",\n        \"config\": {\n          \"reportingInterval\": \"string\"\n        }\n      },\n      \"createdOn\": \":6290\"\n    }\n  ],\n  \"total\": 749650,\n  \"nextToken\": \"4v\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f069851-71de-4d28-aa30-659e3aacaea6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inSpaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bleIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"j7u7o$-p-y\",\n      \"id\": \"yCDReyN\",\n      \"detail\": \"sdAn@oA0S5\",\n      \"title\": \"0i4t\",\n      \"status\": \"000\"\n    },\n    {\n      \"code\": \"BEpt`Or\",\n      \"id\": \".cW\",\n      \"detail\": \"B\",\n      \"title\": \"dOH.EXs`\",\n      \"status\": \"346\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "34102d6d-c05d-4ba2-8267-3a7a1c190c57",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inSpaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bleIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"()9Hs1hX\",\n      \"id\": \"zD3pBM1sV/\",\n      \"detail\": \"m7ZPgp!Mn\",\n      \"title\": \"\",\n      \"status\": \"475\"\n    },\n    {\n      \"code\": \"M\",\n      \"id\": \"f\",\n      \"detail\": \"IQ(\",\n      \"title\": \"ZDoNL5\",\n      \"status\": \"955\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ca3f3ee-6ef4-4146-a3da-2ea3d09cd1c7",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inSpaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bleIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"()9Hs1hX\",\n      \"id\": \"zD3pBM1sV/\",\n      \"detail\": \"m7ZPgp!Mn\",\n      \"title\": \"\",\n      \"status\": \"475\"\n    },\n    {\n      \"code\": \"M\",\n      \"id\": \"f\",\n      \"detail\": \"IQ(\",\n      \"title\": \"ZDoNL5\",\n      \"status\": \"955\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b09663e-cdd7-4852-881d-46f06740996d",
+          "name": "Create new Assets in Workspace",
+          "request": {
+            "name": "Create new Assets in Workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "workspaces",
+                ":workspaceId",
+                "assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) The identifier of the Workspace"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assets\": [\n    {\n      \"name\": \"<string>\",\n      \"nfcId\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"nfcId\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "27410ecf-8d71-4ad2-b162-75f4e4df05cd",
+              "name": "201 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assets\": [\n    {\n      \"name\": \"<string>\",\n      \"nfcId\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"nfcId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"NG4U28\",\n      \"name\": \"d&8.Cvy7y\",\n      \"workspaceId\": \"1CBA28bB-efA8-c72E-EAAa-a6b7aB07a0aC\",\n      \"inSpaces\": [\n        {\n          \"enteredOn\": \"144\",\n          \"spaceId\": \"1\",\n          \"spaceName\": \"a#hu8o.wx\",\n          \"hasExited\": false,\n          \"exitedOn\": \":35TZ50\"\n        },\n        {\n          \"enteredOn\": \"462\",\n          \"spaceId\": \"2m\",\n          \"spaceName\": \"t\",\n          \"hasExited\": true,\n          \"exitedOn\": \":9694-3-02\"\n        }\n      ],\n      \"temperatures\": {\n        \"items\": [\n          {\n            \"degreesCelsius\": 127.20113257795737,\n            \"timestamp\": \"549\"\n          },\n          {\n            \"degreesCelsius\": 215.53989367792786,\n            \"timestamp\": \"7T-14Z2\"\n          }\n        ],\n        \"nextToken\": \"ZI#WAW\"\n      },\n      \"locations\": {\n        \"items\": [\n          {\n            \"coordinate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timestamp\": \"3ZZZ6T3T\",\n            \"lastSeenTimestamp\": \"6:483T\",\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"error\": 771822\n          },\n          {\n            \"coordinate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timestamp\": \"858::1\",\n            \"lastSeenTimestamp\": \"1Z31:\",\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"error\": 684500\n          }\n        ],\n        \"nextToken\": \"VGx\"\n      },\n      \"label\": {\n        \"addedOn\": \"79\",\n        \"bleId\": 726040903,\n        \"nfcId\": \"YjctFhlUgC\",\n        \"config\": {\n          \"reportingInterval\": \"string\"\n        }\n      },\n      \"createdOn\": \"743:2053:\"\n    },\n    {\n      \"id\": \"Ldujt7s\",\n      \"name\": \"V78EyAlwvL\",\n      \"workspaceId\": \"EFF0AEBF-a73A-5bEb-3Dac-36Abca5B2F91\",\n      \"inSpaces\": [\n        {\n          \"enteredOn\": \"16T478T702\",\n          \"spaceId\": \"N\",\n          \"spaceName\": \"R\",\n          \"hasExited\": false,\n          \"exitedOn\": \"4513T90\"\n        },\n        {\n          \"enteredOn\": \"-:19943\",\n          \"spaceId\": \"gWLxG67s\",\n          \"spaceName\": \"3t+BU\",\n          \"hasExited\": false,\n          \"exitedOn\": \"4289T\"\n        }\n      ],\n      \"temperatures\": {\n        \"items\": [\n          {\n            \"degreesCelsius\": 372.63369594912035,\n            \"timestamp\": \"8\"\n          },\n          {\n            \"degreesCelsius\": 294.41617899632854,\n            \"timestamp\": \"Z4\"\n          }\n        ],\n        \"nextToken\": \"EM\"\n      },\n      \"locations\": {\n        \"items\": [\n          {\n            \"coordinate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timestamp\": \"41-09\",\n            \"lastSeenTimestamp\": \"5Z-3\",\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"error\": 574547\n          },\n          {\n            \"coordinate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timestamp\": \"341T72Z8\",\n            \"lastSeenTimestamp\": \"65T4-6Z:\",\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"error\": 262780\n          }\n        ],\n        \"nextToken\": \"nwB!xs\"\n      },\n      \"label\": {\n        \"addedOn\": \"91Z2-9T025\",\n        \"bleId\": 72751261,\n        \"nfcId\": \"Xuh\",\n        \"config\": {\n          \"reportingInterval\": \"string\"\n        }\n      },\n      \"createdOn\": \":3\"\n    }\n  ],\n  \"total\": 237184,\n  \"nextToken\": \"T3ok+6$ViL\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44496ebd-a2f4-47cf-a7b3-32538ece4223",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assets\": [\n    {\n      \"name\": \"<string>\",\n      \"nfcId\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"nfcId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"()9Hs1hX\",\n      \"id\": \"zD3pBM1sV/\",\n      \"detail\": \"m7ZPgp!Mn\",\n      \"title\": \"\",\n      \"status\": \"475\"\n    },\n    {\n      \"code\": \"M\",\n      \"id\": \"f\",\n      \"detail\": \"IQ(\",\n      \"title\": \"ZDoNL5\",\n      \"status\": \"955\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c4cfc13b-f74a-4184-b784-20d003a8c59a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assets\": [\n    {\n      \"name\": \"<string>\",\n      \"nfcId\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"nfcId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"()9Hs1hX\",\n      \"id\": \"zD3pBM1sV/\",\n      \"detail\": \"m7ZPgp!Mn\",\n      \"title\": \"\",\n      \"status\": \"475\"\n    },\n    {\n      \"code\": \"M\",\n      \"id\": \"f\",\n      \"detail\": \"IQ(\",\n      \"title\": \"ZDoNL5\",\n      \"status\": \"955\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8172dbf-e754-4688-8010-20086f198313",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":workspaceId",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) The identifier of the Workspace"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assets\": [\n    {\n      \"name\": \"<string>\",\n      \"nfcId\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"nfcId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"()9Hs1hX\",\n      \"id\": \"zD3pBM1sV/\",\n      \"detail\": \"m7ZPgp!Mn\",\n      \"title\": \"\",\n      \"status\": \"475\"\n    },\n    {\n      \"code\": \"M\",\n      \"id\": \"f\",\n      \"detail\": \"IQ(\",\n      \"title\": \"ZDoNL5\",\n      \"status\": \"955\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "gateway",
+      "key": "basePath"
+    },
+    {
+      "type": "string",
+      "value": "https://api.reelables.com/{{basePath}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2ce92076-bd06-42f7-9f85-c4d735e19e7e",
+    "name": "Reelables Gateway Asset Facilities Workspace Assets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for partners to send data to the Reelables platform from Gateway devices\n\nContact Support:\n Email: team@reelables.com",
+      "type": "text/plain"
+    }
+  }
+}

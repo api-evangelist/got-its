@@ -1,0 +1,115 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reelables Gateway Asset Facilities Consignment Pieces API",
+    "version": "1.1.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Consignment Pieces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Pieces in a Consignment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.reelables.com/{basePath}/consignments/:consignmentId/pieces",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "consignmentId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Consignment"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return. Default: 10. Maximum: 10000"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token to get next page of items"
+              }
+            ]
+          },
+          "docs": "List Pieces in a Consignment"
+        },
+        {
+          "info": {
+            "name": "Add Pieces to a Consignment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.reelables.com/{basePath}/consignments/:consignmentId/pieces",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "consignmentId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Consignment"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Pieces to a Consignment"
+        },
+        {
+          "info": {
+            "name": "Remove a Piece from a Consignment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.reelables.com/{basePath}/consignments/:consignmentId/pieces/:pieceId",
+            "headers": [
+              {
+                "name": "request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "pieceId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Piece"
+              },
+              {
+                "name": "consignmentId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the Consignment"
+              }
+            ]
+          },
+          "docs": "Remove a Piece from a Consignment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1311 @@
+{
+  "item": [
+    {
+      "id": "82455052-94c6-47b3-96b1-71b34372c940",
+      "name": "Space Gateways",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5f59b185-d41a-4510-9221-38abce81a5ee",
+          "name": "Link a Gateway to a Space",
+          "request": {
+            "name": "Link a Gateway to a Space",
+            "description": {},
+            "url": {
+              "path": [
+                "spaces",
+                ":spaceId",
+                "gateways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "spaceId",
+                  "description": "(Required) The identifier of the Space"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shortId\": \"<string>\",\n  \"isStatic\": \"<boolean>\",\n  \"registerGateway\": \"<boolean>\",\n  \"replaceExistingGateway\": \"<boolean>\",\n  \"latitude\": \"<float>\",\n  \"rssiFilter\": \"<string>\",\n  \"deviceId\": \"<string>\",\n  \"gatewayId\": \"<string>\",\n  \"productName\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"longitude\": \"<float>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "129f64cd-84ef-4a59-9dab-d9c84cdbf120",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shortId\": \"<string>\",\n  \"isStatic\": \"<boolean>\",\n  \"registerGateway\": \"<boolean>\",\n  \"replaceExistingGateway\": \"<boolean>\",\n  \"latitude\": \"<float>\",\n  \"rssiFilter\": \"<string>\",\n  \"deviceId\": \"<string>\",\n  \"gatewayId\": \"<string>\",\n  \"productName\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"longitude\": \"<float>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"Zm5VvOxb\",\n  \"name\": \"6&bKC\",\n  \"workspaceId\": \"0b7A0F03-E289-d082-cb06-AC6D9d4eA06c\",\n  \"numberAssetsInSpace\": 741637,\n  \"facilityId\": \"c2422293-7FD8-4D8A-A465-C29e0CeBD03C\",\n  \"locations\": {\n    \"items\": [\n      {\n        \"coordinate\": {\n          \"latitude\": 83.23053088583379,\n          \"longitude\": -105.14731801498105,\n          \"accuracy\": 737370\n        },\n        \"timestamp\": \"Z381\",\n        \"lastSeenTimestamp\": \"0652-9\",\n        \"address\": {\n          \"country\": \"string\",\n          \"road\": \"string\",\n          \"city\": \"string\",\n          \"district\": \"string\",\n          \"postalCode\": \"string\",\n          \"county\": \"string\",\n          \"state\": \"string\"\n        },\n        \"error\": 382227\n      },\n      {\n        \"coordinate\": {\n          \"latitude\": -36.48477201828481,\n          \"longitude\": 96.18600990741572,\n          \"accuracy\": 717495\n        },\n        \"timestamp\": \"Z51:498TT3\",\n        \"lastSeenTimestamp\": \"884Z-3Z745\",\n        \"address\": {\n          \"country\": \"string\",\n          \"road\": \"string\",\n          \"city\": \"string\",\n          \"district\": \"string\",\n          \"postalCode\": \"string\",\n          \"county\": \"string\",\n          \"state\": \"string\"\n        },\n        \"error\": 983485\n      }\n    ],\n    \"nextToken\": \"g+sRFnF!\"\n  },\n  \"createdOn\": \"575957008T\",\n  \"gateway\": {\n    \"addedOn\": \"\",\n    \"gatewayId\": \"jq\",\n    \"shortId\": \"dputvK\",\n    \"isStatic\": false,\n    \"latitude\": 76.25229196921936,\n    \"hasPendingCommands\": true,\n    \"rssiFilter\": \"FAR\",\n    \"deviceId\": \"kcssdKmSI5\",\n    \"productName\": \"Mw,NCE\",\n    \"manufacturer\": \"bn\",\n    \"longitude\": 68.01797689933949\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c680279-67c9-4eee-90ec-172d97a66b10",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shortId\": \"<string>\",\n  \"isStatic\": \"<boolean>\",\n  \"registerGateway\": \"<boolean>\",\n  \"replaceExistingGateway\": \"<boolean>\",\n  \"latitude\": \"<float>\",\n  \"rssiFilter\": \"<string>\",\n  \"deviceId\": \"<string>\",\n  \"gatewayId\": \"<string>\",\n  \"productName\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"longitude\": \"<float>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"n8C,Kur\",\n      \"id\": \"!`u7.dEJsn\",\n      \"detail\": \"c\\\"LuL9\",\n      \"title\": \",d2@\",\n      \"status\": \"64\"\n    },\n    {\n      \"code\": \"s77UA5\",\n      \"id\": \"!84wJ5igOP\",\n      \"detail\": \"\\\"ZPd(#C,t\",\n      \"title\": \"7kwkA\",\n      \"status\": \"649\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63f8da83-9023-4430-8c4d-226192dd7ffa",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shortId\": \"<string>\",\n  \"isStatic\": \"<boolean>\",\n  \"registerGateway\": \"<boolean>\",\n  \"replaceExistingGateway\": \"<boolean>\",\n  \"latitude\": \"<float>\",\n  \"rssiFilter\": \"<string>\",\n  \"deviceId\": \"<string>\",\n  \"gatewayId\": \"<string>\",\n  \"productName\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"longitude\": \"<float>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"nl..1\\\"T7,\",\n      \"id\": \"hn\",\n      \"detail\": \"\",\n      \"title\": \"MJYzAB\",\n      \"status\": \"881\"\n    },\n    {\n      \"code\": \"A`wjP`\",\n      \"id\": \"3.!vnVCh\",\n      \"detail\": \"0GpuvL61\",\n      \"title\": \"@Btz3\",\n      \"status\": \"052\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d0da86c-07aa-43ee-8ee5-b823e7d8a94b",
+              "name": "Space not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shortId\": \"<string>\",\n  \"isStatic\": \"<boolean>\",\n  \"registerGateway\": \"<boolean>\",\n  \"replaceExistingGateway\": \"<boolean>\",\n  \"latitude\": \"<float>\",\n  \"rssiFilter\": \"<string>\",\n  \"deviceId\": \"<string>\",\n  \"gatewayId\": \"<string>\",\n  \"productName\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"longitude\": \"<float>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"nl..1\\\"T7,\",\n      \"id\": \"hn\",\n      \"detail\": \"\",\n      \"title\": \"MJYzAB\",\n      \"status\": \"881\"\n    },\n    {\n      \"code\": \"A`wjP`\",\n      \"id\": \"3.!vnVCh\",\n      \"detail\": \"0GpuvL61\",\n      \"title\": \"@Btz3\",\n      \"status\": \"052\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63f9fbf6-e168-4b53-b9af-be16c58c2788",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shortId\": \"<string>\",\n  \"isStatic\": \"<boolean>\",\n  \"registerGateway\": \"<boolean>\",\n  \"replaceExistingGateway\": \"<boolean>\",\n  \"latitude\": \"<float>\",\n  \"rssiFilter\": \"<string>\",\n  \"deviceId\": \"<string>\",\n  \"gatewayId\": \"<string>\",\n  \"productName\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"longitude\": \"<float>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"nl..1\\\"T7,\",\n      \"id\": \"hn\",\n      \"detail\": \"\",\n      \"title\": \"MJYzAB\",\n      \"status\": \"881\"\n    },\n    {\n      \"code\": \"A`wjP`\",\n      \"id\": \"3.!vnVCh\",\n      \"detail\": \"0GpuvL61\",\n      \"title\": \"@Btz3\",\n      \"status\": \"052\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d4a3a597-99cd-40c3-9aeb-0c1c12f86a35",
+          "name": "Update a Gateway",
+          "request": {
+            "name": "Update a Gateway",
+            "description": {},
+            "url": {
+              "path": [
+                "spaces",
+                ":spaceId",
+                "gateways",
+                ":gatewayId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "spaceId",
+                  "description": "(Required) The identifier of the Space"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gatewayId",
+                  "description": "(Required) The identifier of the Gateway"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isStatic\": \"<boolean>\",\n  \"latitude\": \"<float>\",\n  \"rssiFilter\": \"<string>\",\n  \"longitude\": \"<float>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "072f0754-355c-4812-9e2f-68cf8febdaf5",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId",
+                    "gateways",
+                    ":gatewayId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gatewayId",
+                      "description": "(Required) The identifier of the Gateway"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isStatic\": \"<boolean>\",\n  \"latitude\": \"<float>\",\n  \"rssiFilter\": \"<string>\",\n  \"longitude\": \"<float>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"addedOn\": \"5648691\",\n  \"gatewayId\": \"2UZeDhaY6\",\n  \"shortId\": \"NIuIEIO\",\n  \"isStatic\": true,\n  \"latitude\": -17.546541057767243,\n  \"hasPendingCommands\": false,\n  \"rssiFilter\": \"FAR\",\n  \"deviceId\": \"BSJ7IQ\",\n  \"productName\": \"hjG5x`e\",\n  \"manufacturer\": \"m7pZRF\",\n  \"longitude\": 174.8603150477398\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f171174c-81fd-4daa-ba53-a12c1f1719bd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId",
+                    "gateways",
+                    ":gatewayId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gatewayId",
+                      "description": "(Required) The identifier of the Gateway"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isStatic\": \"<boolean>\",\n  \"latitude\": \"<float>\",\n  \"rssiFilter\": \"<string>\",\n  \"longitude\": \"<float>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"nl..1\\\"T7,\",\n      \"id\": \"hn\",\n      \"detail\": \"\",\n      \"title\": \"MJYzAB\",\n      \"status\": \"881\"\n    },\n    {\n      \"code\": \"A`wjP`\",\n      \"id\": \"3.!vnVCh\",\n      \"detail\": \"0GpuvL61\",\n      \"title\": \"@Btz3\",\n      \"status\": \"052\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df41d04d-1a83-499b-bef2-cb4993fb3f3a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId",
+                    "gateways",
+                    ":gatewayId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gatewayId",
+                      "description": "(Required) The identifier of the Gateway"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isStatic\": \"<boolean>\",\n  \"latitude\": \"<float>\",\n  \"rssiFilter\": \"<string>\",\n  \"longitude\": \"<float>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"nl..1\\\"T7,\",\n      \"id\": \"hn\",\n      \"detail\": \"\",\n      \"title\": \"MJYzAB\",\n      \"status\": \"881\"\n    },\n    {\n      \"code\": \"A`wjP`\",\n      \"id\": \"3.!vnVCh\",\n      \"detail\": \"0GpuvL61\",\n      \"title\": \"@Btz3\",\n      \"status\": \"052\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d19c7dd-b84f-41b7-a795-38ea901faf63",
+              "name": "Space or Gateway not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId",
+                    "gateways",
+                    ":gatewayId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gatewayId",
+                      "description": "(Required) The identifier of the Gateway"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isStatic\": \"<boolean>\",\n  \"latitude\": \"<float>\",\n  \"rssiFilter\": \"<string>\",\n  \"longitude\": \"<float>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"nl..1\\\"T7,\",\n      \"id\": \"hn\",\n      \"detail\": \"\",\n      \"title\": \"MJYzAB\",\n      \"status\": \"881\"\n    },\n    {\n      \"code\": \"A`wjP`\",\n      \"id\": \"3.!vnVCh\",\n      \"detail\": \"0GpuvL61\",\n      \"title\": \"@Btz3\",\n      \"status\": \"052\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0deffb39-9a67-45a2-9f3c-0b89e571ed4f",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId",
+                    "gateways",
+                    ":gatewayId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gatewayId",
+                      "description": "(Required) The identifier of the Gateway"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isStatic\": \"<boolean>\",\n  \"latitude\": \"<float>\",\n  \"rssiFilter\": \"<string>\",\n  \"longitude\": \"<float>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"nl..1\\\"T7,\",\n      \"id\": \"hn\",\n      \"detail\": \"\",\n      \"title\": \"MJYzAB\",\n      \"status\": \"881\"\n    },\n    {\n      \"code\": \"A`wjP`\",\n      \"id\": \"3.!vnVCh\",\n      \"detail\": \"0GpuvL61\",\n      \"title\": \"@Btz3\",\n      \"status\": \"052\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e37a318-dfae-40ca-be4d-6b8b9ddf394e",
+          "name": "Unlink a Gateway from a Space",
+          "request": {
+            "name": "Unlink a Gateway from a Space",
+            "description": {},
+            "url": {
+              "path": [
+                "spaces",
+                ":spaceId",
+                "gateways",
+                ":gatewayId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "spaceId",
+                  "description": "(Required) The identifier of the Space"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gatewayId",
+                  "description": "(Required) The identifier of the Gateway"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "902b5365-465a-4a12-a0e3-31371999fb1f",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId",
+                    "gateways",
+                    ":gatewayId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gatewayId",
+                      "description": "(Required) The identifier of the Gateway"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"Zm5VvOxb\",\n  \"name\": \"6&bKC\",\n  \"workspaceId\": \"0b7A0F03-E289-d082-cb06-AC6D9d4eA06c\",\n  \"numberAssetsInSpace\": 741637,\n  \"facilityId\": \"c2422293-7FD8-4D8A-A465-C29e0CeBD03C\",\n  \"locations\": {\n    \"items\": [\n      {\n        \"coordinate\": {\n          \"latitude\": 83.23053088583379,\n          \"longitude\": -105.14731801498105,\n          \"accuracy\": 737370\n        },\n        \"timestamp\": \"Z381\",\n        \"lastSeenTimestamp\": \"0652-9\",\n        \"address\": {\n          \"country\": \"string\",\n          \"road\": \"string\",\n          \"city\": \"string\",\n          \"district\": \"string\",\n          \"postalCode\": \"string\",\n          \"county\": \"string\",\n          \"state\": \"string\"\n        },\n        \"error\": 382227\n      },\n      {\n        \"coordinate\": {\n          \"latitude\": -36.48477201828481,\n          \"longitude\": 96.18600990741572,\n          \"accuracy\": 717495\n        },\n        \"timestamp\": \"Z51:498TT3\",\n        \"lastSeenTimestamp\": \"884Z-3Z745\",\n        \"address\": {\n          \"country\": \"string\",\n          \"road\": \"string\",\n          \"city\": \"string\",\n          \"district\": \"string\",\n          \"postalCode\": \"string\",\n          \"county\": \"string\",\n          \"state\": \"string\"\n        },\n        \"error\": 983485\n      }\n    ],\n    \"nextToken\": \"g+sRFnF!\"\n  },\n  \"createdOn\": \"575957008T\",\n  \"gateway\": {\n    \"addedOn\": \"\",\n    \"gatewayId\": \"jq\",\n    \"shortId\": \"dputvK\",\n    \"isStatic\": false,\n    \"latitude\": 76.25229196921936,\n    \"hasPendingCommands\": true,\n    \"rssiFilter\": \"FAR\",\n    \"deviceId\": \"kcssdKmSI5\",\n    \"productName\": \"Mw,NCE\",\n    \"manufacturer\": \"bn\",\n    \"longitude\": 68.01797689933949\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69c59347-08a9-488d-a30f-046518bf2c86",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId",
+                    "gateways",
+                    ":gatewayId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gatewayId",
+                      "description": "(Required) The identifier of the Gateway"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"nl..1\\\"T7,\",\n      \"id\": \"hn\",\n      \"detail\": \"\",\n      \"title\": \"MJYzAB\",\n      \"status\": \"881\"\n    },\n    {\n      \"code\": \"A`wjP`\",\n      \"id\": \"3.!vnVCh\",\n      \"detail\": \"0GpuvL61\",\n      \"title\": \"@Btz3\",\n      \"status\": \"052\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ca0862c-8f8f-45cd-b620-a2127a69422a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId",
+                    "gateways",
+                    ":gatewayId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gatewayId",
+                      "description": "(Required) The identifier of the Gateway"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"nl..1\\\"T7,\",\n      \"id\": \"hn\",\n      \"detail\": \"\",\n      \"title\": \"MJYzAB\",\n      \"status\": \"881\"\n    },\n    {\n      \"code\": \"A`wjP`\",\n      \"id\": \"3.!vnVCh\",\n      \"detail\": \"0GpuvL61\",\n      \"title\": \"@Btz3\",\n      \"status\": \"052\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "870450ef-42ba-47aa-9770-e4b778f67be5",
+              "name": "Space not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId",
+                    "gateways",
+                    ":gatewayId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gatewayId",
+                      "description": "(Required) The identifier of the Gateway"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"nl..1\\\"T7,\",\n      \"id\": \"hn\",\n      \"detail\": \"\",\n      \"title\": \"MJYzAB\",\n      \"status\": \"881\"\n    },\n    {\n      \"code\": \"A`wjP`\",\n      \"id\": \"3.!vnVCh\",\n      \"detail\": \"0GpuvL61\",\n      \"title\": \"@Btz3\",\n      \"status\": \"052\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "704e7b39-a62f-44fa-8831-88e41441704b",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spaces",
+                    ":spaceId",
+                    "gateways",
+                    ":gatewayId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spaceId",
+                      "description": "(Required) The identifier of the Space"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gatewayId",
+                      "description": "(Required) The identifier of the Gateway"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"nl..1\\\"T7,\",\n      \"id\": \"hn\",\n      \"detail\": \"\",\n      \"title\": \"MJYzAB\",\n      \"status\": \"881\"\n    },\n    {\n      \"code\": \"A`wjP`\",\n      \"id\": \"3.!vnVCh\",\n      \"detail\": \"0GpuvL61\",\n      \"title\": \"@Btz3\",\n      \"status\": \"052\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "gateway",
+      "key": "basePath"
+    },
+    {
+      "type": "string",
+      "value": "https://api.reelables.com/{{basePath}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "62097be5-4114-40e8-98d9-76e38b37dd5c",
+    "name": "Reelables Gateway Asset Facilities Space Gateways API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for partners to send data to the Reelables platform from Gateway devices\n\nContact Support:\n Email: team@reelables.com",
+      "type": "text/plain"
+    }
+  }
+}

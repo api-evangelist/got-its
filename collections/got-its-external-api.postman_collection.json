@@ -1,0 +1,487 @@
+{
+  "item": [
+    {
+      "id": "f4c5205e-6179-40bb-9458-ec398eda9b20",
+      "name": "External",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f68def10-d349-4f72-ae96-66e0e1e5d407",
+          "name": "Send label data from a Gateway device",
+          "request": {
+            "name": "Send label data from a Gateway device",
+            "description": {},
+            "url": {
+              "path": [
+                "external",
+                "v1",
+                "label-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Contact team@reelables.com to get an api key.",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"labels\": [\n      \"<object>\",\n      \"<object>\"\n    ]\n  },\n  \"providerDeviceId\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"signalStrength\": \"<float>\",\n  \"temperature\": \"<float>\",\n  \"location\": {\n    \"accuracy\": \"<float>\",\n    \"latitude\": \"<float>\",\n    \"longitude\": \"<float>\"\n  },\n  \"batteryLevel\": \"<float>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "422e8b94-3081-4790-a32f-a163a0be84c5",
+              "name": "Events received and queued for processing",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "external",
+                    "v1",
+                    "label-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Contact team@reelables.com to get an api key.",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"labels\": [\n      \"<object>\",\n      \"<object>\"\n    ]\n  },\n  \"providerDeviceId\": \"d290f1ee-6c54-4b01-90e6-d701748f0851\",\n  \"timestamp\": \"2019-07-21T17:32:28Z\",\n  \"signalStrength\": -30,\n  \"temperature\": -2.1,\n  \"location\": {\n    \"accuracy\": 18.5,\n    \"latitude\": 51.5074,\n    \"longitude\": -0.1278\n  },\n  \"batteryLevel\": 42\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fa8656e9-dd01-4c7a-897b-db96d93f9794",
+              "name": "Invalid input, object invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "external",
+                    "v1",
+                    "label-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Contact team@reelables.com to get an api key.",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"labels\": [\n      \"<object>\",\n      \"<object>\"\n    ]\n  },\n  \"providerDeviceId\": \"d290f1ee-6c54-4b01-90e6-d701748f0851\",\n  \"timestamp\": \"2019-07-21T17:32:28Z\",\n  \"signalStrength\": -30,\n  \"temperature\": -2.1,\n  \"location\": {\n    \"accuracy\": 18.5,\n    \"latitude\": 51.5074,\n    \"longitude\": -0.1278\n  },\n  \"batteryLevel\": 42\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b05f5637-b2d4-4b86-a69c-33cbafe61a50",
+          "name": "Send snapshot from a Gateway device",
+          "request": {
+            "name": "Send snapshot from a Gateway device",
+            "description": {},
+            "url": {
+              "path": [
+                "external",
+                "v1",
+                "snapshot"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Contact team@reelables.com to get an api key.",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"labels\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"page\": \"<integer>\",\n    \"totalPages\": \"<integer>\"\n  },\n  \"providerDeviceId\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"signalStrength\": \"<float>\",\n  \"temperature\": \"<float>\",\n  \"location\": {\n    \"accuracy\": \"<float>\",\n    \"latitude\": \"<float>\",\n    \"longitude\": \"<float>\"\n  },\n  \"batteryLevel\": \"<float>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "36ca5748-a80e-440d-906a-6b834321a513",
+              "name": "Events received and queued for processing",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "external",
+                    "v1",
+                    "snapshot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Contact team@reelables.com to get an api key.",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"labels\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"page\": 1,\n    \"totalPages\": 1\n  },\n  \"providerDeviceId\": \"d290f1ee-6c54-4b01-90e6-d701748f0851\",\n  \"timestamp\": \"2019-07-21T17:32:28Z\",\n  \"signalStrength\": -30,\n  \"temperature\": -2.1,\n  \"location\": {\n    \"accuracy\": 18.5,\n    \"latitude\": 51.5074,\n    \"longitude\": -0.1278\n  },\n  \"batteryLevel\": 42\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5e86815b-1f32-44f4-9a6b-0d7f309f9a6d",
+              "name": "Invalid input, object invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "external",
+                    "v1",
+                    "snapshot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Contact team@reelables.com to get an api key.",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique identifier for the API request. Example: f7ecf495-ca1c-4468-a6c2-6ee3f723fa00",
+                    "key": "request-id",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"labels\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"page\": 1,\n    \"totalPages\": 1\n  },\n  \"providerDeviceId\": \"d290f1ee-6c54-4b01-90e6-d701748f0851\",\n  \"timestamp\": \"2019-07-21T17:32:28Z\",\n  \"signalStrength\": -30,\n  \"temperature\": -2.1,\n  \"location\": {\n    \"accuracy\": 18.5,\n    \"latitude\": 51.5074,\n    \"longitude\": -0.1278\n  },\n  \"batteryLevel\": 42\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "gateway",
+      "key": "basePath"
+    },
+    {
+      "type": "string",
+      "value": "https://api.reelables.com/{{basePath}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "de03b5f5-78b7-41fe-82dd-b9d02c4798af",
+    "name": "Reelables Gateway Asset Facilities External API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for partners to send data to the Reelables platform from Gateway devices\n\nContact Support:\n Email: team@reelables.com",
+      "type": "text/plain"
+    }
+  }
+}
