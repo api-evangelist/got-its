@@ -448,6 +448,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/got-its-capability-edges.yml
+  name: Reelables Business Capability Map
 - type: Overlay
   url: overlays/got-its-gateway-openapi-overlay.yaml
 - type: DomainSecurity

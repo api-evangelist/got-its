@@ -1,0 +1,36 @@
+slug: got-its
+provider: Reelables
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Transportation & Logistics
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Workspace Consignments
+  spec_file: got-its-workspace-consignments-api-openapi.yml
+  capability_id: BC-2510.20
+  capability_id_l1: BC-2510
+  capability_name: Shipment Tracking Management
+  confidence: 0.8
+  evidence: PATCH /workspaces/{workspaceId}/consignments — "Update a Consignment using a Tracking Reference";
+    schemas Consignment, ConsignmentPieces, InFacility
+  reason: Operations create and update consignments keyed by tracking reference, with pieces, facility
+    presence and gateway associations — plainly shipment tracking/visibility rather than booking or billing.
+- tag: External
+  spec_file: got-its-external-api-openapi.yml
+  capability_id: BC-2510.10
+  capability_id_l1: BC-2510
+  capability_name: Event Capture and Status Management
+  confidence: 0.72
+  evidence: POST /external/v1/label-data — "Send label data from a Gateway device"; POST /external/v1/snapshot
+    — "Send snapshot from a Gateway device"
+  reason: Inbound ingestion of IoT smart-label readings and snapshots from gateway devices is exactly
+    event capture feeding shipment status, per the spec description "API for partners to send data to
+    the Reelables platform from Gateway devices".
