@@ -318,6 +318,8 @@ apis:
   humanURL: https://docs.reelables.com/
   baseURL: https://api.reelables.com/v1
   tags:
+  - Space
+  tags_raw:
   - Spaces
   properties:
   - type: OpenAPI
@@ -432,6 +434,8 @@ apis:
   humanURL: https://docs.reelables.com/
   baseURL: https://api.reelables.com/v1
   tags:
+  - Workspace
+  tags_raw:
   - Workspaces
   properties:
   - type: OpenAPI
