@@ -1,16 +1,19 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reelables Gateway Asset Facilities Space Assets API
-  description: RESTful API for partners to send data to the Reelables platform from Gateway devices
+  title: Reelables Space Assets API
+  description: RESTful API for communicating with the Reelables Platform.
   contact:
     email: team@reelables.com
-  version: 1.1.1
+  version: 1.3.11
 servers:
 - url: https://api.reelables.com/{basePath}
   variables:
     basePath:
-      default: gateway
-  description: The production URL for sending requests to the Reelables Gateway API.
+      default: v1
+  description: The production URL for sending requests to the Reelables API.
+security:
+- AuthEndpoint:
+  - https://auth.reelables.com/full-access
 tags:
 - name: Space Assets
 paths:
@@ -75,41 +78,10 @@ paths:
       security:
       - AuthEndpoint:
         - https://auth.reelables.com/full-access
+      operationId: getSpacesBySpaceIdAssets
+      x-operation-id-source: derived
 components:
   schemas:
-    AssetInSpace:
-      required:
-      - enteredOn
-      - spaceId
-      - spaceName
-      type: object
-      properties:
-        spaceName:
-          maxLength: 500
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: The name of the Space
-        spaceId:
-          maxLength: 20
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Unique identifier of the Space. Example: ''00Es43YBJfNRXNSvLmni'''
-        hasExited:
-          type: boolean
-          description: Indicate whether the Asset has exited the Space
-        enteredOn:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Date that the Asset entered the Space. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-        exitedOn:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Date that the Asset exited the Space. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-      additionalProperties: false
     ErrorResponse:
       required:
       - errors
@@ -164,8 +136,126 @@ components:
             $ref: '#/components/schemas/AssetInSpace'
       additionalProperties: false
       description: Asset in Spaces
+    AssetInSpace:
+      required:
+      - enteredOn
+      - spaceId
+      - spaceName
+      type: object
+      properties:
+        spaceName:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Space
+        spaceId:
+          maxLength: 20
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Unique identifier of the Space. Example: ''00Es43YBJfNRXNSvLmni'''
+        hasExited:
+          type: boolean
+          description: Indicate whether the Asset has exited the Space
+        enteredOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the Asset entered the Space. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        exitedOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the Asset exited the Space. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+      additionalProperties: false
   securitySchemes:
-    api_key:
-      type: apiKey
-      name: x-api-key
-      in: header
+    AuthEndpoint:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.reelables.com/oauth2/token
+          scopes:
+            https://auth.reelables.com/full-access: Full access to the Public API
+x-topics:
+- title: Getting started
+  content: Before using the Reelables API, you require a `CLIENT_ID` and `CLIENT_SECRET` to authenticate your requests. You can obtain these by contacting [Reelables Support](mailto:support@reelables.com)
+- title: Authentication
+  content: 'Our authentication is based on the Client Credentials flow of the OAuth 2.0 authentication framework ([Client Credentials](https://datatracker.ietf.org/doc/html/rfc6749#section-1.3.4)).
+
+
+    You need to retrieve an access token (`ACCESS_TOKEN`) from our authentication endpoint to then send in the header (`"Authorization: Bearer ACCESS_TOKEN"`) of subsequent requests.
+
+
+    **To obtain an `ACCESS_TOKEN`, send a POST request to https://auth.reelables.com/oauth2/token?grant_type=client_credentials with headers:**
+
+    - `"Content-Type": "application/x-www-form-urlencoded"`
+
+    - `"Authorization": "Basic base64(CLIENT_ID>:<CLIENT_SECRET>)"`
+
+    where base64() is the base64-encoded representation of the `<CLIENT_ID>:<CLIENT_SECRET>` combination.
+
+
+    **Using the `ACCESS_TOKEN` in requests:**
+
+    - add an `Authorization` header to your request including the `ACCESS_TOKEN` as the value: `"Authorization: Bearer ACCESS_TOKEN"`
+
+    - the `ACCESS_TOKEN` is valid for 1 hour. Once it has expired, re-authenticate to obtain a fresh `ACCESS_TOKEN`
+
+    '
+  example: '_Example Authentication request_
+
+    ```curl --request POST --url ''https://auth.reelables.com/oauth2/token?grant_type=client_credentials'' --user CLIENT_ID:CLIENT_SECRET --header ''Content-Type: application/x-www-form-urlencoded''```
+
+    - Note: using the curl --user option adds an `Authorization` header with value `Basic Base64(CLIENT_ID:CLIENT_SECRET)`'
+- title: Errors
+  content: 'The API uses standard HTTP response codes to indicate the success or failure of requests. Statuses in the `2xx` range indicate success; statuses in the `4xx` and `5xx` ranges indicate errors. The format of error messages is unified, and can be distinguished by their `status` key. The `title` and `detail` are plain English explanations of the problem.
+
+    '
+  example: "```json\n{\n  \"status\": \"status_code\",\n  \"id\": \"A unique identifier for this particular occurrence of the problem.\",\n  \"title\": \"A short, human-readable summary of the problem.\",\n  \"detail\": \"A human-readable explanation specific to this occurrence of the problem.\",\n}\n```\n"
+- title: Versioning and backwards compatibility
+  content: 'The API is versioned by path (`/v1/...`). When we introduce breaking changes, we will increase this version number. We will of course continually make backward-compatible changes without increasing the version number.
+
+
+    Examples of things we do **not** consider breaking include:
+
+    * Adding new API resources.
+
+    * Adding new optional request parameters to existing API methods.
+
+    * Adding new properties to existing API responses. We will occasionally move response fields in the API, and will continue to return the existing field in its previous location, while removing it from this documentation.
+
+    * Changing the order of properties in existing API responses.
+
+    * Changing the length or format of opaque strings, such as object IDs, error messages, and other human-readable strings. Strings that are marked as const or enum in this documentation will not change.
+
+    '
+- title: Rate limiting
+  content: 'We enforce a rate limit on how many HTTP requests can be made in a given period. When the limit is reached, the API will return an error `429 Too Many Requests`.
+
+    '
+- title: Data Entities
+  content: 'The core entities in the Reelables API are:
+
+    - **`Workspace`**: a permissions boundary within the Reelables Platform.
+
+    Typically this is an organization or team but it can also represent an application across several organizations, for example when multiple parties have visibility of `Assets` through a supply chain.
+
+
+    `Assets`, `Spaces`, `Printers`, `Consignments` and `Facilities` all exist within the context of a `Workspace`. `Users` can have permissions in more than one `Workspace`.
+
+    - **`Asset`**: a physical item that can be tracked. Reelables `Labels` are activated (typically by a `Printer`) and attached to `Assets`.
+
+    - **`Space`**: a physical area within which `Assets` can be detected. A `Space` can be static (e.g. a receiving bay in a `Facility`) or mobile (e.g. in the trailer of a truck). A `Space` is characterized in the real world by a `Gateway`, a physical device that listens for signals from Reelables `Labels`.
+
+    - **`Consignment`**: A collection of pieces that are being tracked. In the context of a `Consignment` a piece is an `Asset`.
+
+    - **`Facility`**: A physical location, comprised of one or more `Spaces` where `Assets` are stored or transit through. E.g. a warehouse or distribution center.
+
+    - **`Label`**: A Reelables smart label that produces signals that are detected by a `Gateway`.
+
+    - **`Gateway`**: A device that listens for signals from `Labels`.
+
+    - **`Printer`**: a physcial device that enables customers to use Reelables `Labels` at scale. `Printers` are linked to a `Workspace` and are used to print `Labels` for `Assets`.
+
+    - **`User`**: can be a part of one or more `Workspaces`, their permissions within those `Workspaces` are role-based.'

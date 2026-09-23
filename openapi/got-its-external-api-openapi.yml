@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reelables Gateway Asset Facilities External API
+  title: Reelables Gateway External API
   description: RESTful API for partners to send data to the Reelables platform from Gateway devices
   contact:
     email: team@reelables.com
@@ -47,6 +47,8 @@ paths:
       - api_key: []
       tags:
       - External
+      operationId: postExternalV1LabelData
+      x-operation-id-source: derived
   /external/v1/snapshot:
     post:
       summary: Send snapshot from a Gateway device
@@ -80,6 +82,8 @@ paths:
       - api_key: []
       tags:
       - External
+      operationId: postExternalV1Snapshot
+      x-operation-id-source: derived
 components:
   schemas:
     ExternalLabelData:
