@@ -87,6 +87,53 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    AssetLocations:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+      additionalProperties: false
+    Address:
+      type: object
+      properties:
+        country:
+          maxLength: 255
+          type: string
+          description: The country name. Example 'United Kingdom'
+        road:
+          maxLength: 255
+          type: string
+          description: The road name. Example 'Downing Street'
+        city:
+          maxLength: 255
+          type: string
+          description: The city name. Example 'London'
+        district:
+          maxLength: 255
+          type: string
+          description: The district name. Example 'Westminster'
+        postalCode:
+          maxLength: 10
+          type: string
+          description: The postal code. Example 'SW1A 2AA'
+        county:
+          maxLength: 255
+          type: string
+          description: The county name. Example 'Greater London'
+        state:
+          maxLength: 255
+          type: string
+          description: The state name. Example 'England'
+      additionalProperties: false
     ErrorResponse:
       required:
       - errors
@@ -125,63 +172,6 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
-    Address:
-      type: object
-      properties:
-        country:
-          maxLength: 255
-          type: string
-          description: The country name. Example 'United Kingdom'
-        road:
-          maxLength: 255
-          type: string
-          description: The road name. Example 'Downing Street'
-        city:
-          maxLength: 255
-          type: string
-          description: The city name. Example 'London'
-        district:
-          maxLength: 255
-          type: string
-          description: The district name. Example 'Westminster'
-        postalCode:
-          maxLength: 10
-          type: string
-          description: The postal code. Example 'SW1A 2AA'
-        county:
-          maxLength: 255
-          type: string
-          description: The county name. Example 'Greater London'
-        state:
-          maxLength: 255
-          type: string
-          description: The state name. Example 'England'
-      additionalProperties: false
-    Coordinate:
-      required:
-      - latitude
-      - longitude
-      type: object
-      properties:
-        latitude:
-          maximum: 90
-          minimum: -90
-          type: number
-          description: 'Latitude value of the coordinate. Example: 51.123'
-          format: float
-        accuracy:
-          maximum: 1000000
-          minimum: 0
-          type: integer
-          description: The horrizontal accuracy in metres
-          format: int32
-        longitude:
-          maximum: 180
-          minimum: -180
-          type: number
-          description: 'Longitude value of the coordinate. Example: -0.123'
-          format: float
-      additionalProperties: false
     Location:
       required:
       - coordinate
@@ -211,20 +201,30 @@ components:
           description: 'Timestamp of the location. Example: ''2019-07-21T17:32:28Z'''
           format: date-time
       additionalProperties: false
-    AssetLocations:
+    Coordinate:
       required:
-      - items
+      - latitude
+      - longitude
       type: object
       properties:
-        nextToken:
-          maxLength: 5000
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-          type: string
-          description: Pagination token
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Location'
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: 'Latitude value of the coordinate. Example: 51.123'
+          format: float
+        accuracy:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The horrizontal accuracy in metres
+          format: int32
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: 'Longitude value of the coordinate. Example: -0.123'
+          format: float
       additionalProperties: false
   securitySchemes:
     AuthEndpoint:

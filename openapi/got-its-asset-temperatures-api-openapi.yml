@@ -120,6 +120,21 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
+    AssetTemperatures:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Temperature'
+      additionalProperties: false
     Temperature:
       required:
       - degreesCelsius
@@ -138,21 +153,6 @@ components:
           type: number
           description: 'Temperature value rounded to 1 decimal place, for each minute of the hour. Example: -2.1'
           format: float
-      additionalProperties: false
-    AssetTemperatures:
-      required:
-      - items
-      type: object
-      properties:
-        nextToken:
-          maxLength: 5000
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-          type: string
-          description: Pagination token
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Temperature'
       additionalProperties: false
   securitySchemes:
     AuthEndpoint:

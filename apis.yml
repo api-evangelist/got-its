@@ -318,9 +318,11 @@ apis:
   humanURL: https://docs.reelables.com/
   baseURL: https://api.reelables.com/v1
   tags:
+  - Spaces
   - Space
   tags_raw:
   - Spaces
+  - Space
   properties:
   - type: OpenAPI
     url: openapi/got-its-spaces-api-openapi.yml

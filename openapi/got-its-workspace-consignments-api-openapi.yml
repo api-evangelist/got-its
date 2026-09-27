@@ -196,31 +196,44 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ConsignmentPiecesInput:
-      maxItems: 100
-      type: array
-      description: Pieces to add to a Consignment
-      items:
-        required:
-        - label
-        type: object
-        properties:
-          trackingRef:
-            maxLength: 500
-            type: string
-            description: The tracking reference that identifies the Piece in the user system
-          label:
-            required:
-            - nfcId
-            type: object
-            properties:
-              nfcId:
-                maxLength: 20
-                pattern: ^[a-zA-Z0-9]*$
-                type: string
-                description: 'Label NFC identifier, used when creating an Asset and linking a Label at the same time. Example: ''0000007B'''
-            additionalProperties: false
-        additionalProperties: false
+    InFacility:
+      required:
+      - enteredOn
+      - facilityId
+      - facilityName
+      type: object
+      properties:
+        hasExited:
+          type: boolean
+          description: Indicate whether the item has exited the Facility
+        facilityId:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the Facility. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        enteredOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the item entered the Facility. Example: ''2023-07-21T17:32:28Z'''
+          format: date-time
+        facilityName:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Facility
+        exitedOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the item exited the Facility. Example: ''2023-07-21T17:32:28Z'''
+          format: date-time
+        userFacilityId:
+          maxLength: 500
+          type: string
+          description: A facility identifier relevant to the user
+      additionalProperties: false
     ConsignmentPieces:
       required:
       - items
@@ -243,63 +256,7 @@ components:
             $ref: '#/components/schemas/Piece'
       additionalProperties: false
       description: Pieces in the Consignment
-    ErrorResponse:
-      required:
-      - errors
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              code:
-                maxLength: 100
-                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-                type: string
-                description: An application-specific error code, expressed as a string value
-              id:
-                maxLength: 100
-                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-                type: string
-                description: A unique identifier for this particular occurrence of the problem
-              detail:
-                maxLength: 500
-                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-                type: string
-                description: A human-readable explanation specific to this occurrence of the problem
-              title:
-                maxLength: 100
-                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-                type: string
-                description: A short, human-readable summary of the problem
-              status:
-                maxLength: 3
-                pattern: ^[0-9]*$
-                type: string
-                description: The HTTP status code applicable to this problem, expressed as a string value
-            additionalProperties: false
-      additionalProperties: false
-      description: This is an error
-    Workspace:
-      required:
-      - id
-      - name
-      type: object
-      properties:
-        name:
-          maxLength: 500
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: The name of the Workspace
-        id:
-          maxLength: 36
-          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
-          type: string
-          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
-          format: uuid
-      additionalProperties: false
-    ConsignmentGateways:
+    WorkspaceConsignments:
       required:
       - items
       type: object
@@ -312,100 +269,9 @@ components:
         items:
           type: array
           items:
-            $ref: '#/components/schemas/Gateway'
+            $ref: '#/components/schemas/Consignment'
       additionalProperties: false
-      description: Gateways in the Consignment
-    ConsignmentInput:
-      required:
-      - pieces
-      - trackingRef
-      type: object
-      properties:
-        pieces:
-          $ref: '#/components/schemas/ConsignmentPiecesInput'
-        trackingRef:
-          maxLength: 500
-          type: string
-          description: The tracking reference that identifies the Consignment in the user system
-        gateways:
-          $ref: '#/components/schemas/ConsignmentGatewaysInput'
-      additionalProperties: false
-      description: Consignment data
-    LabelConfig:
-      type: object
-      properties:
-        reportingInterval:
-          type: string
-          description: Interval at which the label reports locations. Example values include 'default (every 20 minutes), 'hourly', 'daily', 'twoDays'
-      additionalProperties: false
-    Gateway:
-      required:
-      - gatewayId
-      - manufacturer
-      type: object
-      properties:
-        shortId:
-          maxLength: 10
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Short human-readable Gateway identifier. Example: ''AB1D'''
-        isStatic:
-          type: boolean
-          description: Indicate whether the Gateway is statically located. If so, then longitude and latitude are required.
-        latitude:
-          maximum: 90
-          minimum: -90
-          type: number
-          description: 'Latitude value of the coordinate. Example: 51.123'
-          format: float
-        hasPendingCommands:
-          type: boolean
-          description: Indicate whether there are pending commands for the Gateway
-        rssiFilter:
-          description: The RSSI filter value for the Gateway BLE receiver (setting RSSI Filter via the API is only currently supported for Particle Gateways)
-          oneOf:
-          - type: string
-            enum:
-            - FAR
-            - NEAR
-            - VERY_NEAR
-          - maximum: 0
-            minimum: -127
-            type: integer
-            format: int32
-        deviceId:
-          maxLength: 100
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Manufacturer identifier for the Gateway device. Example: ''e10fce301222e588e1d7482b'''
-        gatewayId:
-          maxLength: 100
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Gateway identifier, which is a combination of manufacturer and deviceId. Example: ''sysLoco_e10fce301222e588e1d7482b'''
-        productName:
-          maxLength: 100
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: 'Name of Gateway product. Example: ''HGD4'''
-        addedOn:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'ISO Timestamp of when the Gateway was linked, in UTC. Example: ''2023-07-21T17:32:28Z'''
-          format: date-time
-        manufacturer:
-          maxLength: 100
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Gateway manufacturer. Example: ''sysLoco'''
-        longitude:
-          maximum: 180
-          minimum: -180
-          type: number
-          description: 'Longitude value of the coordinate. Example: -0.123'
-          format: float
-      additionalProperties: false
+      description: Consignments in the Workspace
     Consignment:
       required:
       - id
@@ -479,105 +345,24 @@ components:
               format: date-time
           additionalProperties: false
       additionalProperties: false
-    InFacility:
+    WorkspaceConsignmentsInput:
       required:
-      - enteredOn
-      - facilityId
-      - facilityName
+      - consignments
       type: object
       properties:
-        hasExited:
-          type: boolean
-          description: Indicate whether the item has exited the Facility
-        facilityId:
-          maxLength: 36
-          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
-          type: string
-          description: 'Unique identifier of the Facility. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
-          format: uuid
-        enteredOn:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Date that the item entered the Facility. Example: ''2023-07-21T17:32:28Z'''
-          format: date-time
-        facilityName:
-          maxLength: 500
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: The name of the Facility
-        exitedOn:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Date that the item exited the Facility. Example: ''2023-07-21T17:32:28Z'''
-          format: date-time
-        userFacilityId:
-          maxLength: 500
-          type: string
-          description: A facility identifier relevant to the user
+        consignments:
+          maxItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/ConsignmentInput'
       additionalProperties: false
-    AssetLabel:
-      required:
-      - addedOn
-      - bleId
-      - nfcId
+      description: Consignments to create in the Workspace
+    LabelConfig:
       type: object
       properties:
-        bleId:
-          maximum: 2147483647
-          minimum: 0
-          type: integer
-          description: 'Label BLE identifier. Example: 123'
-          format: int32
-        nfcId:
-          maxLength: 20
-          pattern: ^[a-zA-Z0-9]*$
+        reportingInterval:
           type: string
-          description: 'Label NFC identifier, used when creating an Asset and linking a Label at the same time. Example: ''0000007B'''
-        config:
-          $ref: '#/components/schemas/LabelConfig'
-        addedOn:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Date that the Label was linked to the Asset, in UTC. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-      additionalProperties: false
-    Facility:
-      required:
-      - id
-      - name
-      - workspaceId
-      type: object
-      properties:
-        createdAt:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Date that the item was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-        name:
-          maxLength: 500
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: The name of the Facility
-        id:
-          maxLength: 36
-          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
-          type: string
-          description: 'Unique identifier of the Facility. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
-          format: uuid
-        workspaceId:
-          maxLength: 36
-          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
-          type: string
-          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
-          format: uuid
-        userFacilityId:
-          maxLength: 500
-          type: string
-          description: A facility identifier relevant to the user
+          description: Interval at which the label reports locations. Example values include 'default (every 20 minutes), 'hourly', 'daily', 'twoDays'
       additionalProperties: false
     PatchConsignmentInput:
       type: object
@@ -587,6 +372,74 @@ components:
           description: Indicates whether the Consignment is actively being tracked
       additionalProperties: false
       description: Consignment data
+    Gateway:
+      required:
+      - gatewayId
+      - manufacturer
+      type: object
+      properties:
+        shortId:
+          maxLength: 10
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Short human-readable Gateway identifier. Example: ''AB1D'''
+        isStatic:
+          type: boolean
+          description: Indicate whether the Gateway is statically located. If so, then longitude and latitude are required.
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: 'Latitude value of the coordinate. Example: 51.123'
+          format: float
+        hasPendingCommands:
+          type: boolean
+          description: Indicate whether there are pending commands for the Gateway
+        rssiFilter:
+          description: The RSSI filter value for the Gateway BLE receiver (setting RSSI Filter via the API is only currently supported for Particle Gateways)
+          oneOf:
+          - type: string
+            enum:
+            - FAR
+            - NEAR
+            - VERY_NEAR
+          - maximum: 0
+            minimum: -127
+            type: integer
+            format: int32
+        deviceId:
+          maxLength: 100
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Manufacturer identifier for the Gateway device. Example: ''e10fce301222e588e1d7482b'''
+        gatewayId:
+          maxLength: 100
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Gateway identifier, which is a combination of manufacturer and deviceId. Example: ''sysLoco_e10fce301222e588e1d7482b'''
+        productName:
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: 'Name of Gateway product. Example: ''HGD4'''
+        addedOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'ISO Timestamp of when the Gateway was linked, in UTC. Example: ''2023-07-21T17:32:28Z'''
+          format: date-time
+        manufacturer:
+          maxLength: 100
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Gateway manufacturer. Example: ''sysLoco'''
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: 'Longitude value of the coordinate. Example: -0.123'
+          format: float
+      additionalProperties: false
     Piece:
       required:
       - consignmentId
@@ -630,7 +483,7 @@ components:
           description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
           format: uuid
       additionalProperties: false
-    WorkspaceConsignments:
+    ConsignmentGateways:
       required:
       - items
       type: object
@@ -643,21 +496,98 @@ components:
         items:
           type: array
           items:
-            $ref: '#/components/schemas/Consignment'
+            $ref: '#/components/schemas/Gateway'
       additionalProperties: false
-      description: Consignments in the Workspace
-    WorkspaceConsignmentsInput:
+      description: Gateways in the Consignment
+    ConsignmentInput:
       required:
-      - consignments
+      - pieces
+      - trackingRef
       type: object
       properties:
-        consignments:
-          maxItems: 1
+        pieces:
+          $ref: '#/components/schemas/ConsignmentPiecesInput'
+        trackingRef:
+          maxLength: 500
+          type: string
+          description: The tracking reference that identifies the Consignment in the user system
+        gateways:
+          $ref: '#/components/schemas/ConsignmentGatewaysInput'
+      additionalProperties: false
+      description: Consignment data
+    ErrorResponse:
+      required:
+      - errors
+      type: object
+      properties:
+        errors:
           type: array
           items:
-            $ref: '#/components/schemas/ConsignmentInput'
+            type: object
+            properties:
+              code:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+                type: string
+                description: An application-specific error code, expressed as a string value
+              id:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+                type: string
+                description: A unique identifier for this particular occurrence of the problem
+              detail:
+                maxLength: 500
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+                type: string
+                description: A human-readable explanation specific to this occurrence of the problem
+              title:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+                type: string
+                description: A short, human-readable summary of the problem
+              status:
+                maxLength: 3
+                pattern: ^[0-9]*$
+                type: string
+                description: The HTTP status code applicable to this problem, expressed as a string value
+            additionalProperties: false
       additionalProperties: false
-      description: Consignments to create in the Workspace
+      description: This is an error
+    Facility:
+      required:
+      - id
+      - name
+      - workspaceId
+      type: object
+      properties:
+        createdAt:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the item was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Facility
+        id:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the Facility. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        workspaceId:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        userFacilityId:
+          maxLength: 500
+          type: string
+          description: A facility identifier relevant to the user
+      additionalProperties: false
     ConsignmentGatewaysInput:
       maxItems: 1
       type: array
@@ -692,6 +622,76 @@ components:
               - sysLoco
               - versa
         additionalProperties: false
+    ConsignmentPiecesInput:
+      maxItems: 100
+      type: array
+      description: Pieces to add to a Consignment
+      items:
+        required:
+        - label
+        type: object
+        properties:
+          trackingRef:
+            maxLength: 500
+            type: string
+            description: The tracking reference that identifies the Piece in the user system
+          label:
+            required:
+            - nfcId
+            type: object
+            properties:
+              nfcId:
+                maxLength: 20
+                pattern: ^[a-zA-Z0-9]*$
+                type: string
+                description: 'Label NFC identifier, used when creating an Asset and linking a Label at the same time. Example: ''0000007B'''
+            additionalProperties: false
+        additionalProperties: false
+    AssetLabel:
+      required:
+      - addedOn
+      - bleId
+      - nfcId
+      type: object
+      properties:
+        bleId:
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          description: 'Label BLE identifier. Example: 123'
+          format: int32
+        nfcId:
+          maxLength: 20
+          pattern: ^[a-zA-Z0-9]*$
+          type: string
+          description: 'Label NFC identifier, used when creating an Asset and linking a Label at the same time. Example: ''0000007B'''
+        config:
+          $ref: '#/components/schemas/LabelConfig'
+        addedOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the Label was linked to the Asset, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+      additionalProperties: false
+    Workspace:
+      required:
+      - id
+      - name
+      type: object
+      properties:
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Workspace
+        id:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+      additionalProperties: false
   securitySchemes:
     AuthEndpoint:
       type: oauth2

@@ -179,6 +179,74 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    SpaceGateway:
+      required:
+      - addedOn
+      - gatewayId
+      type: object
+      properties:
+        shortId:
+          maxLength: 10
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Short human-readable Gateway identifier. Example: ''AB1D'''
+        isStatic:
+          type: boolean
+          description: Indicate whether the Gateway is statically located. If so, then longitude and latitude are required.
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: 'Latitude value of the coordinate. Example: 51.123'
+          format: float
+        hasPendingCommands:
+          type: boolean
+          description: Indicate whether there are pending commands for the Gateway
+        rssiFilter:
+          description: The RSSI filter value for the Gateway BLE receiver (setting RSSI Filter via the API is only currently supported for Particle Gateways)
+          oneOf:
+          - type: string
+            enum:
+            - FAR
+            - NEAR
+            - VERY_NEAR
+          - maximum: 0
+            minimum: -127
+            type: integer
+            format: int32
+        deviceId:
+          maxLength: 100
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Manufacturer identifier for the Gateway device. Example: ''e10fce301222e588e1d7482b'''
+        gatewayId:
+          maxLength: 100
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Gateway identifier, which is a combination of manufacturer and deviceId. Example: ''sysLoco_e10fce301222e588e1d7482b'''
+        productName:
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: 'Name of Gateway product. Example: ''HGD4'''
+        addedOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'ISO Timestamp of when the Gateway was linked, in UTC. Example: ''2023-07-21T17:32:28Z'''
+          format: date-time
+        manufacturer:
+          maxLength: 100
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Gateway manufacturer. Example: ''sysLoco'''
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: 'Longitude value of the coordinate. Example: -0.123'
+          format: float
+      additionalProperties: false
     Address:
       type: object
       properties:
@@ -249,139 +317,6 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
-    Coordinate:
-      required:
-      - latitude
-      - longitude
-      type: object
-      properties:
-        latitude:
-          maximum: 90
-          minimum: -90
-          type: number
-          description: 'Latitude value of the coordinate. Example: 51.123'
-          format: float
-        accuracy:
-          maximum: 1000000
-          minimum: 0
-          type: integer
-          description: The horrizontal accuracy in metres
-          format: int32
-        longitude:
-          maximum: 180
-          minimum: -180
-          type: number
-          description: 'Longitude value of the coordinate. Example: -0.123'
-          format: float
-      additionalProperties: false
-    Location:
-      required:
-      - coordinate
-      - timestamp
-      type: object
-      properties:
-        lastSeenTimestamp:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Timestamp last seen at the location. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-        coordinate:
-          $ref: '#/components/schemas/Coordinate'
-        address:
-          $ref: '#/components/schemas/Address'
-        error:
-          maximum: 1000000
-          minimum: 0
-          type: integer
-          description: The horrizontal error in metres [Deprecated - use coordinate.accuracy instead]
-          format: int32
-        timestamp:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Timestamp of the location. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-      additionalProperties: false
-    SpaceGateway:
-      required:
-      - addedOn
-      - gatewayId
-      type: object
-      properties:
-        shortId:
-          maxLength: 10
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Short human-readable Gateway identifier. Example: ''AB1D'''
-        isStatic:
-          type: boolean
-          description: Indicate whether the Gateway is statically located. If so, then longitude and latitude are required.
-        latitude:
-          maximum: 90
-          minimum: -90
-          type: number
-          description: 'Latitude value of the coordinate. Example: 51.123'
-          format: float
-        hasPendingCommands:
-          type: boolean
-          description: Indicate whether there are pending commands for the Gateway
-        rssiFilter:
-          description: The RSSI filter value for the Gateway BLE receiver (setting RSSI Filter via the API is only currently supported for Particle Gateways)
-          oneOf:
-          - type: string
-            enum:
-            - FAR
-            - NEAR
-            - VERY_NEAR
-          - maximum: 0
-            minimum: -127
-            type: integer
-            format: int32
-        deviceId:
-          maxLength: 100
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Manufacturer identifier for the Gateway device. Example: ''e10fce301222e588e1d7482b'''
-        gatewayId:
-          maxLength: 100
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Gateway identifier, which is a combination of manufacturer and deviceId. Example: ''sysLoco_e10fce301222e588e1d7482b'''
-        productName:
-          maxLength: 100
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: 'Name of Gateway product. Example: ''HGD4'''
-        addedOn:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'ISO Timestamp of when the Gateway was linked, in UTC. Example: ''2023-07-21T17:32:28Z'''
-          format: date-time
-        manufacturer:
-          maxLength: 100
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Gateway manufacturer. Example: ''sysLoco'''
-        longitude:
-          maximum: 180
-          minimum: -180
-          type: number
-          description: 'Longitude value of the coordinate. Example: -0.123'
-          format: float
-      additionalProperties: false
-    SpaceInput:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          maxLength: 500
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: The name of the Space
-      additionalProperties: false
     Space:
       required:
       - id
@@ -441,6 +376,71 @@ components:
           type: string
           description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
           format: uuid
+      additionalProperties: false
+    SpaceInput:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Space
+      additionalProperties: false
+    Location:
+      required:
+      - coordinate
+      - timestamp
+      type: object
+      properties:
+        lastSeenTimestamp:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Timestamp last seen at the location. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        coordinate:
+          $ref: '#/components/schemas/Coordinate'
+        address:
+          $ref: '#/components/schemas/Address'
+        error:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The horrizontal error in metres [Deprecated - use coordinate.accuracy instead]
+          format: int32
+        timestamp:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Timestamp of the location. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+      additionalProperties: false
+    Coordinate:
+      required:
+      - latitude
+      - longitude
+      type: object
+      properties:
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: 'Latitude value of the coordinate. Example: 51.123'
+          format: float
+        accuracy:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The horrizontal accuracy in metres
+          format: int32
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: 'Longitude value of the coordinate. Example: -0.123'
+          format: float
       additionalProperties: false
   securitySchemes:
     AuthEndpoint:

@@ -76,22 +76,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    WorkspaceFacilities:
-      required:
-      - items
-      type: object
-      properties:
-        nextToken:
-          maxLength: 5000
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-          type: string
-          description: Pagination token
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Facility'
-      additionalProperties: false
-      description: Facilities in the Workspace
     ErrorResponse:
       required:
       - errors
@@ -130,6 +114,22 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
+    WorkspaceFacilities:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Facility'
+      additionalProperties: false
+      description: Facilities in the Workspace
     Facility:
       required:
       - id

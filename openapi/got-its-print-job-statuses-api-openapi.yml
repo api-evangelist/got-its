@@ -82,21 +82,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    PrintJobStatuses:
-      required:
-      - items
-      type: object
-      properties:
-        nextToken:
-          maxLength: 5000
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-          type: string
-          description: Pagination token
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/PrintJobStatus'
-      additionalProperties: false
     ErrorResponse:
       required:
       - errors
@@ -135,6 +120,21 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
+    PrintJobStatuses:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrintJobStatus'
+      additionalProperties: false
     PrintJobStatus:
       required:
       - createdAt

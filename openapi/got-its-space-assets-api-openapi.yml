@@ -120,22 +120,6 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
-    AssetInSpaces:
-      required:
-      - items
-      type: object
-      properties:
-        nextToken:
-          maxLength: 5000
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-          type: string
-          description: Pagination token
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/AssetInSpace'
-      additionalProperties: false
-      description: Asset in Spaces
     AssetInSpace:
       required:
       - enteredOn
@@ -169,6 +153,22 @@ components:
           description: 'Date that the Asset exited the Space. Example: ''2019-07-21T17:32:28Z'''
           format: date-time
       additionalProperties: false
+    AssetInSpaces:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssetInSpace'
+      additionalProperties: false
+      description: Asset in Spaces
   securitySchemes:
     AuthEndpoint:
       type: oauth2

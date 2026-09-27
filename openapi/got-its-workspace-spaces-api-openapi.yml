@@ -133,65 +133,157 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Space:
+    SpaceGateway:
       required:
-      - id
-      - name
-      - workspaceId
+      - addedOn
+      - gatewayId
       type: object
       properties:
-        numberAssetsInSpace:
-          maximum: 1000000
-          minimum: 0
-          type: integer
-          description: The total number of Assets currently in the Space
-          format: int32
-        facilityId:
-          maxLength: 36
-          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+        shortId:
+          maxLength: 10
+          pattern: ^[-_A-Za-z0-9]*$
           type: string
-          description: 'Unique identifier of the Facility. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
-          format: uuid
+          description: 'Short human-readable Gateway identifier. Example: ''AB1D'''
+        isStatic:
+          type: boolean
+          description: Indicate whether the Gateway is statically located. If so, then longitude and latitude are required.
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: 'Latitude value of the coordinate. Example: 51.123'
+          format: float
+        hasPendingCommands:
+          type: boolean
+          description: Indicate whether there are pending commands for the Gateway
+        rssiFilter:
+          description: The RSSI filter value for the Gateway BLE receiver (setting RSSI Filter via the API is only currently supported for Particle Gateways)
+          oneOf:
+          - type: string
+            enum:
+            - FAR
+            - NEAR
+            - VERY_NEAR
+          - maximum: 0
+            minimum: -127
+            type: integer
+            format: int32
+        deviceId:
+          maxLength: 100
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Manufacturer identifier for the Gateway device. Example: ''e10fce301222e588e1d7482b'''
+        gatewayId:
+          maxLength: 100
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Gateway identifier, which is a combination of manufacturer and deviceId. Example: ''sysLoco_e10fce301222e588e1d7482b'''
+        productName:
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: 'Name of Gateway product. Example: ''HGD4'''
+        addedOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'ISO Timestamp of when the Gateway was linked, in UTC. Example: ''2023-07-21T17:32:28Z'''
+          format: date-time
+        manufacturer:
+          maxLength: 100
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Gateway manufacturer. Example: ''sysLoco'''
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: 'Longitude value of the coordinate. Example: -0.123'
+          format: float
+      additionalProperties: false
+    WorkspaceSpaceInputOLD:
+      required:
+      - name
+      type: object
+      properties:
         name:
           maxLength: 500
           pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
           type: string
           description: The name of the Space
-        locations:
-          required:
-          - items
-          type: object
-          properties:
-            nextToken:
-              maxLength: 5000
-              pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-              type: string
-              description: Pagination token
-            items:
-              maxItems: 10000
-              type: array
-              items:
-                $ref: '#/components/schemas/Location'
-          additionalProperties: false
-        id:
-          maxLength: 20
+        gatewayId:
+          maxLength: 100
           pattern: ^[-_A-Za-z0-9]*$
           type: string
-          description: 'Unique identifier of the Space. Example: ''00Es43YBJfNRXNSvLmni'''
-        createdOn:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
+          description: 'Gateway identifier, which is a combination of manufacturer and deviceId. Example: ''sysLoco_e10fce301222e588e1d7482b'''
+      additionalProperties: false
+      description: '[DEPRECATED] Space to create in the Workspace'
+    SpaceGatewayInput:
+      type: object
+      properties:
+        shortId:
+          maxLength: 10
+          pattern: ^[-_A-Za-z0-9]*$
           type: string
-          description: 'Date that the Space was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-        gateway:
-          $ref: '#/components/schemas/SpaceGateway'
-        workspaceId:
-          maxLength: 36
-          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          description: 'Short human-readable Gateway identifier. Example: ''AB1D'''
+        isStatic:
+          type: boolean
+          description: Indicate whether the Gateway is statically located. If so, then longitude and latitude are required.
+        registerGateway:
+          type: boolean
+          description: Indicates whether the gateway should be registered. True - will register a new gateway (productName is required) False - indicates that the gateway has already been registered
+        replaceExistingGateway:
+          type: boolean
+          description: Indicate whether to replace the existig Gateway, in the case where the Space is already linked to a Gateway
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: 'Latitude value of the coordinate. Example: 51.123'
+          format: float
+        rssiFilter:
+          description: The RSSI filter value for the Gateway BLE receiver (setting RSSI Filter via the API is only currently supported for Particle Gateways)
+          oneOf:
+          - type: string
+            enum:
+            - FAR
+            - NEAR
+            - VERY_NEAR
+          - maximum: 0
+            minimum: -127
+            type: integer
+            format: int32
+        deviceId:
+          maxLength: 100
+          pattern: ^[-_A-Za-z0-9]*$
           type: string
-          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
-          format: uuid
+          description: 'Manufacturer identifier for the Gateway device. Example: ''e10fce301222e588e1d7482b'''
+        gatewayId:
+          maxLength: 100
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Gateway identifier, which is a combination of manufacturer and deviceId. Example: ''sysLoco_e10fce301222e588e1d7482b'''
+        productName:
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: 'Name of Gateway product. Example: ''HGD4'''
+        manufacturer:
+          oneOf:
+          - type: string
+            description: 'Gateway manufacturer. Example: ''sysLoco''. If you want us to support a new manufacturer, please contact us at support@reelables.com'
+            enum:
+            - hpeAruba
+            - cassiaNetworks
+            - particle
+            - sysLoco
+            - versa
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: 'Longitude value of the coordinate. Example: -0.123'
+          format: float
       additionalProperties: false
     Address:
       type: object
@@ -288,7 +380,81 @@ components:
           description: 'Longitude value of the coordinate. Example: -0.123'
           format: float
       additionalProperties: false
-    WorkspaceSpaceInputOLD:
+    Space:
+      required:
+      - id
+      - name
+      - workspaceId
+      type: object
+      properties:
+        numberAssetsInSpace:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The total number of Assets currently in the Space
+          format: int32
+        facilityId:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the Facility. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Space
+        locations:
+          required:
+          - items
+          type: object
+          properties:
+            nextToken:
+              maxLength: 5000
+              pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+              type: string
+              description: Pagination token
+            items:
+              maxItems: 10000
+              type: array
+              items:
+                $ref: '#/components/schemas/Location'
+          additionalProperties: false
+        id:
+          maxLength: 20
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Unique identifier of the Space. Example: ''00Es43YBJfNRXNSvLmni'''
+        createdOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the Space was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        gateway:
+          $ref: '#/components/schemas/SpaceGateway'
+        workspaceId:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+      additionalProperties: false
+    WorkspaceSpacesInput:
+      required:
+      - spaces
+      type: object
+      properties:
+        spaces:
+          maxItems: 1000
+          type: array
+          items:
+            anyOf:
+            - $ref: '#/components/schemas/WorkspaceSpaceInput'
+            - $ref: '#/components/schemas/WorkspaceSpaceInputOLD'
+      additionalProperties: false
+      description: Spaces to create in the Workspace
+    WorkspaceSpaceInput:
       required:
       - name
       type: object
@@ -298,13 +464,32 @@ components:
           pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
           type: string
           description: The name of the Space
-        gatewayId:
-          maxLength: 100
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Gateway identifier, which is a combination of manufacturer and deviceId. Example: ''sysLoco_e10fce301222e588e1d7482b'''
+        gateway:
+          $ref: '#/components/schemas/SpaceGatewayInput'
       additionalProperties: false
-      description: '[DEPRECATED] Space to create in the Workspace'
+      description: Space to create in the Workspace
+    WorkspaceSpaces:
+      required:
+      - items
+      type: object
+      properties:
+        total:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The total number of items in all pages of results
+          format: int32
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Space'
+      additionalProperties: false
+      description: Spaces in the Workspace
     Location:
       required:
       - coordinate
@@ -334,191 +519,6 @@ components:
           description: 'Timestamp of the location. Example: ''2019-07-21T17:32:28Z'''
           format: date-time
       additionalProperties: false
-    SpaceGateway:
-      required:
-      - addedOn
-      - gatewayId
-      type: object
-      properties:
-        shortId:
-          maxLength: 10
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Short human-readable Gateway identifier. Example: ''AB1D'''
-        isStatic:
-          type: boolean
-          description: Indicate whether the Gateway is statically located. If so, then longitude and latitude are required.
-        latitude:
-          maximum: 90
-          minimum: -90
-          type: number
-          description: 'Latitude value of the coordinate. Example: 51.123'
-          format: float
-        hasPendingCommands:
-          type: boolean
-          description: Indicate whether there are pending commands for the Gateway
-        rssiFilter:
-          description: The RSSI filter value for the Gateway BLE receiver (setting RSSI Filter via the API is only currently supported for Particle Gateways)
-          oneOf:
-          - type: string
-            enum:
-            - FAR
-            - NEAR
-            - VERY_NEAR
-          - maximum: 0
-            minimum: -127
-            type: integer
-            format: int32
-        deviceId:
-          maxLength: 100
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Manufacturer identifier for the Gateway device. Example: ''e10fce301222e588e1d7482b'''
-        gatewayId:
-          maxLength: 100
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Gateway identifier, which is a combination of manufacturer and deviceId. Example: ''sysLoco_e10fce301222e588e1d7482b'''
-        productName:
-          maxLength: 100
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: 'Name of Gateway product. Example: ''HGD4'''
-        addedOn:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'ISO Timestamp of when the Gateway was linked, in UTC. Example: ''2023-07-21T17:32:28Z'''
-          format: date-time
-        manufacturer:
-          maxLength: 100
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Gateway manufacturer. Example: ''sysLoco'''
-        longitude:
-          maximum: 180
-          minimum: -180
-          type: number
-          description: 'Longitude value of the coordinate. Example: -0.123'
-          format: float
-      additionalProperties: false
-    SpaceGatewayInput:
-      type: object
-      properties:
-        shortId:
-          maxLength: 10
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Short human-readable Gateway identifier. Example: ''AB1D'''
-        isStatic:
-          type: boolean
-          description: Indicate whether the Gateway is statically located. If so, then longitude and latitude are required.
-        registerGateway:
-          type: boolean
-          description: Indicates whether the gateway should be registered. True - will register a new gateway (productName is required) False - indicates that the gateway has already been registered
-        replaceExistingGateway:
-          type: boolean
-          description: Indicate whether to replace the existig Gateway, in the case where the Space is already linked to a Gateway
-        latitude:
-          maximum: 90
-          minimum: -90
-          type: number
-          description: 'Latitude value of the coordinate. Example: 51.123'
-          format: float
-        rssiFilter:
-          description: The RSSI filter value for the Gateway BLE receiver (setting RSSI Filter via the API is only currently supported for Particle Gateways)
-          oneOf:
-          - type: string
-            enum:
-            - FAR
-            - NEAR
-            - VERY_NEAR
-          - maximum: 0
-            minimum: -127
-            type: integer
-            format: int32
-        deviceId:
-          maxLength: 100
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Manufacturer identifier for the Gateway device. Example: ''e10fce301222e588e1d7482b'''
-        gatewayId:
-          maxLength: 100
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Gateway identifier, which is a combination of manufacturer and deviceId. Example: ''sysLoco_e10fce301222e588e1d7482b'''
-        productName:
-          maxLength: 100
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: 'Name of Gateway product. Example: ''HGD4'''
-        manufacturer:
-          oneOf:
-          - type: string
-            description: 'Gateway manufacturer. Example: ''sysLoco''. If you want us to support a new manufacturer, please contact us at support@reelables.com'
-            enum:
-            - hpeAruba
-            - cassiaNetworks
-            - particle
-            - sysLoco
-            - versa
-        longitude:
-          maximum: 180
-          minimum: -180
-          type: number
-          description: 'Longitude value of the coordinate. Example: -0.123'
-          format: float
-      additionalProperties: false
-    WorkspaceSpaces:
-      required:
-      - items
-      type: object
-      properties:
-        total:
-          maximum: 1000000
-          minimum: 0
-          type: integer
-          description: The total number of items in all pages of results
-          format: int32
-        nextToken:
-          maxLength: 5000
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-          type: string
-          description: Pagination token
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Space'
-      additionalProperties: false
-      description: Spaces in the Workspace
-    WorkspaceSpacesInput:
-      required:
-      - spaces
-      type: object
-      properties:
-        spaces:
-          maxItems: 1000
-          type: array
-          items:
-            anyOf:
-            - $ref: '#/components/schemas/WorkspaceSpaceInput'
-            - $ref: '#/components/schemas/WorkspaceSpaceInputOLD'
-      additionalProperties: false
-      description: Spaces to create in the Workspace
-    WorkspaceSpaceInput:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          maxLength: 500
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: The name of the Space
-        gateway:
-          $ref: '#/components/schemas/SpaceGatewayInput'
-      additionalProperties: false
-      description: Space to create in the Workspace
   securitySchemes:
     AuthEndpoint:
       type: oauth2
