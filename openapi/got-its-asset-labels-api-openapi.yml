@@ -137,27 +137,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    AssetLabelInput:
-      required:
-      - nfcId
-      type: object
-      properties:
-        replaceExistingLabel:
-          type: boolean
-          description: Indicate whether to replace the existing Label, in the case where the Asset is already linked to a Label
-        nfcId:
-          maxLength: 20
-          pattern: ^[a-zA-Z0-9]*$
-          type: string
-          description: 'Label NFC identifier, used when creating an Asset and linking a Label at the same time. Example: ''0000007B'''
-      additionalProperties: false
-    LabelConfig:
-      type: object
-      properties:
-        reportingInterval:
-          type: string
-          description: Interval at which the label reports locations. Example values include 'default (every 20 minutes), 'hourly', 'daily', 'twoDays'
-      additionalProperties: false
     AssetLocations:
       required:
       - items
@@ -172,6 +151,89 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Location'
+      additionalProperties: false
+    AssetInSpace:
+      required:
+      - enteredOn
+      - spaceId
+      - spaceName
+      type: object
+      properties:
+        spaceName:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Space
+        spaceId:
+          maxLength: 20
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Unique identifier of the Space. Example: ''00Es43YBJfNRXNSvLmni'''
+        hasExited:
+          type: boolean
+          description: Indicate whether the Asset has exited the Space
+        enteredOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the Asset entered the Space. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        exitedOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the Asset exited the Space. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+      additionalProperties: false
+    LabelConfig:
+      type: object
+      properties:
+        reportingInterval:
+          type: string
+          description: Interval at which the label reports locations. Example values include 'default (every 20 minutes), 'hourly', 'daily', 'twoDays'
+      additionalProperties: false
+    AssetLabelInput:
+      required:
+      - nfcId
+      type: object
+      properties:
+        replaceExistingLabel:
+          type: boolean
+          description: Indicate whether to replace the existing Label, in the case where the Asset is already linked to a Label
+        nfcId:
+          maxLength: 20
+          pattern: ^[a-zA-Z0-9]*$
+          type: string
+          description: 'Label NFC identifier, used when creating an Asset and linking a Label at the same time. Example: ''0000007B'''
+      additionalProperties: false
+    Location:
+      required:
+      - coordinate
+      - timestamp
+      type: object
+      properties:
+        lastSeenTimestamp:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Timestamp last seen at the location. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        coordinate:
+          $ref: '#/components/schemas/Coordinate'
+        address:
+          $ref: '#/components/schemas/Address'
+        error:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The horrizontal error in metres [Deprecated - use coordinate.accuracy instead]
+          format: int32
+        timestamp:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Timestamp of the location. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
       additionalProperties: false
     Temperature:
       required:
@@ -191,46 +253,6 @@ components:
           type: number
           description: 'Temperature value rounded to 1 decimal place, for each minute of the hour. Example: -2.1'
           format: float
-      additionalProperties: false
-    Asset:
-      required:
-      - id
-      - name
-      - workspaceId
-      type: object
-      properties:
-        inSpaces:
-          type: array
-          items:
-            $ref: '#/components/schemas/AssetInSpace'
-        temperatures:
-          $ref: '#/components/schemas/AssetTemperatures'
-        name:
-          maxLength: 500
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: The name of the Asset
-        locations:
-          $ref: '#/components/schemas/AssetLocations'
-        id:
-          maxLength: 20
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Unique identifier of the Asset. Example: ''00Es43YBJfNRXNSvLmni'''
-        label:
-          $ref: '#/components/schemas/AssetLabel'
-        createdOn:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Date that the Asset was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-        workspaceId:
-          maxLength: 36
-          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
-          type: string
-          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
-          format: uuid
       additionalProperties: false
     Address:
       type: object
@@ -263,6 +285,73 @@ components:
           maxLength: 255
           type: string
           description: The state name. Example 'England'
+      additionalProperties: false
+    Coordinate:
+      required:
+      - latitude
+      - longitude
+      type: object
+      properties:
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: 'Latitude value of the coordinate. Example: 51.123'
+          format: float
+        accuracy:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The horrizontal accuracy in metres
+          format: int32
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: 'Longitude value of the coordinate. Example: -0.123'
+          format: float
+      additionalProperties: false
+    AssetLabel:
+      required:
+      - addedOn
+      - bleId
+      - nfcId
+      type: object
+      properties:
+        bleId:
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          description: 'Label BLE identifier. Example: 123'
+          format: int32
+        nfcId:
+          maxLength: 20
+          pattern: ^[a-zA-Z0-9]*$
+          type: string
+          description: 'Label NFC identifier, used when creating an Asset and linking a Label at the same time. Example: ''0000007B'''
+        config:
+          $ref: '#/components/schemas/LabelConfig'
+        addedOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the Label was linked to the Asset, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+      additionalProperties: false
+    AssetTemperatures:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Temperature'
       additionalProperties: false
     ErrorResponse:
       required:
@@ -302,134 +391,45 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
-    Coordinate:
+    Asset:
       required:
-      - latitude
-      - longitude
+      - id
+      - name
+      - workspaceId
       type: object
       properties:
-        latitude:
-          maximum: 90
-          minimum: -90
-          type: number
-          description: 'Latitude value of the coordinate. Example: 51.123'
-          format: float
-        accuracy:
-          maximum: 1000000
-          minimum: 0
-          type: integer
-          description: The horrizontal accuracy in metres
-          format: int32
-        longitude:
-          maximum: 180
-          minimum: -180
-          type: number
-          description: 'Longitude value of the coordinate. Example: -0.123'
-          format: float
-      additionalProperties: false
-    AssetInSpace:
-      required:
-      - enteredOn
-      - spaceId
-      - spaceName
-      type: object
-      properties:
-        spaceName:
+        inSpaces:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssetInSpace'
+        temperatures:
+          $ref: '#/components/schemas/AssetTemperatures'
+        name:
           maxLength: 500
           pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
           type: string
-          description: The name of the Space
-        spaceId:
+          description: The name of the Asset
+        locations:
+          $ref: '#/components/schemas/AssetLocations'
+        id:
           maxLength: 20
           pattern: ^[-_A-Za-z0-9]*$
           type: string
-          description: 'Unique identifier of the Space. Example: ''00Es43YBJfNRXNSvLmni'''
-        hasExited:
-          type: boolean
-          description: Indicate whether the Asset has exited the Space
-        enteredOn:
+          description: 'Unique identifier of the Asset. Example: ''00Es43YBJfNRXNSvLmni'''
+        label:
+          $ref: '#/components/schemas/AssetLabel'
+        createdOn:
           maxLength: 20
           pattern: ^[0-9TZ:-]*$
           type: string
-          description: 'Date that the Asset entered the Space. Example: ''2019-07-21T17:32:28Z'''
+          description: 'Date that the Asset was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
           format: date-time
-        exitedOn:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
+        workspaceId:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
           type: string
-          description: 'Date that the Asset exited the Space. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-      additionalProperties: false
-    AssetTemperatures:
-      required:
-      - items
-      type: object
-      properties:
-        nextToken:
-          maxLength: 5000
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-          type: string
-          description: Pagination token
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Temperature'
-      additionalProperties: false
-    AssetLabel:
-      required:
-      - addedOn
-      - bleId
-      - nfcId
-      type: object
-      properties:
-        bleId:
-          maximum: 2147483647
-          minimum: 0
-          type: integer
-          description: 'Label BLE identifier. Example: 123'
-          format: int32
-        nfcId:
-          maxLength: 20
-          pattern: ^[a-zA-Z0-9]*$
-          type: string
-          description: 'Label NFC identifier, used when creating an Asset and linking a Label at the same time. Example: ''0000007B'''
-        config:
-          $ref: '#/components/schemas/LabelConfig'
-        addedOn:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Date that the Label was linked to the Asset, in UTC. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-      additionalProperties: false
-    Location:
-      required:
-      - coordinate
-      - timestamp
-      type: object
-      properties:
-        lastSeenTimestamp:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Timestamp last seen at the location. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-        coordinate:
-          $ref: '#/components/schemas/Coordinate'
-        address:
-          $ref: '#/components/schemas/Address'
-        error:
-          maximum: 1000000
-          minimum: 0
-          type: integer
-          description: The horrizontal error in metres [Deprecated - use coordinate.accuracy instead]
-          format: int32
-        timestamp:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Timestamp of the location. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
       additionalProperties: false
   securitySchemes:
     AuthEndpoint:

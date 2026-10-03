@@ -242,21 +242,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    PrintJobs:
-      required:
-      - items
-      type: object
-      properties:
-        nextToken:
-          maxLength: 5000
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-          type: string
-          description: Pagination token
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/PrintJob'
-      additionalProperties: false
     ErrorResponse:
       required:
       - errors
@@ -295,38 +280,21 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
-    PrintJobsInput:
+    PrintJobs:
       required:
-      - printJobs
+      - items
       type: object
       properties:
-        printJobs:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
           type: array
           items:
-            maxItems: 1000
-            required:
-            - assetId
-            type: object
-            properties:
-              assetId:
-                maxLength: 20
-                pattern: ^[-_A-Za-z0-9]*$
-                type: string
-                description: 'Unique identifier of the Asset. Example: ''00Es43YBJfNRXNSvLmni'''
-              replaceExistingLabel:
-                type: boolean
-                description: Indicate whether to replace the existing Label, in the case where the Asset is already linked to a Label
-              templateParams:
-                type: object
-                additionalProperties: true
-                description: Dynamic object that is used to pass any params for the Print Template
-              templateId:
-                maxLength: 36
-                type: string
-                description: The indentifier of the Print Template
-            additionalProperties: false
+            $ref: '#/components/schemas/PrintJob'
       additionalProperties: false
-      description: Print Jobs to send to Printer
     PrintJob:
       required:
       - assetId
@@ -404,6 +372,38 @@ components:
           type: boolean
           description: Indicates whether the Print Job is complete
       additionalProperties: false
+    PrintJobsInput:
+      required:
+      - printJobs
+      type: object
+      properties:
+        printJobs:
+          type: array
+          items:
+            maxItems: 1000
+            required:
+            - assetId
+            type: object
+            properties:
+              assetId:
+                maxLength: 20
+                pattern: ^[-_A-Za-z0-9]*$
+                type: string
+                description: 'Unique identifier of the Asset. Example: ''00Es43YBJfNRXNSvLmni'''
+              replaceExistingLabel:
+                type: boolean
+                description: Indicate whether to replace the existing Label, in the case where the Asset is already linked to a Label
+              templateParams:
+                type: object
+                additionalProperties: true
+                description: Dynamic object that is used to pass any params for the Print Template
+              templateId:
+                maxLength: 36
+                type: string
+                description: The indentifier of the Print Template
+            additionalProperties: false
+      additionalProperties: false
+      description: Print Jobs to send to Printer
   securitySchemes:
     AuthEndpoint:
       type: oauth2

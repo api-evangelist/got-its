@@ -114,22 +114,6 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
-    WorkspaceFacilities:
-      required:
-      - items
-      type: object
-      properties:
-        nextToken:
-          maxLength: 5000
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-          type: string
-          description: Pagination token
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Facility'
-      additionalProperties: false
-      description: Facilities in the Workspace
     Facility:
       required:
       - id
@@ -165,6 +149,22 @@ components:
           type: string
           description: A facility identifier relevant to the user
       additionalProperties: false
+    WorkspaceFacilities:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Facility'
+      additionalProperties: false
+      description: Facilities in the Workspace
   securitySchemes:
     AuthEndpoint:
       type: oauth2

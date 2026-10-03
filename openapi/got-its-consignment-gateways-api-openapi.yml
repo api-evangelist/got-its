@@ -196,40 +196,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ConsignmentGatewaysInput:
-      maxItems: 1
-      type: array
-      description: Gateways to add to a Consignment
-      items:
-        required:
-        - deviceId
-        - manufacturer
-        type: object
-        properties:
-          registerGateway:
-            type: boolean
-            description: Indicates whether the gateway should be registered. True - will register a new gateway (productName is required) False - indicates that the gateway has already been registered
-          deviceId:
-            maxLength: 100
-            pattern: ^[-_A-Za-z0-9]*$
-            type: string
-            description: 'Manufacturer identifier for the Gateway device. Example: ''e10fce301222e588e1d7482b'''
-          productName:
-            maxLength: 100
-            pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-            type: string
-            description: 'Name of Gateway product. Example: ''HGD4'''
-          manufacturer:
-            oneOf:
-            - type: string
-              description: 'Gateway manufacturer. Example: ''sysLoco''. If you want us to support a new manufacturer, please contact us at support@reelables.com'
-              enum:
-              - hpeAruba
-              - cassiaNetworks
-              - particle
-              - sysLoco
-              - versa
-        additionalProperties: false
     ErrorResponse:
       required:
       - errors
@@ -268,6 +234,56 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
+    ConsignmentGateways:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Gateway'
+      additionalProperties: false
+      description: Gateways in the Consignment
+    ConsignmentGatewaysInput:
+      maxItems: 1
+      type: array
+      description: Gateways to add to a Consignment
+      items:
+        required:
+        - deviceId
+        - manufacturer
+        type: object
+        properties:
+          registerGateway:
+            type: boolean
+            description: Indicates whether the gateway should be registered. True - will register a new gateway (productName is required) False - indicates that the gateway has already been registered
+          deviceId:
+            maxLength: 100
+            pattern: ^[-_A-Za-z0-9]*$
+            type: string
+            description: 'Manufacturer identifier for the Gateway device. Example: ''e10fce301222e588e1d7482b'''
+          productName:
+            maxLength: 100
+            pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+            type: string
+            description: 'Name of Gateway product. Example: ''HGD4'''
+          manufacturer:
+            oneOf:
+            - type: string
+              description: 'Gateway manufacturer. Example: ''sysLoco''. If you want us to support a new manufacturer, please contact us at support@reelables.com'
+              enum:
+              - hpeAruba
+              - cassiaNetworks
+              - particle
+              - sysLoco
+              - versa
+        additionalProperties: false
     Gateway:
       required:
       - gatewayId
@@ -336,22 +352,6 @@ components:
           description: 'Longitude value of the coordinate. Example: -0.123'
           format: float
       additionalProperties: false
-    ConsignmentGateways:
-      required:
-      - items
-      type: object
-      properties:
-        nextToken:
-          maxLength: 5000
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-          type: string
-          description: Pagination token
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Gateway'
-      additionalProperties: false
-      description: Gateways in the Consignment
   securitySchemes:
     AuthEndpoint:
       type: oauth2

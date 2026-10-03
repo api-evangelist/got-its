@@ -292,22 +292,6 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
-    WorkspacePrinters:
-      required:
-      - items
-      type: object
-      properties:
-        nextToken:
-          maxLength: 5000
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-          type: string
-          description: Pagination token
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkspacePrinter'
-      additionalProperties: false
-      description: Printers in the Workspace
     WorkspacePrinter:
       required:
       - name
@@ -341,6 +325,22 @@ components:
           description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
           format: uuid
       additionalProperties: false
+    WorkspacePrinters:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkspacePrinter'
+      additionalProperties: false
+      description: Printers in the Workspace
     WorkspacePrinterInput:
       required:
       - name

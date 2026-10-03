@@ -102,6 +102,35 @@ components:
           items:
             $ref: '#/components/schemas/Location'
       additionalProperties: false
+    Location:
+      required:
+      - coordinate
+      - timestamp
+      type: object
+      properties:
+        lastSeenTimestamp:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Timestamp last seen at the location. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        coordinate:
+          $ref: '#/components/schemas/Coordinate'
+        address:
+          $ref: '#/components/schemas/Address'
+        error:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The horrizontal error in metres [Deprecated - use coordinate.accuracy instead]
+          format: int32
+        timestamp:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Timestamp of the location. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+      additionalProperties: false
     Address:
       type: object
       properties:
@@ -133,6 +162,31 @@ components:
           maxLength: 255
           type: string
           description: The state name. Example 'England'
+      additionalProperties: false
+    Coordinate:
+      required:
+      - latitude
+      - longitude
+      type: object
+      properties:
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: 'Latitude value of the coordinate. Example: 51.123'
+          format: float
+        accuracy:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The horrizontal accuracy in metres
+          format: int32
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: 'Longitude value of the coordinate. Example: -0.123'
+          format: float
       additionalProperties: false
     ErrorResponse:
       required:
@@ -172,60 +226,6 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
-    Location:
-      required:
-      - coordinate
-      - timestamp
-      type: object
-      properties:
-        lastSeenTimestamp:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Timestamp last seen at the location. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-        coordinate:
-          $ref: '#/components/schemas/Coordinate'
-        address:
-          $ref: '#/components/schemas/Address'
-        error:
-          maximum: 1000000
-          minimum: 0
-          type: integer
-          description: The horrizontal error in metres [Deprecated - use coordinate.accuracy instead]
-          format: int32
-        timestamp:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Timestamp of the location. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-      additionalProperties: false
-    Coordinate:
-      required:
-      - latitude
-      - longitude
-      type: object
-      properties:
-        latitude:
-          maximum: 90
-          minimum: -90
-          type: number
-          description: 'Latitude value of the coordinate. Example: 51.123'
-          format: float
-        accuracy:
-          maximum: 1000000
-          minimum: 0
-          type: integer
-          description: The horrizontal accuracy in metres
-          format: int32
-        longitude:
-          maximum: 180
-          minimum: -180
-          type: number
-          description: 'Longitude value of the coordinate. Example: -0.123'
-          format: float
-      additionalProperties: false
   securitySchemes:
     AuthEndpoint:
       type: oauth2
