@@ -196,6 +196,74 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    Gateway:
+      required:
+      - gatewayId
+      - manufacturer
+      type: object
+      properties:
+        shortId:
+          maxLength: 10
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Short human-readable Gateway identifier. Example: ''AB1D'''
+        isStatic:
+          type: boolean
+          description: Indicate whether the Gateway is statically located. If so, then longitude and latitude are required.
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: 'Latitude value of the coordinate. Example: 51.123'
+          format: float
+        hasPendingCommands:
+          type: boolean
+          description: Indicate whether there are pending commands for the Gateway
+        rssiFilter:
+          description: The RSSI filter value for the Gateway BLE receiver (setting RSSI Filter via the API is only currently supported for Particle Gateways)
+          oneOf:
+          - type: string
+            enum:
+            - FAR
+            - NEAR
+            - VERY_NEAR
+          - maximum: 0
+            minimum: -127
+            type: integer
+            format: int32
+        deviceId:
+          maxLength: 100
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Manufacturer identifier for the Gateway device. Example: ''e10fce301222e588e1d7482b'''
+        gatewayId:
+          maxLength: 100
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Gateway identifier, which is a combination of manufacturer and deviceId. Example: ''sysLoco_e10fce301222e588e1d7482b'''
+        productName:
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: 'Name of Gateway product. Example: ''HGD4'''
+        addedOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'ISO Timestamp of when the Gateway was linked, in UTC. Example: ''2023-07-21T17:32:28Z'''
+          format: date-time
+        manufacturer:
+          maxLength: 100
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Gateway manufacturer. Example: ''sysLoco'''
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: 'Longitude value of the coordinate. Example: -0.123'
+          format: float
+      additionalProperties: false
     ErrorResponse:
       required:
       - errors
@@ -284,74 +352,6 @@ components:
               - sysLoco
               - versa
         additionalProperties: false
-    Gateway:
-      required:
-      - gatewayId
-      - manufacturer
-      type: object
-      properties:
-        shortId:
-          maxLength: 10
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Short human-readable Gateway identifier. Example: ''AB1D'''
-        isStatic:
-          type: boolean
-          description: Indicate whether the Gateway is statically located. If so, then longitude and latitude are required.
-        latitude:
-          maximum: 90
-          minimum: -90
-          type: number
-          description: 'Latitude value of the coordinate. Example: 51.123'
-          format: float
-        hasPendingCommands:
-          type: boolean
-          description: Indicate whether there are pending commands for the Gateway
-        rssiFilter:
-          description: The RSSI filter value for the Gateway BLE receiver (setting RSSI Filter via the API is only currently supported for Particle Gateways)
-          oneOf:
-          - type: string
-            enum:
-            - FAR
-            - NEAR
-            - VERY_NEAR
-          - maximum: 0
-            minimum: -127
-            type: integer
-            format: int32
-        deviceId:
-          maxLength: 100
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Manufacturer identifier for the Gateway device. Example: ''e10fce301222e588e1d7482b'''
-        gatewayId:
-          maxLength: 100
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Gateway identifier, which is a combination of manufacturer and deviceId. Example: ''sysLoco_e10fce301222e588e1d7482b'''
-        productName:
-          maxLength: 100
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: 'Name of Gateway product. Example: ''HGD4'''
-        addedOn:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'ISO Timestamp of when the Gateway was linked, in UTC. Example: ''2023-07-21T17:32:28Z'''
-          format: date-time
-        manufacturer:
-          maxLength: 100
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Gateway manufacturer. Example: ''sysLoco'''
-        longitude:
-          maximum: 180
-          minimum: -180
-          type: number
-          description: 'Longitude value of the coordinate. Example: -0.123'
-          format: float
-      additionalProperties: false
   securitySchemes:
     AuthEndpoint:
       type: oauth2

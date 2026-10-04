@@ -292,6 +292,17 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
+    WorkspacePrinterInput:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Printer
+      additionalProperties: false
     WorkspacePrinter:
       required:
       - name
@@ -341,17 +352,6 @@ components:
             $ref: '#/components/schemas/WorkspacePrinter'
       additionalProperties: false
       description: Printers in the Workspace
-    WorkspacePrinterInput:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          maxLength: 500
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: The name of the Printer
-      additionalProperties: false
   securitySchemes:
     AuthEndpoint:
       type: oauth2

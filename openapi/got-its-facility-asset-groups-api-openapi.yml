@@ -76,6 +76,52 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    AssetGroup:
+      required:
+      - id
+      - name
+      - workspaceId
+      type: object
+      properties:
+        facilityId:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the Facility. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        availabilityThreshold:
+          maximum: 2147483647
+          minimum: 1
+          type: integer
+          description: Number of Assets that need to be present for the Asset Group to be deemed available. Default 3
+          format: int32
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: 'The name of the Asset Group. Example: ''an-asset-group'
+        available:
+          type: boolean
+          description: Indicate whether the Asset Group is deemed to be available (see availabilityThreshold property)
+        count:
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          description: 'Number of Assets currently available. Example: 102'
+          format: int32
+        id:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: 'Unique identifier of the Asset Group. Example: ''an-asset-group'''
+          format: uuid
+        workspaceId:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+      additionalProperties: false
     ErrorResponse:
       required:
       - errors
@@ -130,52 +176,6 @@ components:
             $ref: '#/components/schemas/AssetGroup'
       additionalProperties: false
       description: Asset Groups in the Facility
-    AssetGroup:
-      required:
-      - id
-      - name
-      - workspaceId
-      type: object
-      properties:
-        facilityId:
-          maxLength: 36
-          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
-          type: string
-          description: 'Unique identifier of the Facility. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
-          format: uuid
-        availabilityThreshold:
-          maximum: 2147483647
-          minimum: 1
-          type: integer
-          description: Number of Assets that need to be present for the Asset Group to be deemed available. Default 3
-          format: int32
-        name:
-          maxLength: 500
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: 'The name of the Asset Group. Example: ''an-asset-group'
-        available:
-          type: boolean
-          description: Indicate whether the Asset Group is deemed to be available (see availabilityThreshold property)
-        count:
-          maximum: 2147483647
-          minimum: 0
-          type: integer
-          description: 'Number of Assets currently available. Example: 102'
-          format: int32
-        id:
-          maxLength: 500
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: 'Unique identifier of the Asset Group. Example: ''an-asset-group'''
-          format: uuid
-        workspaceId:
-          maxLength: 36
-          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
-          type: string
-          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
-          format: uuid
-      additionalProperties: false
   securitySchemes:
     AuthEndpoint:
       type: oauth2

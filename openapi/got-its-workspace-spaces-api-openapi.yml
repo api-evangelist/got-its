@@ -133,6 +133,105 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ErrorResponse:
+      required:
+      - errors
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+                type: string
+                description: An application-specific error code, expressed as a string value
+              id:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+                type: string
+                description: A unique identifier for this particular occurrence of the problem
+              detail:
+                maxLength: 500
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+                type: string
+                description: A human-readable explanation specific to this occurrence of the problem
+              title:
+                maxLength: 100
+                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+                type: string
+                description: A short, human-readable summary of the problem
+              status:
+                maxLength: 3
+                pattern: ^[0-9]*$
+                type: string
+                description: The HTTP status code applicable to this problem, expressed as a string value
+            additionalProperties: false
+      additionalProperties: false
+      description: This is an error
+    Location:
+      required:
+      - coordinate
+      - timestamp
+      type: object
+      properties:
+        lastSeenTimestamp:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Timestamp last seen at the location. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        coordinate:
+          $ref: '#/components/schemas/Coordinate'
+        address:
+          $ref: '#/components/schemas/Address'
+        error:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The horrizontal error in metres [Deprecated - use coordinate.accuracy instead]
+          format: int32
+        timestamp:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Timestamp of the location. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+      additionalProperties: false
+    Address:
+      type: object
+      properties:
+        country:
+          maxLength: 255
+          type: string
+          description: The country name. Example 'United Kingdom'
+        road:
+          maxLength: 255
+          type: string
+          description: The road name. Example 'Downing Street'
+        city:
+          maxLength: 255
+          type: string
+          description: The city name. Example 'London'
+        district:
+          maxLength: 255
+          type: string
+          description: The district name. Example 'Westminster'
+        postalCode:
+          maxLength: 10
+          type: string
+          description: The postal code. Example 'SW1A 2AA'
+        county:
+          maxLength: 255
+          type: string
+          description: The county name. Example 'Greater London'
+        state:
+          maxLength: 255
+          type: string
+          description: The state name. Example 'England'
+      additionalProperties: false
     SpaceGatewayInput:
       type: object
       properties:
@@ -217,92 +316,6 @@ components:
           description: 'Gateway identifier, which is a combination of manufacturer and deviceId. Example: ''sysLoco_e10fce301222e588e1d7482b'''
       additionalProperties: false
       description: '[DEPRECATED] Space to create in the Workspace'
-    Location:
-      required:
-      - coordinate
-      - timestamp
-      type: object
-      properties:
-        lastSeenTimestamp:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Timestamp last seen at the location. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-        coordinate:
-          $ref: '#/components/schemas/Coordinate'
-        address:
-          $ref: '#/components/schemas/Address'
-        error:
-          maximum: 1000000
-          minimum: 0
-          type: integer
-          description: The horrizontal error in metres [Deprecated - use coordinate.accuracy instead]
-          format: int32
-        timestamp:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Timestamp of the location. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-      additionalProperties: false
-    Address:
-      type: object
-      properties:
-        country:
-          maxLength: 255
-          type: string
-          description: The country name. Example 'United Kingdom'
-        road:
-          maxLength: 255
-          type: string
-          description: The road name. Example 'Downing Street'
-        city:
-          maxLength: 255
-          type: string
-          description: The city name. Example 'London'
-        district:
-          maxLength: 255
-          type: string
-          description: The district name. Example 'Westminster'
-        postalCode:
-          maxLength: 10
-          type: string
-          description: The postal code. Example 'SW1A 2AA'
-        county:
-          maxLength: 255
-          type: string
-          description: The county name. Example 'Greater London'
-        state:
-          maxLength: 255
-          type: string
-          description: The state name. Example 'England'
-      additionalProperties: false
-    Coordinate:
-      required:
-      - latitude
-      - longitude
-      type: object
-      properties:
-        latitude:
-          maximum: 90
-          minimum: -90
-          type: number
-          description: 'Latitude value of the coordinate. Example: 51.123'
-          format: float
-        accuracy:
-          maximum: 1000000
-          minimum: 0
-          type: integer
-          description: The horrizontal accuracy in metres
-          format: int32
-        longitude:
-          maximum: 180
-          minimum: -180
-          type: number
-          description: 'Longitude value of the coordinate. Example: -0.123'
-          format: float
-      additionalProperties: false
     SpaceGateway:
       required:
       - addedOn
@@ -371,20 +384,31 @@ components:
           description: 'Longitude value of the coordinate. Example: -0.123'
           format: float
       additionalProperties: false
-    WorkspaceSpacesInput:
+    Coordinate:
       required:
-      - spaces
+      - latitude
+      - longitude
       type: object
       properties:
-        spaces:
-          maxItems: 1000
-          type: array
-          items:
-            anyOf:
-            - $ref: '#/components/schemas/WorkspaceSpaceInput'
-            - $ref: '#/components/schemas/WorkspaceSpaceInputOLD'
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: 'Latitude value of the coordinate. Example: 51.123'
+          format: float
+        accuracy:
+          maximum: 1000000
+          minimum: 0
+          type: integer
+          description: The horrizontal accuracy in metres
+          format: int32
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: 'Longitude value of the coordinate. Example: -0.123'
+          format: float
       additionalProperties: false
-      description: Spaces to create in the Workspace
     WorkspaceSpaceInput:
       required:
       - name
@@ -421,44 +445,20 @@ components:
             $ref: '#/components/schemas/Space'
       additionalProperties: false
       description: Spaces in the Workspace
-    ErrorResponse:
+    WorkspaceSpacesInput:
       required:
-      - errors
+      - spaces
       type: object
       properties:
-        errors:
+        spaces:
+          maxItems: 1000
           type: array
           items:
-            type: object
-            properties:
-              code:
-                maxLength: 100
-                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-                type: string
-                description: An application-specific error code, expressed as a string value
-              id:
-                maxLength: 100
-                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-                type: string
-                description: A unique identifier for this particular occurrence of the problem
-              detail:
-                maxLength: 500
-                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-                type: string
-                description: A human-readable explanation specific to this occurrence of the problem
-              title:
-                maxLength: 100
-                pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-                type: string
-                description: A short, human-readable summary of the problem
-              status:
-                maxLength: 3
-                pattern: ^[0-9]*$
-                type: string
-                description: The HTTP status code applicable to this problem, expressed as a string value
-            additionalProperties: false
+            anyOf:
+            - $ref: '#/components/schemas/WorkspaceSpaceInput'
+            - $ref: '#/components/schemas/WorkspaceSpaceInputOLD'
       additionalProperties: false
-      description: This is an error
+      description: Spaces to create in the Workspace
     Space:
       required:
       - id

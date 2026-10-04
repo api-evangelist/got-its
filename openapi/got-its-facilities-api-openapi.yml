@@ -72,6 +72,41 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    Facility:
+      required:
+      - id
+      - name
+      - workspaceId
+      type: object
+      properties:
+        createdAt:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the item was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Facility
+        id:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the Facility. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        workspaceId:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+        userFacilityId:
+          maxLength: 500
+          type: string
+          description: A facility identifier relevant to the user
+      additionalProperties: false
     ErrorResponse:
       required:
       - errors
@@ -110,41 +145,6 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
-    Facility:
-      required:
-      - id
-      - name
-      - workspaceId
-      type: object
-      properties:
-        createdAt:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Date that the item was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-        name:
-          maxLength: 500
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: The name of the Facility
-        id:
-          maxLength: 36
-          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
-          type: string
-          description: 'Unique identifier of the Facility. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
-          format: uuid
-        workspaceId:
-          maxLength: 36
-          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
-          type: string
-          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
-          format: uuid
-        userFacilityId:
-          maxLength: 500
-          type: string
-          description: A facility identifier relevant to the user
-      additionalProperties: false
   securitySchemes:
     AuthEndpoint:
       type: oauth2

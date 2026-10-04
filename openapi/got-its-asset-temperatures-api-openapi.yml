@@ -82,6 +82,21 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    AssetTemperatures:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Temperature'
+      additionalProperties: false
     ErrorResponse:
       required:
       - errors
@@ -120,21 +135,6 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
-    AssetTemperatures:
-      required:
-      - items
-      type: object
-      properties:
-        nextToken:
-          maxLength: 5000
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-          type: string
-          description: Pagination token
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Temperature'
-      additionalProperties: false
     Temperature:
       required:
       - degreesCelsius
