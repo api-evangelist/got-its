@@ -1,0 +1,12 @@
+{
+ "url": "https://docs.reelables.com/topic/reelables-api-openapi-source.json",
+ "requested_url": "https://docs.reelables.com/topic/reelables-api-openapi-source.json",
+ "status": 200,
+ "content_type": "application/json; charset=utf-8",
+ "bytes": 262434,
+ "sha256": "6153f5a553499ecbbe28e1caa2c472f5384e43571e3e260555a86d11f0579e7a",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
