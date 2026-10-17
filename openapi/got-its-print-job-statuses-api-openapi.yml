@@ -82,6 +82,39 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    PrintJobStatuses:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrintJobStatus'
+      additionalProperties: false
+    PrintJobStatus:
+      required:
+      - createdAt
+      - status
+      type: object
+      properties:
+        createdAt:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the item was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        status:
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The status of the Print Job
+      additionalProperties: false
     ErrorResponse:
       required:
       - errors
@@ -120,39 +153,6 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
-    PrintJobStatuses:
-      required:
-      - items
-      type: object
-      properties:
-        nextToken:
-          maxLength: 5000
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-          type: string
-          description: Pagination token
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/PrintJobStatus'
-      additionalProperties: false
-    PrintJobStatus:
-      required:
-      - createdAt
-      - status
-      type: object
-      properties:
-        createdAt:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Date that the item was created, in UTC. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-        status:
-          maxLength: 100
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: The status of the Print Job
-      additionalProperties: false
   securitySchemes:
     AuthEndpoint:
       type: oauth2

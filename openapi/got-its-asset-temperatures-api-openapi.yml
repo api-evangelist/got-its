@@ -82,6 +82,25 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    Temperature:
+      required:
+      - degreesCelsius
+      - timestamp
+      type: object
+      properties:
+        timestamp:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Timestamp of the temperature. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        degreesCelsius:
+          maximum: 500
+          minimum: -100
+          type: number
+          description: 'Temperature value rounded to 1 decimal place, for each minute of the hour. Example: -2.1'
+          format: float
+      additionalProperties: false
     AssetTemperatures:
       required:
       - items
@@ -135,25 +154,6 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
-    Temperature:
-      required:
-      - degreesCelsius
-      - timestamp
-      type: object
-      properties:
-        timestamp:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Timestamp of the temperature. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-        degreesCelsius:
-          maximum: 500
-          minimum: -100
-          type: number
-          description: 'Temperature value rounded to 1 decimal place, for each minute of the hour. Example: -2.1'
-          format: float
-      additionalProperties: false
   securitySchemes:
     AuthEndpoint:
       type: oauth2

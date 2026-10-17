@@ -254,6 +254,66 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    WorkspacePrinter:
+      required:
+      - name
+      - printerId
+      - workspaceId
+      type: object
+      properties:
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Printer
+        printerId:
+          maxLength: 50
+          pattern: ^[-_A-Za-z0-9]*$
+          type: string
+          description: 'Printer identifier - the serial number of the Printer. Example: ''abcdefgh123456789'''
+        isOnline:
+          type: boolean
+          description: Indicates whether the Printer is currently online
+        addedOn:
+          maxLength: 20
+          pattern: ^[0-9TZ:-]*$
+          type: string
+          description: 'Date that the Printer was added to the Workspace, in UTC. Example: ''2019-07-21T17:32:28Z'''
+          format: date-time
+        workspaceId:
+          maxLength: 36
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          type: string
+          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
+          format: uuid
+      additionalProperties: false
+    WorkspacePrinterInput:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          maxLength: 500
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
+          type: string
+          description: The name of the Printer
+      additionalProperties: false
+    WorkspacePrinters:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkspacePrinter'
+      additionalProperties: false
+      description: Printers in the Workspace
     ErrorResponse:
       required:
       - errors
@@ -292,66 +352,6 @@ components:
             additionalProperties: false
       additionalProperties: false
       description: This is an error
-    WorkspacePrinterInput:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          maxLength: 500
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: The name of the Printer
-      additionalProperties: false
-    WorkspacePrinter:
-      required:
-      - name
-      - printerId
-      - workspaceId
-      type: object
-      properties:
-        name:
-          maxLength: 500
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/" ]*$
-          type: string
-          description: The name of the Printer
-        printerId:
-          maxLength: 50
-          pattern: ^[-_A-Za-z0-9]*$
-          type: string
-          description: 'Printer identifier - the serial number of the Printer. Example: ''abcdefgh123456789'''
-        isOnline:
-          type: boolean
-          description: Indicates whether the Printer is currently online
-        addedOn:
-          maxLength: 20
-          pattern: ^[0-9TZ:-]*$
-          type: string
-          description: 'Date that the Printer was added to the Workspace, in UTC. Example: ''2019-07-21T17:32:28Z'''
-          format: date-time
-        workspaceId:
-          maxLength: 36
-          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
-          type: string
-          description: 'Unique identifier of the workspace. Example: ''d290f1ee-6c54-4b01-90e6-d701748f0851'''
-          format: uuid
-      additionalProperties: false
-    WorkspacePrinters:
-      required:
-      - items
-      type: object
-      properties:
-        nextToken:
-          maxLength: 5000
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-          type: string
-          description: Pagination token
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkspacePrinter'
-      additionalProperties: false
-      description: Printers in the Workspace
   securitySchemes:
     AuthEndpoint:
       type: oauth2

@@ -82,6 +82,22 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    AssetInFacilities:
+      required:
+      - items
+      type: object
+      properties:
+        nextToken:
+          maxLength: 5000
+          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
+          type: string
+          description: Pagination token
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/InFacility'
+      additionalProperties: false
+      description: Asset in Facilities
     InFacility:
       required:
       - enteredOn
@@ -120,22 +136,6 @@ components:
           type: string
           description: A facility identifier relevant to the user
       additionalProperties: false
-    AssetInFacilities:
-      required:
-      - items
-      type: object
-      properties:
-        nextToken:
-          maxLength: 5000
-          pattern: ^[a-zA-Z0-9!@#$&()\-`.+,/"]*$
-          type: string
-          description: Pagination token
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/InFacility'
-      additionalProperties: false
-      description: Asset in Facilities
     ErrorResponse:
       required:
       - errors
