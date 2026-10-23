@@ -494,3 +494,9 @@ x-topics:
     - **`Printer`**: a physcial device that enables customers to use Reelables `Labels` at scale. `Printers` are linked to a `Workspace` and are used to print `Labels` for `Assets`.
 
     - **`User`**: can be a part of one or more `Workspaces`, their permissions within those `Workspaces` are role-based.'
+x-provenance:
+  method: harvested
+  publisher: Reelables
+  source: https://docs.reelables.com/topic/reelables-api-openapi-source.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
